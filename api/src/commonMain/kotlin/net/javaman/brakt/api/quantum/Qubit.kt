@@ -1,6 +1,7 @@
 package net.javaman.brakt.api.quantum
 
 import net.javaman.brakt.api.math.ComplexNumber
+import kotlin.jvm.JvmStatic
 import kotlin.math.sqrt
 
 data class Qubit(

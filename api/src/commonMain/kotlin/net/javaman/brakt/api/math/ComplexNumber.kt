@@ -1,7 +1,5 @@
 package net.javaman.brakt.api.math
 
-import net.javaman.brakt.api.util.format
-
 data class ComplexNumber(
     val real: Double = 0.0,
     val imaginary: Double = 0.0
@@ -20,5 +18,5 @@ data class ComplexNumber(
         that.points.map { Matrix2DEntry(it.position, this * it.value) }.toMutableSet()
     )
 
-    override fun toString() = "${real.format()}+${imaginary.format()}i"
+    override fun toString() = "$real+${imaginary}i"
 }

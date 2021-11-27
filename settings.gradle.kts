@@ -1,2 +1,2 @@
 rootProject.name = "bra-kt"
-include("api")
+include("api", "ibmq-provider")

@@ -24,11 +24,12 @@ kotlin {
                 implementation(kotlin("stdlib-common"))
             }
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
-            }
-        }
     }
+}
+
+detekt {
+    this.source = objects.fileCollection().from(
+        "src/commonMain/kotlin",
+        "src/jvmMain/kotlin"
+    )
 }

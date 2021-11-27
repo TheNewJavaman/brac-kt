@@ -25,7 +25,7 @@ data class Matrix2D(
 
     operator fun set(p: Matrix2DPoint, a: ComplexNumber) = when {
         positionValid(p) -> {
-            points.removeIf { it.position == p }
+            points.removeAll { it.position == p }
             points.add(Matrix2DEntry(p, a))
         }
         else -> throw IndexOutOfBoundsException("Cannot set value; invalid $p for $size")

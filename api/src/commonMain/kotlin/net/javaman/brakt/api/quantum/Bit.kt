@@ -1,5 +1,7 @@
 package net.javaman.brakt.api.quantum
 
+import kotlin.jvm.JvmStatic
+
 data class Bit(
     val id: Int,
     val state: BitState = BitState.ZERO
