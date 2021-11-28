@@ -7,9 +7,7 @@ data class Matrix2D(
     val size: Matrix2DSize = Matrix2DSize(0, 0),
     val points: MutableSet<Matrix2DEntry> = mutableSetOf()
 ) {
-    fun positionValid(p: Matrix2DPoint) = p.row < size.height && p.column < size.length
-
-    fun dotProduct(that: Matrix2D) = this * that
+    fun isPositionValid(p: Matrix2DPoint) = p.row < size.height && p.column < size.length
 
     fun transpose() = Matrix2D(
         Matrix2DSize(size.length, size.height),
@@ -18,17 +16,15 @@ data class Matrix2D(
 
     operator fun contains(a: ComplexNumber) = points.map { it.value }.contains(a)
 
-    operator fun get(p: Matrix2DPoint) = when {
-        positionValid(p) -> points.firstOrNull { it.position == p }?.value ?: ComplexNumber()
-        else -> throw IndexOutOfBoundsException("Cannot get value; invalid $p for $size")
+    operator fun get(p: Matrix2DPoint): ComplexNumber {
+        if (!isPositionValid(p)) throw IndexOutOfBoundsException("Cannot get value; invalid $p for $size")
+        return points.firstOrNull { it.position == p }?.value ?: ComplexNumber()
     }
 
-    operator fun set(p: Matrix2DPoint, a: ComplexNumber) = when {
-        positionValid(p) -> {
-            points.removeAll { it.position == p }
-            points.add(Matrix2DEntry(p, a))
-        }
-        else -> throw IndexOutOfBoundsException("Cannot set value; invalid $p for $size")
+    operator fun set(p: Matrix2DPoint, a: ComplexNumber) {
+        if (!isPositionValid(p)) throw IndexOutOfBoundsException("Cannot set value; invalid $p for $size")
+        points.removeAll { it.position == p }
+        points.add(Matrix2DEntry(p, a))
     }
 
     operator fun plus(that: Matrix2D): Matrix2D {
@@ -37,16 +33,7 @@ data class Matrix2D(
         for (r in 0 until newSize.height) {
             for (c in 0 until newSize.length) {
                 val p = Matrix2DPoint(r, c)
-                val a = try {
-                    this[p]
-                } catch (_: IndexOutOfBoundsException) {
-                    ComplexNumber()
-                }
-                val b = try {
-                    that[p]
-                } catch (_: IndexOutOfBoundsException) {
-                    ComplexNumber()
-                }
+                val (a, b) = getOutOfBounds(p, that)
                 newPoints.add(Matrix2DEntry(p, a + b))
             }
         }
@@ -59,41 +46,46 @@ data class Matrix2D(
         for (r in 0 until newSize.height) {
             for (c in 0 until newSize.length) {
                 val p = Matrix2DPoint(r, c)
-                val a = try {
-                    this[p]
-                } catch (_: IndexOutOfBoundsException) {
-                    ComplexNumber()
-                }
-                val b = try {
-                    that[p]
-                } catch (_: IndexOutOfBoundsException) {
-                    ComplexNumber()
-                }
+                val (a, b) = getOutOfBounds(p, that)
                 newPoints.add(Matrix2DEntry(p, a - b))
             }
         }
         return Matrix2D(newSize, newPoints)
     }
 
-    operator fun times(that: Matrix2D) = when {
-        size.length != that.size.height -> {
+    private fun getOutOfBounds(p: Matrix2DPoint, that: Matrix2D): Pair<ComplexNumber, ComplexNumber> {
+        val a = try {
+            this[p]
+        } catch (_: IndexOutOfBoundsException) {
+            ComplexNumber()
+        }
+        val b = try {
+            that[p]
+        } catch (_: IndexOutOfBoundsException) {
+            ComplexNumber()
+        }
+        return Pair(a, b)
+    }
+
+    operator fun times(that: Matrix2D): Matrix2D {
+        if (size.length != that.size.height) {
             throw UnsupportedOperationException("$size * ${that.size} is not a valid operation")
         }
-        else -> {
-            val newSize = Matrix2DSize(size.height, that.size.length)
-            val newPoints = mutableSetOf<Matrix2DEntry>()
-            for (r in 0 until newSize.height) {
-                for (c in 0 until newSize.length) {
-                    var sum = ComplexNumber()
-                    for (o in 0 until size.length) {
-                        sum += this[Matrix2DPoint(r, o)] * that[Matrix2DPoint(o, c)]
-                    }
-                    newPoints.add(Matrix2DEntry(Matrix2DPoint(r, c), sum))
+        val newSize = Matrix2DSize(size.height, that.size.length)
+        val newPoints = mutableSetOf<Matrix2DEntry>()
+        for (r in 0 until newSize.height) {
+            for (c in 0 until newSize.length) {
+                var sum = ComplexNumber()
+                for (o in 0 until size.length) {
+                    sum += this[Matrix2DPoint(r, o)] * that[Matrix2DPoint(o, c)]
                 }
+                newPoints.add(Matrix2DEntry(Matrix2DPoint(r, c), sum))
             }
-            Matrix2D(newSize, newPoints)
         }
+        return Matrix2D(newSize, newPoints)
     }
+
+    infix fun dotProduct(that: Matrix2D) = this * that
 }
 
 data class Matrix2DEntry(

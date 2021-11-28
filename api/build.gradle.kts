@@ -17,11 +17,22 @@ kotlin {
                 jvmTarget = "17"
             }
         }
+        val test by compilations.getting {
+            kotlinOptions {
+                jvmTarget = "17"
+            }
+        }
     }
     sourceSets {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
+            }
+        }
+        val jvmMain by getting
+        val jvmTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
             }
         }
     }
@@ -30,6 +41,7 @@ kotlin {
 detekt {
     this.source = objects.fileCollection().from(
         "src/commonMain/kotlin",
-        "src/jvmMain/kotlin"
+        "src/jvmMain/kotlin",
+        "src/jvmTest/kotlin"
     )
 }

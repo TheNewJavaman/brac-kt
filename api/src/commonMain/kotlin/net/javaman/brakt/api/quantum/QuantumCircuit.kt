@@ -1,13 +1,19 @@
 package net.javaman.brakt.api.quantum
 
-data class QuantumCircuit(
-    val numQubits: Int = 1,
+import net.javaman.brakt.api.util.assertLessThan
+
+class QuantumCircuit constructor(
+    val name: String? = null,
+    val numQubits: Int = 5,
     val numBits: Int = numQubits,
     private val qubits: List<Qubit> = List(numQubits) { Qubit(it) },
     private val bits: List<Bit> = List(numBits) { Bit(it) },
-    private val circuit: List<QuantumOperation> = emptyList()
+    private val circuit: MutableList<QuantumOperation> = mutableListOf()
 ) {
     inline fun compose(block: QuantumCircuit.() -> Unit) = block()
-}
 
-interface QuantumOperation
+    fun h(qubit: Int) {
+        qubit assertLessThan numQubits
+        circuit.add(QuantumOperation(QuantumGate.HADAMARD, listOf(qubit), emptyList()))
+    }
+}
