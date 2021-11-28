@@ -1,9 +1,10 @@
-@file:Suppress("MatchingDeclarationName") // This file is only for assertion-related code
-
 package net.javaman.brakt.api.util
 
-class AssertionException(message: String) : Exception(message)
+import kotlin.jvm.JvmStatic
 
-infix fun Int.assertLessThan(that: Int) {
-    if (this >= that) throw AssertionException("$this >= $that")
+@JvmStatic
+inline fun assert(block: () -> Boolean) {
+    if (block()) throw AssertionException("Assertion failed")
 }
+
+class AssertionException(message: String) : Exception(message)
