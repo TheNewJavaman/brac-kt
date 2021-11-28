@@ -8,11 +8,11 @@ A Kotlin/Multiplatform interface for quantum computing
 
 Named after bra-ket notation (but "kt" for Kotlin)
 
-### Installation
+## Installation
 
 Import the root project into IntelliJ. Current version supports JDK 17.0.1 Corretto with Gradle 7.3
 
-### Plans
+## Plans
 
 - Finish internal quantum circuit representation
     - Enum for all basic gates
@@ -32,7 +32,7 @@ Import the root project into IntelliJ. Current version supports JDK 17.0.1 Corre
         - Will this be a commercial product? If so, IntelliJ Ultimate is a no-go
         - Is Kotlin/Native faster than JVM?
 
-### Inspired By
+## Inspired By
 
 - [Qiskit](https://github.com/Qiskit)
 - [ssuukk/Qotlin](https://github.com/ssuukk/Qotlin)
