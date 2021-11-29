@@ -1,5 +1,8 @@
 package net.javaman.brakt.api.util
 
+/**
+ * JVM implementation of [PropertyManager]. Reads environment variables in addition to the runtime properties
+ */
 actual class PropertyManager {
     val customProperties = mutableMapOf<String, Any>()
 

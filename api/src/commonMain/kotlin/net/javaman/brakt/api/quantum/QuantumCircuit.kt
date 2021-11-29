@@ -3,6 +3,9 @@ package net.javaman.brakt.api.quantum
 import net.javaman.brakt.api.util.assert
 import kotlin.math.PI
 
+/**
+ * A named set of registers that hold [Qubit] and [Bit] lists
+ */
 @Suppress("TooManyFunctions") // Needs all QuantumGates
 class QuantumCircuit constructor(
     val name: String? = null,

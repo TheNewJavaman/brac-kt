@@ -4,6 +4,9 @@ import net.javaman.brakt.api.math.ComplexNumber
 import kotlin.jvm.JvmStatic
 import kotlin.math.sqrt
 
+/**
+ * A qubit that holds a quantum state with zero and one amplitudes
+ */
 data class Qubit(
     val id: Int,
     val state: QubitState = QubitState.ZERO

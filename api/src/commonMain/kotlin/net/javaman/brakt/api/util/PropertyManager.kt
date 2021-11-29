@@ -1,5 +1,8 @@
 package net.javaman.brakt.api.util
 
+/**
+ * Manages a shared map of properties. Each platform should have its own implementation
+ */
 expect class PropertyManager {
     inline fun <reified T : Any> getProperty(key: String): T
 

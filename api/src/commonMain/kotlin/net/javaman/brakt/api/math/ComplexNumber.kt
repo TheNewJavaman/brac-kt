@@ -1,5 +1,8 @@
 package net.javaman.brakt.api.math
 
+/**
+ * A number composed of real and imaginary parts
+ */
 data class ComplexNumber(
     val real: Double = 0.0,
     val imaginary: Double = 0.0

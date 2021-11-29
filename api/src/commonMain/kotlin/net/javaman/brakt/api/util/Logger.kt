@@ -4,6 +4,9 @@ import kotlinx.datetime.Clock
 import kotlin.jvm.JvmStatic
 import kotlin.reflect.KClass
 
+/**
+ * Prints well-formatted messages to the console using pure Kotlin and a clean syntax. Useful for multiplatform projects
+ */
 class Logger(val className: String) {
     companion object : FromKClassObject<Logger> {
         @JvmStatic

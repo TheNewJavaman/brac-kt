@@ -2,6 +2,9 @@ package net.javaman.brakt.api.math
 
 import kotlin.math.max
 
+/**
+ * A 2D matrix that holds only [ComplexNumber] entries. Any missing point entries are assumed to be 0.0+0.0i
+ */
 @Suppress("TooManyFunctions") // Many basic operators to implement
 data class Matrix2D(
     val size: Matrix2DSize = Matrix2DSize(0, 0),

@@ -4,6 +4,18 @@ import kotlin.jvm.JvmStatic
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
 
+/**
+ * Manages dependency injections in pure Kotlin and a clean syntax. Useful for multiplatform projects
+ *
+ * Example:
+ * ```kotlin
+ * InjectionManager.add {
+ *     one { PropertyManager() }
+ *     many { Logger.fromKClass(it) }
+ * }
+ * ```
+ * There is one shared [PropertyManager] instance, but each [Logger] instance has its own classname
+ */
 class InjectionManager {
     companion object {
         @JvmStatic

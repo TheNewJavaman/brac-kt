@@ -4,6 +4,9 @@ import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 
+/**
+ * Pads or shortens a String as needed
+ */
 fun String.withLength(target: Int, direction: PadDirection, padChar: Char = ' ', prefix: String = "..."): String {
     return if (length <= target) when (direction) {
         PadDirection.LEFT -> padStart(target, padChar)
@@ -16,8 +19,14 @@ enum class PadDirection {
     LEFT
 }
 
+/**
+ * Pads [Number.toString] as needed
+ */
 fun Number.padTo(length: Int, padChar: Char = '0') = toString().padStart(length, padChar)
 
+/**
+ * Nicely formats an [Instant]
+ */
 fun Instant.pretty(): String {
     val timeZone = TimeZone.currentSystemDefault()
     val dateTime = toLocalDateTime(timeZone)

@@ -2,6 +2,9 @@ package net.javaman.brakt.api.quantum
 
 import kotlin.jvm.JvmStatic
 
+/**
+ * A bit that holds a binary state
+ */
 data class Bit(
     val id: Int,
     val state: BitState = BitState.ZERO
