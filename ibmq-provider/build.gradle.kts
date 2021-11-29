@@ -1,8 +1,8 @@
 plugins {
-    kotlin("multiplatform") version "1.6.0"
+    kotlin("multiplatform")
     kotlin("plugin.serialization") version "1.6.0"
     id("io.gitlab.arturbosch.detekt") version "1.19.0-RC2"
-    id("org.jetbrains.dokka") version "1.6.0"
+    id("org.jetbrains.dokka")
 }
 
 group = "net.javaman"
@@ -52,8 +52,4 @@ detekt {
 
 tasks.withType<Test> {
     useJUnitPlatform()
-}
-
-tasks.dokkaHtml.configure {
-    outputDirectory.set(rootDir.resolve("docs"))
 }

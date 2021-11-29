@@ -1,1 +1,1 @@
-sourceset_dependencies='{":ibmq-provider:dokkaHtml/commonMain":[],":ibmq-provider:dokkaHtml/jvmMain":[":ibmq-provider:dokkaHtml/commonMain"]}'
+sourceset_dependencies = '{":ibmq-provider:dokkaHtmlPartial/commonMain":[],":ibmq-provider:dokkaHtmlPartial/jvmMain":[":ibmq-provider:dokkaHtmlPartial/commonMain"],":api:dokkaHtmlPartial/commonMain":[],":api:dokkaHtmlPartial/jvmMain":[":api:dokkaHtmlPartial/commonMain"]}'

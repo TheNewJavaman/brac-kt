@@ -1,0 +1,10 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:api
+net.javaman.brakt.api.math
+net.javaman.brakt.api.quantum
+net.javaman.brakt.api.util
+module:ibmq-provider
+net.javaman.brakt.providers.ibmq.client
+net.javaman.brakt.providers.ibmq.client.models
