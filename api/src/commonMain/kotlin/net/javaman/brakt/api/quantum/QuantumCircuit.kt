@@ -3,6 +3,7 @@ package net.javaman.brakt.api.quantum
 import net.javaman.brakt.api.util.assert
 import kotlin.math.PI
 
+@Suppress("TooManyFunctions") // Needs all QuantumGates
 class QuantumCircuit constructor(
     val name: String? = null,
     val numQubits: Int = 5,

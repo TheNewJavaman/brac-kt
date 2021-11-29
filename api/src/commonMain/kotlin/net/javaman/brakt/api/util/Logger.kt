@@ -13,8 +13,8 @@ class Logger(val className: String) {
     inline fun log(level: LoggingLevel, block: () -> Any) {
         if (acceptableLevel.severity <= level.severity) {
             val nowPretty = Clock.System.now().pretty()
-            val classNamePretty = className.withLength(48, PadDirection.LEFT)
-            val levelPretty = level.name.withLength(5, PadDirection.RIGHT)
+            val classNamePretty = className.withLength(LOGGER_CLASS_NAME_CHARS, PadDirection.LEFT)
+            val levelPretty = level.name.withLength(LOGGER_LEVEL_CHARS, PadDirection.RIGHT)
             val lines = block().toString().split('\n')
             println(lines.joinToString("\n") { "[$nowPretty] [$classNamePretty] [$levelPretty] $it" })
         }
@@ -27,6 +27,7 @@ class Logger(val className: String) {
     inline fun trace(block: () -> Any) = log(LoggingLevel.TRACE, block)
 }
 
+@Suppress("MagicNumber") // Explicit severity levels is more transparent than enum ordinals
 enum class LoggingLevel(val severity: Int) {
     ERROR(4),
     WARN(3),
