@@ -12,7 +12,7 @@ class QuantumCircuit constructor(
     private val bits: List<Bit> = List(numBits) { Bit(it) },
     private val circuit: MutableList<QuantumGate> = mutableListOf()
 ) {
-    inline fun compose(block: QuantumCircuit.() -> Unit) = block()
+    fun compose(block: QuantumCircuit.() -> Unit) = block()
 
     fun i(qubit: Int) {
         assert { qubit <= numQubits }

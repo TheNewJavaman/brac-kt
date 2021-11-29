@@ -12,8 +12,9 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestMethodOrder
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation::class)
-class IbmQApiTest {
+class IbmqApiTest {
     private val propertyManager: PropertyManager by injection()
+    private val ibmqApi: IbmqApi by injection()
 
     init {
         TestUtil.addInjections()
@@ -23,7 +24,7 @@ class IbmQApiTest {
     @Order(1)
     fun logInWithToken_ok() {
         val request = LOG_IN_WITH_TOKEN_REQUEST
-        val response = runBlocking { IbmQApi.logInWithToken(request) }
+        val response = runBlocking { ibmqApi.logInWithToken(request) }
         assert { response.id.isNotBlank() }
         propertyManager.setProperty("IBMQ_ACCESS_TOKEN", response.id)
         propertyManager.setProperty("IBMQ_USER_ID", response.userId)
@@ -34,7 +35,7 @@ class IbmQApiTest {
     fun getApiToken_ok() {
         val accessToken = propertyManager.getProperty<String>("IBMQ_ACCESS_TOKEN")
         val userId = propertyManager.getProperty<String>("IBMQ_USER_ID")
-        val response = runBlocking { IbmQApi.getApiToken(accessToken, userId) }
+        val response = runBlocking { ibmqApi.getApiToken(accessToken, userId) }
         assert { response.apiToken.isNotBlank() }
     }
 
@@ -42,7 +43,7 @@ class IbmQApiTest {
     @Order(3)
     fun getNetwork_ok() {
         val accessToken = propertyManager.getProperty<String>("IBMQ_ACCESS_TOKEN")
-        val response = runBlocking { IbmQApi.getNetwork(accessToken) }
+        val response = runBlocking { ibmqApi.getNetwork(accessToken) }
         assert { response.isNotEmpty() }
     }
 }
