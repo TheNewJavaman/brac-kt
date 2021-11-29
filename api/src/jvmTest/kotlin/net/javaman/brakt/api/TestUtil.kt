@@ -1,8 +1,8 @@
 package net.javaman.brakt.api
 
-import net.javaman.brakt.api.util.InjectionManager
-import net.javaman.brakt.api.util.Logger
-import net.javaman.brakt.api.util.PropertyManager
+import net.javaman.brakt.api.util.injections.InjectionManager
+import net.javaman.brakt.api.util.logger.Logger
+import net.javaman.brakt.api.util.properties.PropertyManager
 
 object TestUtil {
     @JvmStatic

@@ -1,6 +1,6 @@
 package net.javaman.brakt.api.quantum
 
-import net.javaman.brakt.api.util.AssertionException
+import net.javaman.brakt.api.util.assertions.AssertionException
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 

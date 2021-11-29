@@ -1,6 +1,8 @@
 package net.javaman.brakt.api.util
 
 import net.javaman.brakt.api.TestUtil
+import net.javaman.brakt.api.util.injections.injection
+import net.javaman.brakt.api.util.logger.Logger
 import org.junit.jupiter.api.Test
 
 class LoggerTest {

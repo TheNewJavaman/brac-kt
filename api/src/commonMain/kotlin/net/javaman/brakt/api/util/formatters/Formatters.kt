@@ -1,8 +1,16 @@
-package net.javaman.brakt.api.util
+package net.javaman.brakt.api.util.formatters
 
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+import net.javaman.brakt.api.util.Consts.INSTANT_DAY_DIGITS
+import net.javaman.brakt.api.util.Consts.INSTANT_HOUR_DIGITS
+import net.javaman.brakt.api.util.Consts.INSTANT_MINUTE_DIGITS
+import net.javaman.brakt.api.util.Consts.INSTANT_MONTH_DIGITS
+import net.javaman.brakt.api.util.Consts.INSTANT_NANOSECOND_DIGITS
+import net.javaman.brakt.api.util.Consts.INSTANT_NANOSECOND_DIVISOR
+import net.javaman.brakt.api.util.Consts.INSTANT_SECOND_DIGITS
+import net.javaman.brakt.api.util.Consts.INSTANT_YEAR_DIGITS
 
 /**
  * Pads or shortens a String as needed

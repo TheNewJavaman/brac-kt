@@ -1,4 +1,4 @@
-package net.javaman.brakt.api.util
+package net.javaman.brakt.api.util.properties
 
 /**
  * JVM implementation of [PropertyManager]. Reads environment variables in addition to the runtime properties

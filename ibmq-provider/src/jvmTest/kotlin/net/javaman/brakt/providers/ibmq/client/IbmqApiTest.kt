@@ -1,9 +1,9 @@
 package net.javaman.brakt.providers.ibmq.client
 
 import kotlinx.coroutines.runBlocking
-import net.javaman.brakt.api.util.PropertyManager
-import net.javaman.brakt.api.util.assert
-import net.javaman.brakt.api.util.injection
+import net.javaman.brakt.api.util.properties.PropertyManager
+import net.javaman.brakt.api.util.assertions.assert
+import net.javaman.brakt.api.util.injections.injection
 import net.javaman.brakt.providers.ibmq.TestData.LOG_IN_WITH_TOKEN_REQUEST
 import net.javaman.brakt.providers.ibmq.TestUtil
 import org.junit.jupiter.api.MethodOrderer

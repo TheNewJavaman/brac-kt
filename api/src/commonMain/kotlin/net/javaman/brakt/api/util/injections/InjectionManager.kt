@@ -1,4 +1,4 @@
-package net.javaman.brakt.api.util
+package net.javaman.brakt.api.util.injections
 
 import kotlin.jvm.JvmStatic
 import kotlin.reflect.KClass
@@ -44,8 +44,7 @@ class InjectionManager {
     }
 }
 
-interface FromKClassObject<T> {
-    fun fromKClass(kClass: KClass<*>): T
-}
-
+/**
+ * Syntactic sugar for [InjectionManager]
+ */
 fun injection() = InjectionManager()

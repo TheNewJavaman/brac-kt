@@ -1,6 +1,12 @@
-package net.javaman.brakt.api.util
+package net.javaman.brakt.api.util.logger
 
 import kotlinx.datetime.Clock
+import net.javaman.brakt.api.util.Consts.LOGGER_CLASS_NAME_CHARS
+import net.javaman.brakt.api.util.Consts.LOGGER_LEVEL_CHARS
+import net.javaman.brakt.api.util.formatters.PadDirection
+import net.javaman.brakt.api.util.formatters.pretty
+import net.javaman.brakt.api.util.formatters.withLength
+import net.javaman.brakt.api.util.injections.FromKClassObject
 import kotlin.jvm.JvmStatic
 import kotlin.reflect.KClass
 
@@ -33,13 +39,4 @@ class Logger(val className: String) {
     fun info(block: () -> Any) = log(LoggingLevel.INFO, block)
     fun debug(block: () -> Any) = log(LoggingLevel.DEBUG, block)
     fun trace(block: () -> Any) = log(LoggingLevel.TRACE, block)
-}
-
-@Suppress("MagicNumber") // Explicit severity levels is more transparent than enum ordinals
-enum class LoggingLevel(val severity: Int) {
-    ERROR(4),
-    WARN(3),
-    INFO(2),
-    DEBUG(1),
-    TRACE(0)
 }

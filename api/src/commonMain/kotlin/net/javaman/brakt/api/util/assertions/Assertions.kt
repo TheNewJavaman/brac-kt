@@ -1,4 +1,4 @@
-package net.javaman.brakt.api.util
+package net.javaman.brakt.api.util.assertions
 
 /**
  * Assert conditions pure Kotlin and a clean syntax
@@ -6,5 +6,3 @@ package net.javaman.brakt.api.util
 fun assert(block: () -> Boolean) {
     if (!block()) throw AssertionException("Assertion failed")
 }
-
-class AssertionException(message: String) : Exception(message)

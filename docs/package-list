@@ -5,6 +5,11 @@ module:api
 net.javaman.brakt.api.math
 net.javaman.brakt.api.quantum
 net.javaman.brakt.api.util
+net.javaman.brakt.api.util.assertions
+net.javaman.brakt.api.util.formatters
+net.javaman.brakt.api.util.injections
+net.javaman.brakt.api.util.logger
+net.javaman.brakt.api.util.properties
 module:ibmq-provider
 net.javaman.brakt.providers.ibmq.client
 net.javaman.brakt.providers.ibmq.client.models
