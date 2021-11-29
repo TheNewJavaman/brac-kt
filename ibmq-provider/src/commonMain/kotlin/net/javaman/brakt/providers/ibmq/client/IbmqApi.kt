@@ -15,6 +15,9 @@ import net.javaman.brakt.providers.ibmq.client.models.LogInWithTokenRequest
 import net.javaman.brakt.providers.ibmq.client.models.LogInWithTokenResponse
 import kotlin.jvm.JvmStatic
 
+/**
+ * An HTTP client for [IBM Quantum](https://quantum-computing.ibm.com/)
+ */
 class IbmqApi {
     companion object {
         private const val BASE_AUTH_URL = "https://auth.quantum-computing.ibm.com/api"
