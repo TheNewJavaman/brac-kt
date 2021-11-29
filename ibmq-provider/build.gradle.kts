@@ -36,7 +36,7 @@ kotlin {
         }
         val jvmTest by getting {
             dependencies {
-                implementation(kotlin("test"))
+                implementation("org.junit.jupiter:junit-jupiter:5.7.0")
             }
         }
     }
@@ -47,4 +47,8 @@ detekt {
         "src/commonMain/kotlin",
         "src/jvmTest/kotlin"
     )
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }

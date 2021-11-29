@@ -27,12 +27,12 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.1")
             }
         }
         val jvmMain by getting
         val jvmTest by getting {
             dependencies {
-                implementation(kotlin("test"))
             }
         }
     }

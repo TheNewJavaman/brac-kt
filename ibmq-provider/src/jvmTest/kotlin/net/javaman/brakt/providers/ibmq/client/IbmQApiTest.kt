@@ -1,26 +1,48 @@
 package net.javaman.brakt.providers.ibmq.client
 
 import kotlinx.coroutines.runBlocking
-import kotlinx.datetime.Instant
-import net.javaman.brakt.api.util.getProperty
-import net.javaman.brakt.providers.ibmq.client.models.LogInWithTokenRequest
-import net.javaman.brakt.providers.ibmq.client.models.LogInWithTokenResponse
-import kotlin.test.Test
-import kotlin.test.assertEquals
+import net.javaman.brakt.api.util.PropertyManager
+import net.javaman.brakt.api.util.assert
+import net.javaman.brakt.api.util.injection
+import net.javaman.brakt.providers.ibmq.TestData.LOG_IN_WITH_TOKEN_REQUEST
+import net.javaman.brakt.providers.ibmq.TestUtil
+import org.junit.jupiter.api.MethodOrderer
+import org.junit.jupiter.api.Order
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestMethodOrder
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation::class)
 class IbmQApiTest {
+    private val propertyManager: PropertyManager by injection()
+
+    init {
+        TestUtil.addInjections()
+    }
+
     @Test
+    @Order(1)
     fun logInWithToken_ok() {
-        val request = LogInWithTokenRequest(
-            apiToken = getProperty("IBMQ_APITOKEN")
-        )
-        val expectedResponse = LogInWithTokenResponse(
-            id = "",
-            ttl = 1209600,
-            created = Instant.DISTANT_PAST,
-            userId = ""
-        )
-        val actualResponse = runBlocking { IbmQApi.logInWithToken(request) }
-        assertEquals(expectedResponse.ttl, actualResponse.ttl)
+        val request = LOG_IN_WITH_TOKEN_REQUEST
+        val response = runBlocking { IbmQApi.logInWithToken(request) }
+        assert { response.id.isNotBlank() }
+        propertyManager.setProperty("IBMQ_ACCESS_TOKEN", response.id)
+        propertyManager.setProperty("IBMQ_USER_ID", response.userId)
+    }
+
+    @Test
+    @Order(2)
+    fun getApiToken_ok() {
+        val accessToken = propertyManager.getProperty<String>("IBMQ_ACCESS_TOKEN")
+        val userId = propertyManager.getProperty<String>("IBMQ_USER_ID")
+        val response = runBlocking { IbmQApi.getApiToken(accessToken, userId) }
+        assert { response.apiToken.isNotBlank() }
+    }
+
+    @Test
+    @Order(3)
+    fun getNetwork_ok() {
+        val accessToken = propertyManager.getProperty<String>("IBMQ_ACCESS_TOKEN")
+        val response = runBlocking { IbmQApi.getNetwork(accessToken) }
+        assert { response.isNotEmpty() }
     }
 }

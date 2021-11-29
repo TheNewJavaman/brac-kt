@@ -60,18 +60,18 @@ class QuantumCircuit constructor(
 
     fun p(qubit: Int, phi: Double) {
         assert {
-            qubit <= numQubits
-                    && -PI <= phi && phi <= PI
+            qubit <= numQubits &&
+                    -PI <= phi && phi <= PI
         }
         circuit.add(QuantumGate.Phase(qubit, phi))
     }
 
     fun u(qubit: Int, theta: Double, phi: Double, lambda: Double) {
         assert {
-            qubit <= numQubits
-                    && -PI <= theta && theta <= PI
-                    && -PI <= phi && phi <= PI
-                    && -PI <= lambda && lambda <= PI
+            qubit <= numQubits &&
+                    -PI <= theta && theta <= PI &&
+                    -PI <= phi && phi <= PI &&
+                    -PI <= lambda && lambda <= PI
         }
         circuit.add(QuantumGate.U(qubit, theta, phi, lambda))
     }
