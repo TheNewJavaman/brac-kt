@@ -1,8 +1,8 @@
 package net.javaman.brakt.api.quantum
 
 import net.javaman.brakt.api.util.AssertionException
-import kotlin.test.Test
-import kotlin.test.assertFailsWith
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 class QuantumCircuitTest {
     @Test
@@ -17,7 +17,7 @@ class QuantumCircuitTest {
     @Test
     fun compose_qubitOutOfBounds() {
         val qc = QuantumCircuit(numQubits = 1)
-        assertFailsWith<AssertionException> {
+        assertThrows<AssertionException> {
             qc.compose {
                 h(1)
             }

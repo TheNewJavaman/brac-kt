@@ -3,12 +3,11 @@ package net.javaman.brakt.api.util
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
-import kotlin.math.pow
 
 fun String.withLength(target: Int, direction: PadDirection, padChar: Char = ' ', prefix: String = "..."): String {
     return if (length <= target) when (direction) {
-        PadDirection.LEFT -> padStart(target - length, padChar)
-        PadDirection.RIGHT -> padEnd(target - length, padChar)
+        PadDirection.LEFT -> padStart(target, padChar)
+        PadDirection.RIGHT -> padEnd(target, padChar)
     } else prefix + substring(length - target + prefix.length)
 }
 

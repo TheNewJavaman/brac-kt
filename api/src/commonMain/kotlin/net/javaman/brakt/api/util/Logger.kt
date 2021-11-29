@@ -1,16 +1,21 @@
 package net.javaman.brakt.api.util
 
 import kotlinx.datetime.Clock
+import kotlin.jvm.JvmStatic
 import kotlin.reflect.KClass
 
 class Logger(val className: String) {
-    companion object {
+    companion object : FromKClassObject<Logger> {
+        @JvmStatic
         var acceptableLevel: LoggingLevel = LoggingLevel.INFO
+
+        @JvmStatic
+        override fun fromKClass(kClass: KClass<*>) = Logger(kClass)
     }
 
     constructor(kClass: KClass<*>) : this(kClass.qualifiedName ?: "Anonymous")
 
-    inline fun log(level: LoggingLevel, block: () -> Any) {
+    fun log(level: LoggingLevel, block: () -> Any) {
         if (acceptableLevel.severity <= level.severity) {
             val nowPretty = Clock.System.now().pretty()
             val classNamePretty = className.withLength(LOGGER_CLASS_NAME_CHARS, PadDirection.LEFT)
@@ -20,11 +25,11 @@ class Logger(val className: String) {
         }
     }
 
-    inline fun error(block: () -> Any) = log(LoggingLevel.ERROR, block)
-    inline fun warn(block: () -> Any) = log(LoggingLevel.WARN, block)
-    inline fun info(block: () -> Any) = log(LoggingLevel.INFO, block)
-    inline fun debug(block: () -> Any) = log(LoggingLevel.DEBUG, block)
-    inline fun trace(block: () -> Any) = log(LoggingLevel.TRACE, block)
+    fun error(block: () -> Any) = log(LoggingLevel.ERROR, block)
+    fun warn(block: () -> Any) = log(LoggingLevel.WARN, block)
+    fun info(block: () -> Any) = log(LoggingLevel.INFO, block)
+    fun debug(block: () -> Any) = log(LoggingLevel.DEBUG, block)
+    fun trace(block: () -> Any) = log(LoggingLevel.TRACE, block)
 }
 
 @Suppress("MagicNumber") // Explicit severity levels is more transparent than enum ordinals
