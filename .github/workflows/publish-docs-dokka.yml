@@ -14,25 +14,25 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Generate docs
-      - run: ./gradlew dokkaHtmlMultiModule
+        run: ./gradlew dokkaHtmlMultiModule
       
       - name: Add docs to git
-      - run: git add *
+        run: git add *
       
       - name: Stash docs changes
-      - run: git stash push
+        run: git stash push
       
       - name: Switch to docs-pages branch
-      - run: git checkout docs-pages
+        run: git checkout docs-pages
       
       - name: Remove previous docs
-      - run: rm -rf docs
+        run: rm -rf docs
       
       - name: Pop docs stash
-      - run: git stash pop
+        run: git stash pop
       
       - name: Commit new docs
-      - run: git commit -m 'Updated docs'
+        run: git commit -m 'Updated docs'
       
       - name: Push docs to origin
-      - run: git push origin
+        run: git push origin
