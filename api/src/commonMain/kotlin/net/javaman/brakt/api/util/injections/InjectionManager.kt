@@ -14,7 +14,7 @@ import kotlin.reflect.KProperty
  *     many { Logger.fromKClass(it) }
  * }
  * ```
- * There is one shared [PropertyManager] instance, but each [Logger] instance has its own classname
+ * There is one shared [PropertyManager] instance, but each [Logger] instance has its own class reference
  */
 class InjectionManager {
     companion object {
@@ -40,7 +40,8 @@ class InjectionManager {
     inline operator fun <reified T> getValue(thisRef: Any, property: KProperty<*>): T {
         return manyInstanceMap.keys.firstOrNull { it == T::class }?.let {
             manyInstanceMap[it]!!.invoke(thisRef::class) as T
-        } ?: oneInstanceList.firstOrNull { T::class.isInstance(it) } as T
+        } ?: oneInstanceList.firstOrNull { T::class.isInstance(it) } as? T
+        ?: throw UninitializedInjectionException("")
     }
 }
 
