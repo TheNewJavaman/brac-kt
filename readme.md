@@ -6,7 +6,7 @@
 <img src="resources/icon-mustard-outline.png" width=160 />
 </td>
 <td>
-<img width="780" height="1">
+<img width="745" height="1">
 
 A Kotlin/Multiplatform interface for quantum computing
 
