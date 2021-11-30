@@ -13,6 +13,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: Cache gradle dependencies
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+          cache: gradle
+      
       - name: Make gradlew executable
         run: chmod +x gradlew
       
