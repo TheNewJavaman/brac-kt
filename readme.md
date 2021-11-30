@@ -6,6 +6,7 @@
 <img src="resources/icon-mustard-outline.png" width=160 />
 </td>
 <td>
+
 A Kotlin/Multiplatform interface for quantum computing
 
 - Common interface for building quantum circuits
