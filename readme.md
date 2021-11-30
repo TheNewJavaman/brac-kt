@@ -1,4 +1,4 @@
-# bra-kt
+# <img src="resources/icon-mustard-outline.png" width=200/> bra-kt
 
 A Kotlin/Multiplatform interface for quantum computing
 
