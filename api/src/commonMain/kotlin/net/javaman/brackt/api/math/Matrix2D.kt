@@ -17,14 +17,14 @@ data class Matrix2D(
         points.map { Matrix2DEntry(Matrix2DPoint(it.position.column, it.position.row), it.value) }.toMutableSet()
     )
 
-    operator fun contains(a: net.javaman.brackt.api.math.ComplexNumber) = points.map { it.value }.contains(a)
+    operator fun contains(a: ComplexNumber) = points.map { it.value }.contains(a)
 
-    operator fun get(p: Matrix2DPoint): net.javaman.brackt.api.math.ComplexNumber {
+    operator fun get(p: Matrix2DPoint): ComplexNumber {
         if (!isPositionValid(p)) throw IndexOutOfBoundsException("Cannot get value; invalid $p for $size")
-        return points.firstOrNull { it.position == p }?.value ?: net.javaman.brackt.api.math.ComplexNumber()
+        return points.firstOrNull { it.position == p }?.value ?: ComplexNumber()
     }
 
-    operator fun set(p: Matrix2DPoint, a: net.javaman.brackt.api.math.ComplexNumber) {
+    operator fun set(p: Matrix2DPoint, a: ComplexNumber) {
         if (!isPositionValid(p)) throw IndexOutOfBoundsException("Cannot set value; invalid $p for $size")
         points.removeAll { it.position == p }
         points.add(Matrix2DEntry(p, a))
@@ -56,16 +56,16 @@ data class Matrix2D(
         return Matrix2D(newSize, newPoints)
     }
 
-    private fun getOutOfBounds(p: Matrix2DPoint, that: Matrix2D): Pair<net.javaman.brackt.api.math.ComplexNumber, net.javaman.brackt.api.math.ComplexNumber> {
+    private fun getOutOfBounds(p: Matrix2DPoint, that: Matrix2D): Pair<ComplexNumber, ComplexNumber> {
         val a = try {
             this[p]
         } catch (_: IndexOutOfBoundsException) {
-            net.javaman.brackt.api.math.ComplexNumber()
+            ComplexNumber()
         }
         val b = try {
             that[p]
         } catch (_: IndexOutOfBoundsException) {
-            net.javaman.brackt.api.math.ComplexNumber()
+            ComplexNumber()
         }
         return Pair(a, b)
     }
@@ -78,7 +78,7 @@ data class Matrix2D(
         val newPoints = mutableSetOf<Matrix2DEntry>()
         for (r in 0 until newSize.height) {
             for (c in 0 until newSize.length) {
-                var sum = net.javaman.brackt.api.math.ComplexNumber()
+                var sum = ComplexNumber()
                 for (o in 0 until size.length) {
                     sum += this[Matrix2DPoint(r, o)] * that[Matrix2DPoint(o, c)]
                 }
@@ -93,7 +93,7 @@ data class Matrix2D(
 
 data class Matrix2DEntry(
     val position: Matrix2DPoint,
-    val value: net.javaman.brackt.api.math.ComplexNumber
+    val value: ComplexNumber
 )
 
 data class Matrix2DPoint(
