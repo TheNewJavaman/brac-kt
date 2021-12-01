@@ -37,7 +37,7 @@ jobs:
         run: git reset --hard
         
       - name: Fetch docs-pages branch
-        run: git fetch origin docs-pages --depth 1
+        run: git fetch origin docs-pages
       
       - name: Switch to docs-pages branch
         run: git checkout docs-pages
