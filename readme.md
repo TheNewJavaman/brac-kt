@@ -1,22 +1,21 @@
-<h1>bra-kt</h1>
-
-<table style="border-style: hidden!important;">
+<table>
 <tr>
 <td>
-<img src="resources/full-outline.png" width=350 />
+<img src="resources/icon-outline.png" height=125 />
 </td>
 <td>
-
+<h1>bra-kt</h1>
+    
 A Kotlin/Multiplatform interface for quantum computing
+</td>  
+</tr>
+</table>
+
+## Features
 
 - Common interface for building quantum circuits
 - Interacts with the IBM Quantum API
 - Compiles into JVM bytecode (Java), JS (JavaScript), or native binaries (Windows/Mac/Linux)
-
-Named after bra-ket notation (but "kt" for Kotlin)
-</td>
-</tr>
-</table>
 
 ## Installation
 
