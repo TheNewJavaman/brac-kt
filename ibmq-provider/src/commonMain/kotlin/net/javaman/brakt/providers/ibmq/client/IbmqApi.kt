@@ -23,7 +23,7 @@ class IbmqApi {
     companion object {
         private const val BASE_AUTH_URL = "https://auth.quantum-computing.ibm.com/api"
         private const val BASE_API_URL = "https://api.quantum-computing.ibm.com/api"
-        private const val BASE_QCON_URL = "https://api-qcon.quantum-computing.ibm.com/api"
+        //private const val BASE_QCON_URL = "https://api-qcon.quantum-computing.ibm.com/api"
         private const val ACCESS_TOKEN_HEADER = "x-access-token"
     }
 

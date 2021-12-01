@@ -11,8 +11,8 @@ class QuantumCircuit constructor(
     val name: String? = null,
     val numQubits: Int = 5,
     val numBits: Int = numQubits,
-    private val qubits: List<Qubit> = List(numQubits) { Qubit(it) },
-    private val bits: List<Bit> = List(numBits) { Bit(it) },
+    //private val qubits: List<Qubit> = List(numQubits) { Qubit(it) },
+    //private val bits: List<Bit> = List(numBits) { Bit(it) },
     private val circuit: MutableList<QuantumGate> = mutableListOf()
 ) {
     fun compose(block: QuantumCircuit.() -> Unit) = block()
