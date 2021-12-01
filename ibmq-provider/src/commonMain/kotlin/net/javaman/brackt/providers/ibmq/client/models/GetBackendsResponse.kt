@@ -1,0 +1,41 @@
+package net.javaman.brackt.providers.ibmq.client.models
+
+import kotlinx.serialization.Serializable
+
+typealias GetBackendsResponse = List<BackendResponse>
+
+@Serializable
+data class BackendResponse(
+    val hasAccess: Boolean,
+    val internalId: String? = null,
+    val name: String,
+    val accessType: String? = null,
+    val basisGates: List<String>,
+    val couplingMap: List<List<Int>>? = null,
+    val backendVersion: String,
+    val qubits: Int,
+    val isSimulator: Boolean,
+    val quantumVolume: Int? = null,
+    val clops: Int? = null,
+    val processorType: BackendProcessorTypeResponse,
+    val revision: Double? = null,
+    val deviceStatus: BackendDeviceStatusResponse,
+    val queueLength: Int,
+    val inputAllowed: List<String>,
+    val category: String? = null
+)
+
+@Serializable
+data class BackendProcessorTypeResponse(
+    val family: String,
+    val description: String? = null,
+    val revision: Double? = null,
+    val segment: String? = null
+)
+
+@Serializable
+data class BackendDeviceStatusResponse(
+    val state: Boolean,
+    val status: String,
+    val message: String
+)
