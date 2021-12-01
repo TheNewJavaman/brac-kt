@@ -1,10 +1,10 @@
-[![Code Linting (Detekt)](https://github.com/TheNewJavaman/bra-kt/actions/workflows/code-linting-detekt.yml/badge.svg)](https://github.com/TheNewJavaman/bra-kt/actions/workflows/code-linting-detekt.yml) [![Publish Docs (Dokka)](https://github.com/TheNewJavaman/bra-kt/actions/workflows/publish-docs-dokka.yml/badge.svg)](https://github.com/TheNewJavaman/bra-kt/actions/workflows/publish-docs-dokka.yml)
+[![Code Linting (Detekt)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/code-linting-detekt.yml/badge.svg)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/code-linting-detekt.yml) [![Publish Docs (Dokka)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/publish-docs-dokka.yml/badge.svg)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/publish-docs-dokka.yml)
 
 <table>
 <tr>
-<td><img src="resources/full-outline.png" alt="branding"/></td>
+<td><img src="resources/icon-outline.png" alt="branding" height=130/></td>
 <td>
-<h1>bra-kt</h1>
+<h1>brac-kt</h1>
 
 A Kotlin/Multiplatform interface for quantum computing
 </td>  
@@ -32,7 +32,7 @@ What am I trying to accomplish?
         - Slow
         - Not very well adopted outside of data science
     - Kotlin has many improvements over Python:
-        - Multiplatform projects (like bra-kt) can compile to the JVM, JS, or native libs; can interop with each backend
+        - Multiplatform projects (like brac-kt) can compile to the JVM, JS, or native libs; can interop with each backend
         - Type-safe, null-safe, etc.
         - Very fast, depends on the backend implementation
         - Each backend has its own plethora of use cases:
