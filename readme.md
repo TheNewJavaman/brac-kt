@@ -9,13 +9,15 @@
 A Kotlin/Multiplatform interface for quantum computing
 </td>  
 </tr>
+<tr>
+<td colspan=2>
+<div align="center">
+<i>Named after bra-ket quantum notation (with "kt" for Kotlin)</i>
+</div>
+</td>
+</tr>
 </table>
-
-## Features
-
-- Common interface for building quantum circuits
-- Interacts with the IBM Quantum API
-- Compiles into JVM bytecode (Java), JS (JavaScript), or native binaries (Windows/Mac/Linux)
+</p>
 
 ## Installation
 
