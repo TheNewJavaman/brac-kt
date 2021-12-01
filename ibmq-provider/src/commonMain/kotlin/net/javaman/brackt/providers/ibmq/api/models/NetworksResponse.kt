@@ -1,4 +1,4 @@
-package net.javaman.brackt.providers.ibmq.client.models
+package net.javaman.brackt.providers.ibmq.api.models
 
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Contextual
@@ -6,7 +6,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 
-typealias GetNetworkResponse = List<NetworkResponse>
+typealias NetworksResponse = List<NetworkResponse>
 
 @Serializable
 data class NetworkResponse(
