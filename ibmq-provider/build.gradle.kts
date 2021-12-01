@@ -16,12 +16,12 @@ kotlin {
     jvm {
         val main by compilations.getting {
             kotlinOptions {
-                jvmTarget = "17"
+                jvmTarget = "11"
             }
         }
         val test by compilations.getting {
             kotlinOptions {
-                jvmTarget = "17"
+                jvmTarget = "11"
             }
         }
     }
