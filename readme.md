@@ -2,7 +2,7 @@
 
 <table>
 <tr>
-<td><img src="resources/full-outline-downsized.png" alt="branding"/></td>
+<td><img src="resources/full-outline-downsized.png" alt="branding" height=155/></td>
 <td>
 <h1>brac-kt</h1>
 
