@@ -1,4 +1,4 @@
-package net.javaman.brackt.providers.ibmq.client.models
+package net.javaman.brackt.providers.ibmq.api.models
 
 import kotlinx.serialization.Serializable
 

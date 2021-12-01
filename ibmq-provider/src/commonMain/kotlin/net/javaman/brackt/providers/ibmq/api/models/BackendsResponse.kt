@@ -1,8 +1,8 @@
-package net.javaman.brackt.providers.ibmq.client.models
+package net.javaman.brackt.providers.ibmq.api.models
 
 import kotlinx.serialization.Serializable
 
-typealias GetBackendsResponse = List<BackendResponse>
+typealias BackendsResponse = List<BackendResponse>
 
 @Serializable
 data class BackendResponse(

@@ -1,10 +1,10 @@
-package net.javaman.brackt.providers.ibmq.client.models
+package net.javaman.brackt.providers.ibmq.api.models
 
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class GetApiTokenResponse(
+data class ApiTokenResponse(
     val apiToken: String,
     val userId: String,
     val date: Instant,
