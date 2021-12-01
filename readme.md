@@ -1,3 +1,5 @@
+[![Code Linting (Detekt)](https://github.com/TheNewJavaman/bra-kt/actions/workflows/code-linting-detekt.yml/badge.svg)](https://github.com/TheNewJavaman/bra-kt/actions/workflows/code-linting-detekt.yml) [![Publish Docs (Dokka)](https://github.com/TheNewJavaman/bra-kt/actions/workflows/publish-docs-dokka.yml/badge.svg)](https://github.com/TheNewJavaman/bra-kt/actions/workflows/publish-docs-dokka.yml)
+
 <table>
 <tr>
 <td><img src="resources/full-outline.png" alt="branding"/></td>
