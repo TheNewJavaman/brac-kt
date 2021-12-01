@@ -8,11 +8,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  docs:
+  lint:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
       
       - name: Cache gradle dependencies
         uses: actions/setup-java@v2
@@ -20,9 +21,8 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
           cache: gradle
-      
-      - name: Make gradlew executable
-        run: chmod +x gradlew
-      
+          
       - name: Lint code
-        run: ./gradlew detekt
+        run: |
+          chmod +x gradlew
+          ./gradlew detekt
