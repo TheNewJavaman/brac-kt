@@ -10,6 +10,7 @@ import io.ktor.client.request.post
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import net.javaman.brakt.providers.ibmq.client.models.GetApiTokenResponse
+import net.javaman.brakt.providers.ibmq.client.models.GetBackendsResponse
 import net.javaman.brakt.providers.ibmq.client.models.GetNetworkResponse
 import net.javaman.brakt.providers.ibmq.client.models.LogInWithTokenRequest
 import net.javaman.brakt.providers.ibmq.client.models.LogInWithTokenResponse
@@ -47,6 +48,12 @@ class IbmqApi {
 
     suspend fun getNetwork(accessToken: String): GetNetworkResponse {
         return client.get("$BASE_API_URL/network") {
+            header(ACCESS_TOKEN_HEADER, accessToken)
+        }
+    }
+
+    suspend fun getBackends(accessToken: String): GetBackendsResponse {
+        return client.get("$BASE_API_URL/users/backends") {
             header(ACCESS_TOKEN_HEADER, accessToken)
         }
     }

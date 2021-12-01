@@ -46,4 +46,12 @@ class IbmqApiTest {
         val response = runBlocking { ibmqApi.getNetwork(accessToken) }
         assert { response.isNotEmpty() }
     }
+
+    @Test
+    @Order(4)
+    fun getBackends_ok() {
+        val accessToken = propertyManager.getProperty<String>("IBMQ_ACCESS_TOKEN")
+        val response = runBlocking { ibmqApi.getBackends(accessToken) }
+        assert { response.isNotEmpty() }
+    }
 }
