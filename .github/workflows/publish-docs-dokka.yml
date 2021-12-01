@@ -21,35 +21,20 @@ jobs:
           distribution: 'adopt'
           cache: gradle
       
-      - name: Make gradlew executable
-        run: chmod +x gradlew
+      - name: Gradle build docs
+        run: |
+          chmod +x gradlew
+          ./gradlew dokkaHtmlMultiModule
       
-      - name: Generate docs
-        run: ./gradlew dokkaHtmlMultiModule
-      
-      - name: Add docs to git
-        run: git add docs/
-      
-      - name: Stash docs changes
-        run: git stash push docs/
-        
-      - name: Reset local
-        run: git reset --hard
-        
-      - name: Fetch docs-pages branch
-        run: git fetch origin docs-pages
-      
-      - name: Switch to docs-pages branch
-        run: git checkout docs-pages
-        
-      - name: Reset to empty commit
-        run: git reset c030076 --hard
-      
-      - name: Pop docs stash
-        run: git stash pop
-      
-      - name: Commit new docs
-        run: git commit -m 'Updated docs'
-      
-      - name: Push docs to origin
-        run: git push origin
+      - name: Commit docs to git
+        run: |
+          git add docs/
+          git stash push docs/
+          git reset --hard
+          git fetch origin docs-pages
+          git checkout docs-pages
+          git stash pop
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@javaman.net"
+          git commit -m 'Updated docs'
+          git push origin
