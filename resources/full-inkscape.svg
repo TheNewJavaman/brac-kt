@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="4082.6416"
+   height="1564.51"
+   viewBox="0 0 1080.199 413.94329"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="bra-kt-full.svg"
+   inkscape:export-filename="C:\Users\Gabriel Pizarro\OneDrive\Documents\bra-kt-word-mustard-outline.png"
+   inkscape:export-xdpi="184.65854"
+   inkscape:export-ydpi="184.65854"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     inkscape:showpageshadow="false"
+     inkscape:zoom="0.25"
+     inkscape:cx="1290"
+     inkscape:cy="949.99999"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer2"
+     inkscape:snap-page="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs2">
+    <rect
+       x="105.97936"
+       y="0"
+       width="1110.5754"
+       height="984.72491"
+       id="rect37973" />
+    <rect
+       x="99.355652"
+       y="136.89001"
+       width="1267.3365"
+       height="1048.7542"
+       id="rect30203" />
+    <rect
+       x="0"
+       y="253.90889"
+       width="2826.1165"
+       height="2234.3982"
+       id="rect4901" />
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter58794"
+       x="-0.026412336"
+       y="-0.092566867"
+       width="1.0598579"
+       height="1.2095399">
+      <feFlood
+         flood-opacity="0.627451"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood58784" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite58786" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="8"
+         result="blur"
+         id="feGaussianBlur58788" />
+      <feOffset
+         dx="6.52174"
+         dy="6.52174"
+         result="offset"
+         id="feOffset58790" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite58792" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter59488"
+       x="-0.023252116"
+       y="-0.060845023"
+       width="1.052584"
+       height="1.1375994"
+       inkscape:auto-region="true">
+      <feFlood
+         flood-opacity="0.627451"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood59478" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite59480" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="8"
+         result="blur"
+         id="feGaussianBlur59482" />
+      <feOffset
+         dx="6.52174"
+         dy="6.52174"
+         result="offset"
+         id="feOffset59484" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite59486" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Background"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline"
+     transform="translate(172.82002,77.452753)">
+    <rect
+       style="fill:#182f3a;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect952"
+       width="1017.8781"
+       height="358.62543"
+       x="-145.0023"
+       y="-52.167755" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Symbols"
+     transform="translate(172.82002,77.452753)">
+    <path
+       id="rect58906"
+       style="display:inline;fill:none;stroke:#988c1f;stroke-width:11.4846;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;filter:url(#filter59488)"
+       sodipodi:type="inkscape:offset"
+       inkscape:radius="18.343451"
+       inkscape:original="M -153.99805 -60.005859 L -153.99805 313.23828 L 882.00391 313.23828 L 882.00391 -60.005859 L -153.99805 -60.005859 z "
+       d="m -153.99805,-78.349609 a 18.345285,18.345285 0 0 0 -18.34375,18.34375 V 313.23828 a 18.345285,18.345285 0 0 0 18.34375,18.34375 H 882.00391 a 18.345285,18.345285 0 0 0 18.34375,-18.34375 V -60.005859 a 18.345285,18.345285 0 0 0 -18.34375,-18.34375 z"
+       transform="matrix(0.95669374,0,0,0.88764649,15.920444,14.233947)" />
+    <g
+       id="g56142"
+       style="display:inline;filter:url(#filter58794)">
+      <text
+         xml:space="preserve"
+         transform="matrix(7.0511178,0,0,7.0511178,-773.09695,-24.084171)"
+         id="text37971"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:Quicksand;-inkscape-font-specification:Quicksand;white-space:pre;shape-inside:url(#rect37973);fill:#988c1f;fill-opacity:1;stroke:none"><tspan
+           x="105.97852"
+           y="37"
+           id="tspan59566">bra kt</tspan></text>
+      <path
+         style="display:inline;fill:none;stroke:#988c1f;stroke-width:10.5833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M -23.257281,-5.6437301 -99.635911,126.64794 -23.257281,258.9396 -99.635911,126.64794 -23.257281,-5.6437301"
+         id="path1225" />
+      <path
+         style="display:inline;fill:none;stroke:#988c1f;stroke-width:10.5833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 751.26309,-5.64373 827.64172,126.64794 751.26309,258.9396 827.64172,126.64794 751.26309,-5.64373"
+         id="path1225-6" />
+      <path
+         style="display:inline;fill:none;stroke:#988c1f;stroke-width:10.5833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 460.40605,-5.64373 V 258.9396 Z"
+         id="path1585" />
+    </g>
+  </g>
+</svg>

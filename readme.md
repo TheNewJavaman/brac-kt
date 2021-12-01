@@ -3,7 +3,7 @@
 <table style="border-style: hidden!important;">
 <tr>
 <td>
-<img src="resources/icon-mustard-outline.png" width=160 />
+<img src="resources/full-outline.png" width=350 />
 </td>
 <td>
 
