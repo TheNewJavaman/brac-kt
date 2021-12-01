@@ -33,14 +33,14 @@ jobs:
       - name: Stash docs changes
         run: git stash push docs/
         
+      - name: Reset local
+        run: git reset --hard
+        
       - name: Fetch docs-pages branch
         run: git fetch origin docs-pages --depth 1
       
       - name: Switch to docs-pages branch
         run: git checkout docs-pages
-        
-      - name: Reset local
-        run: git reset --hard
       
       - name: Remove previous docs
         run: rm -rf docs/
