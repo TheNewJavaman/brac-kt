@@ -41,9 +41,9 @@ jobs:
       
       - name: Switch to docs-pages branch
         run: git checkout docs-pages
-      
-      - name: Remove previous docs
-        run: rm -rf docs/
+        
+      - name: Reset to empty commit
+        run: git reset c030076 --hard
       
       - name: Pop docs stash
         run: git stash pop
