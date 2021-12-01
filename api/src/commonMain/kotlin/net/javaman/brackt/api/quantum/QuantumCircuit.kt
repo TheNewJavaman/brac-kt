@@ -1,6 +1,6 @@
 package net.javaman.brackt.api.quantum
 
-import net.javaman.brakt.api.util.assertions.assert
+import net.javaman.brackt.api.util.assertions.assert
 import kotlin.math.PI
 
 /**

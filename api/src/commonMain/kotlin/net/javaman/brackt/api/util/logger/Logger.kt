@@ -1,10 +1,10 @@
 package net.javaman.brackt.api.util.logger
 
 import kotlinx.datetime.Clock
-import net.javaman.brakt.api.util.formatters.PadDirection
-import net.javaman.brakt.api.util.formatters.pretty
-import net.javaman.brakt.api.util.formatters.withLength
-import net.javaman.brakt.api.util.injections.FromKClassObject
+import net.javaman.brackt.api.util.formatters.PadDirection
+import net.javaman.brackt.api.util.formatters.pretty
+import net.javaman.brackt.api.util.formatters.withLength
+import net.javaman.brackt.api.util.injections.FromKClassObject
 import kotlin.jvm.JvmStatic
 import kotlin.reflect.KClass
 
