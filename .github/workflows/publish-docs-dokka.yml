@@ -28,10 +28,10 @@ jobs:
         run: ./gradlew dokkaHtmlMultiModule
       
       - name: Add docs to git
-        run: git add *
+        run: git add docs/
       
       - name: Stash docs changes
-        run: git stash push
+        run: git stash push docs/
         
       - name: Fetch docs-pages branch
         run: git fetch origin docs-pages --depth 1
@@ -43,7 +43,7 @@ jobs:
         run: git reset --hard
       
       - name: Remove previous docs
-        run: rm -rf docs
+        run: rm -rf docs/
       
       - name: Pop docs stash
         run: git stash pop
