@@ -2,11 +2,8 @@ package net.javaman.brackt.providers.ibmq.api
 
 import io.ktor.client.features.ClientRequestException
 import kotlinx.coroutines.runBlocking
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 import net.javaman.brackt.api.util.assertions.assert
 import net.javaman.brackt.api.util.injections.injection
-import net.javaman.brackt.api.util.logger.Logger
 import net.javaman.brackt.api.util.properties.PropertyManager
 import net.javaman.brackt.providers.ibmq.TestData.DEVICE
 import net.javaman.brackt.providers.ibmq.TestData.GROUP
@@ -25,7 +22,6 @@ import org.junit.jupiter.api.TestMethodOrder
 class IbmqApiTest {
     private val propertyManager: PropertyManager by injection()
     private val ibmqApi: IbmqApi by injection()
-    private val logger: Logger by injection()
 
     init {
         TestUtil.addInjections()
@@ -110,7 +106,6 @@ class IbmqApiTest {
         val request = VERSIONS_REQUEST.copy(
             userId = propertyManager.getProperty("IBMQ_USER_ID")
         )
-        logger.info { Json.encodeToString(request) }
         val accessToken = propertyManager.getProperty<String>("IBMQ_ACCESS_TOKEN")
         val code = propertyManager.getProperty<String>("IBMQ_ID_CODE")
         val response = runBlocking { ibmqApi.versions(accessToken, request, code) }

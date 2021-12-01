@@ -30,7 +30,7 @@ data class JobsItemResponse(
     val userId: String,
     val endDate: Instant? = null,
     val createdBy: String,
-    val infoQueue: JobsInfoQueueResponse
+    val infoQueue: JobsInfoQueueResponse? = null
 )
 
 @Serializable
