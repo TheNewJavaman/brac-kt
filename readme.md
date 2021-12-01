@@ -1,4 +1,4 @@
-[![Code Linting (Detekt)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/code-linting-detekt.yml/badge.svg)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/code-linting-detekt.yml) [![Publish Docs (Dokka)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/publish-docs-dokka.yml/badge.svg)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/publish-docs-dokka.yml)
+ [![Code Linting (Detekt)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/linting.yml/badge.svg)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/linting.yml) [![Publish Docs (Dokka)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/publish-docs-dokka.yml/badge.svg)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/publish-docs-dokka.yml) [![Tests (Kotlin Multiplatform)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/tests.yml/badge.svg)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/tests.yml)
 
 <table>
 <tr>
