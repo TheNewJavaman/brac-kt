@@ -1,8 +1,6 @@
 package net.javaman.brakt.api.util.logger
 
 import kotlinx.datetime.Clock
-import net.javaman.brakt.api.util.Consts.LOGGER_CLASS_NAME_CHARS
-import net.javaman.brakt.api.util.Consts.LOGGER_LEVEL_CHARS
 import net.javaman.brakt.api.util.formatters.PadDirection
 import net.javaman.brakt.api.util.formatters.pretty
 import net.javaman.brakt.api.util.formatters.withLength
@@ -20,6 +18,11 @@ class Logger(val className: String) {
 
         @JvmStatic
         override fun fromKClass(kClass: KClass<*>) = Logger(kClass)
+
+        const val CLASS_NAME_CHARS = 48
+
+        @JvmStatic
+        val LEVEL_CHARS = LoggingLevel.values().maxOf { it.name.length }
     }
 
     constructor(kClass: KClass<*>) : this(kClass.qualifiedName ?: "Anonymous")
@@ -27,8 +30,8 @@ class Logger(val className: String) {
     fun log(level: LoggingLevel, block: () -> Any) {
         if (acceptableLevel.severity <= level.severity) {
             val nowPretty = Clock.System.now().pretty()
-            val classNamePretty = className.withLength(LOGGER_CLASS_NAME_CHARS, PadDirection.LEFT)
-            val levelPretty = level.name.withLength(LOGGER_LEVEL_CHARS, PadDirection.RIGHT)
+            val classNamePretty = className.withLength(CLASS_NAME_CHARS, PadDirection.LEFT)
+            val levelPretty = level.name.withLength(LEVEL_CHARS, PadDirection.RIGHT)
             val lines = block().toString().split('\n')
             println(lines.joinToString("\n") { "[$nowPretty] [$classNamePretty] [$levelPretty] $it" })
         }
