@@ -3,12 +3,12 @@
 
 <svg
    width="4462.8335"
-   height="1421.9739"
-   viewBox="0 0 1180.7914 376.2306"
+   height="2231.4167"
+   viewBox="0 0 1180.7915 590.3957"
    version="1.1"
    id="svg5"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
-   sodipodi:docname="full-inkscape.svg"
+   sodipodi:docname="preview-inkscape.svg"
    inkscape:export-filename="C:\Users\Gabriel Pizarro\OneDrive\Documents\brac-kt-word-mustard-outline.png"
    inkscape:export-xdpi="184.65854"
    inkscape:export-ydpi="184.65854"
@@ -28,9 +28,9 @@
      showgrid="false"
      units="px"
      inkscape:showpageshadow="false"
-     inkscape:zoom="0.25"
-     inkscape:cx="2006"
-     inkscape:cy="1158"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="4294.7014"
+     inkscape:cy="2187.7"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="-8"
@@ -41,7 +41,8 @@
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     fit-margin-bottom="0" />
+     fit-margin-bottom="0"
+     width="4462.8335px" />
   <defs
      id="defs2">
     <rect
@@ -181,18 +182,10 @@
     <rect
        style="fill:#182f3a;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect952"
-       width="1180.7914"
-       height="376.23059"
-       x="-149.10381"
-       y="-58.292225" />
-    <path
-       id="rect7140"
-       style="display:none;fill:none;stroke:#988c1f;stroke-width:10.5833;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter7371)"
-       sodipodi:type="inkscape:offset"
-       inkscape:radius="20.79295"
-       inkscape:original="M -158.55273 -66.056641 L -158.55273 325.81055 L 1039.6582 325.81055 L 1039.6582 -66.056641 L -158.55273 -66.056641 z "
-       d="m -158.55273,-86.849609 a 20.795029,20.795029 0 0 0 -20.79297,20.792968 V 325.81055 a 20.795029,20.795029 0 0 0 20.79297,20.79297 H 1039.6582 a 20.795029,20.795029 0 0 0 20.793,-20.79297 V -66.056641 a 20.795029,20.795029 0 0 0 -20.793,-20.792968 z"
-       transform="matrix(0.95827325,0,0,0.88172293,18.19879,15.361129)" />
+       width="1164.1873"
+       height="574.53992"
+       x="-141.19931"
+       y="-50.294186" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -201,7 +194,8 @@
      transform="translate(149.10381,58.292225)">
     <g
        id="g56142"
-       style="display:inline;filter:url(#filter58794)">
+       style="display:inline;filter:url(#filter58794)"
+       transform="translate(1.0648544e-6,107.02894)">
       <text
          xml:space="preserve"
          transform="matrix(7.0511178,0,0,7.0511178,-773.09695,-24.084171)"
@@ -209,7 +203,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:Quicksand;-inkscape-font-specification:Quicksand;white-space:pre;shape-inside:url(#rect37973);fill:#988c1f;fill-opacity:1;stroke:none"><tspan
            x="105.97852"
            y="37"
-           id="tspan7461">brac kt</tspan></text>
+           id="tspan1146">brac kt</tspan></text>
       <path
          style="display:inline;fill:none;stroke:#988c1f;stroke-width:10.5833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="M -23.257281,-5.6437301 -99.635911,126.64794 -23.257281,258.9396 -99.635911,126.64794 -23.257281,-5.6437301"
@@ -223,5 +217,13 @@
          d="M 611.21866,-5.64373 V 258.9396 Z"
          id="path1585" />
     </g>
+    <path
+       id="rect1010"
+       style="fill:none;stroke:#988c1f;stroke-width:10.5833;stroke-linecap:round;stroke-linejoin:round"
+       sodipodi:type="inkscape:offset"
+       inkscape:radius="17.228422"
+       inkscape:original="M -149.10352 -58.292969 L -149.10352 532.10352 L 1031.6875 532.10352 L 1031.6875 -58.292969 L -149.10352 -58.292969 z "
+       d="m -149.10352,-75.521484 a 17.230145,17.230145 0 0 0 -17.22851,17.228515 V 532.10352 a 17.230145,17.230145 0 0 0 17.22851,17.22851 H 1031.6875 a 17.230145,17.230145 0 0 0 17.2285,-17.22851 V -58.292969 a 17.230145,17.230145 0 0 0 -17.2285,-17.228515 z"
+       transform="matrix(0.96340387,0,0,0.92852874,16.149537,16.832901)" />
   </g>
 </svg>
