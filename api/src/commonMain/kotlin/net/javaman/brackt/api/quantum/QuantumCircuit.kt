@@ -18,53 +18,53 @@ class QuantumCircuit constructor(
     fun compose(block: QuantumCircuit.() -> Unit) = block()
 
     fun i(qubit: Int) {
-        assert { qubit <= numQubits }
+        assert { qubit < numQubits }
         circuit.add(QuantumGate.Identity(qubit))
     }
 
     fun x(qubit: Int) {
-        assert { qubit <= numQubits }
+        assert { qubit < numQubits }
         circuit.add(QuantumGate.PauliX(qubit))
     }
 
     fun y(qubit: Int) {
-        assert { qubit <= numQubits }
+        assert { qubit < numQubits }
         circuit.add(QuantumGate.PauliY(qubit))
     }
 
     fun z(qubit: Int) {
-        assert { qubit <= numQubits }
+        assert { qubit < numQubits }
         circuit.add(QuantumGate.PauliZ(qubit))
     }
 
     fun h(qubit: Int) {
-        assert { qubit <= numQubits }
+        assert { qubit < numQubits }
         circuit.add(QuantumGate.Hadamard(qubit))
     }
 
     fun s(qubit: Int) {
-        assert { qubit <= numQubits }
+        assert { qubit < numQubits }
         circuit.add(QuantumGate.S(qubit))
     }
 
     fun sdg(qubit: Int) {
-        assert { qubit <= numQubits }
+        assert { qubit < numQubits }
         circuit.add(QuantumGate.SDagger(qubit))
     }
 
     fun t(qubit: Int) {
-        assert { qubit <= numQubits }
+        assert { qubit < numQubits }
         circuit.add(QuantumGate.T(qubit))
     }
 
     fun tdg(qubit: Int) {
-        assert { qubit <= numQubits }
+        assert { qubit < numQubits }
         circuit.add(QuantumGate.TDagger(qubit))
     }
 
     fun p(qubit: Int, phi: Double) {
         assert {
-            qubit <= numQubits &&
+            qubit < numQubits &&
                     -PI <= phi && phi <= PI
         }
         circuit.add(QuantumGate.Phase(qubit, phi))
@@ -72,7 +72,7 @@ class QuantumCircuit constructor(
 
     fun u(qubit: Int, theta: Double, phi: Double, lambda: Double) {
         assert {
-            qubit <= numQubits &&
+            qubit < numQubits &&
                     -PI <= theta && theta <= PI &&
                     -PI <= phi && phi <= PI &&
                     -PI <= lambda && lambda <= PI
