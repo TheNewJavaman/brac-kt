@@ -1,7 +1,7 @@
 <table>
 <tr>
 <td>
-<img src="resources/icon-outline.png" height=125 />
+<img src="resources/full-outline.png"/>
 </td>
 <td>
 <h1>bra-kt</h1>
