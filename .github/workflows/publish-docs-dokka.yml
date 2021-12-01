@@ -33,6 +33,7 @@ jobs:
           git reset --hard
           git fetch origin docs-pages
           git checkout docs-pages
+          git reset c030076 --hard
           git stash pop
           git config user.name "GitHub Actions"
           git config user.email "github-actions@javaman.net"
