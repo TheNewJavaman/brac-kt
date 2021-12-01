@@ -31,6 +31,9 @@ jobs:
       
       - name: Stash docs changes
         run: git stash push
+        
+      - name: Fetch docs-pages branch
+        run: git fetch origin docs-pages --depth 1
       
       - name: Switch to docs-pages branch
         run: git checkout docs-pages
