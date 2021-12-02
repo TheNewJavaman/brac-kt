@@ -3,6 +3,8 @@ package net.javaman.brackt.api.util.formatters
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+import kotlin.math.max
+import kotlin.math.min
 import kotlin.math.pow
 
 const val INSTANT_YEAR_DIGITS = 4
@@ -48,4 +50,12 @@ fun Instant.pretty(): String {
             ":${dateTime.minute.padTo(INSTANT_MINUTE_DIGITS)}" +
             ":${dateTime.second.padTo(INSTANT_SECOND_DIGITS)}" +
             ".${(dateTime.nanosecond / INSTANT_NANOSECOND_DIVISOR).padTo(INSTANT_NANOSECOND_DIGITS)}"
+}
+
+/**
+ * Censors the second section of a String
+ */
+fun String.censor(visibleDigits: Int = 3): String {
+    return CharArray(min(max(length - visibleDigits, 0), visibleDigits)) { 'X' }.concatToString() +
+            substring(length - visibleDigits)
 }

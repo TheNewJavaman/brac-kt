@@ -1,15 +1,14 @@
 package net.javaman.brackt.api.util.logging
 
-import net.javaman.brackt.api.TestUtil
+import net.javaman.brackt.api.BracKtApi
 import net.javaman.brackt.api.util.injections.injection
-import net.javaman.brackt.api.util.logging.Logger
 import org.junit.jupiter.api.Test
 
 class LoggerTest {
     private val logger: Logger by injection()
 
     init {
-        TestUtil.addInjections()
+        BracKtApi.addInjections()
     }
 
     @Test

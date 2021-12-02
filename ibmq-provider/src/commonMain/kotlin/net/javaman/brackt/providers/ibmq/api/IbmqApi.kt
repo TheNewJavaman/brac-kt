@@ -9,6 +9,9 @@ import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
+import net.javaman.brackt.api.util.formatters.censor
+import net.javaman.brackt.api.util.injections.injection
+import net.javaman.brackt.api.util.logging.Logger
 import net.javaman.brackt.providers.ibmq.api.models.ApiTokenResponse
 import net.javaman.brackt.providers.ibmq.api.models.BackendsResponse
 import net.javaman.brackt.providers.ibmq.api.models.JobsLimitResponse
@@ -25,11 +28,7 @@ import net.javaman.brackt.providers.ibmq.api.models.VersionsResponse
  * An HTTP client for [IBM Quantum](https://quantum-computing.ibm.com/)
  */
 class IbmqApi {
-    companion object {
-        private const val BASE_AUTH_URL = "https://auth.quantum-computing.ibm.com/api"
-        private const val BASE_API_URL = "https://api.quantum-computing.ibm.com/api"
-        private const val ACCESS_TOKEN_HEADER = "x-access-token"
-    }
+    private val logger: Logger by injection()
 
     private val client = HttpClient(CIO) {
         install(JsonFeature) {
@@ -37,35 +36,56 @@ class IbmqApi {
         }
     }
 
+    companion object {
+        private const val BASE_AUTH_URL = "https://auth.quantum-computing.ibm.com/api"
+        private const val BASE_API_URL = "https://api.quantum-computing.ibm.com/api"
+        private const val ACCESS_TOKEN_HEADER = "x-access-token"
+    }
+
     suspend fun logInWithToken(request: LogInWithTokenRequest): LogInWithTokenResponse {
-        return client.post("$BASE_AUTH_URL/users/loginWithToken") {
+        logger.info { "Requesting access token with apiToken (${request.apiToken.censor()})" }
+        val response = client.post<LogInWithTokenResponse>("$BASE_AUTH_URL/users/loginWithToken") {
             contentType(ContentType.Application.Json)
             body = request
         }
+        logger.info { "Received accessToken (${response.id.censor()})" }
+        return response
     }
 
     suspend fun apiToken(accessToken: String, userId: String): ApiTokenResponse {
-        return client.get("$BASE_AUTH_URL/users/$userId/apiToken") {
+        logger.info { "Requesting API token with userId (${userId.censor()})" }
+        val response = client.get<ApiTokenResponse>("$BASE_AUTH_URL/users/$userId/apiToken") {
             header(ACCESS_TOKEN_HEADER, accessToken)
         }
+        logger.info { "Received apiToken (${response.apiToken.censor()})" }
+        return response
     }
 
     suspend fun networks(accessToken: String): NetworksResponse {
-        return client.get("$BASE_API_URL/network") {
+        logger.info { "Requesting networks" }
+        val response = client.get<NetworksResponse>("$BASE_API_URL/network") {
             header(ACCESS_TOKEN_HEADER, accessToken)
         }
+        logger.info { "Received a list networks with size (${response.size})" }
+        return response
     }
 
     suspend fun backends(accessToken: String): BackendsResponse {
-        return client.get("$BASE_API_URL/users/backends") {
+        logger.info { "Requesting backends" }
+        val response = client.get<BackendsResponse>("$BASE_API_URL/users/backends") {
             header(ACCESS_TOKEN_HEADER, accessToken)
         }
+        logger.info { "Received a list of backends with size (${response.size})" }
+        return response
     }
 
     suspend fun jobs(accessToken: String): JobsResponse {
-        return client.get("$BASE_API_URL/jobs/v2") {
+        logger.info { "Requesting jobs" }
+        val response = client.get<JobsResponse>("$BASE_API_URL/jobs/v2") {
             header(ACCESS_TOKEN_HEADER, accessToken)
         }
+        logger.info { "Received a list of jobs with size (${response.items.size})" }
+        return response
     }
 
     suspend fun jobsLimit(
@@ -75,9 +95,18 @@ class IbmqApi {
         project: String,
         device: String
     ): JobsLimitResponse {
-        return client.get("$BASE_API_URL/network/$network/groups/$group/projects/$project/devices/$device/jobsLimit") {
+        logger.info { "Requesting jobs limit" }
+        val response = client.get<JobsLimitResponse>(
+            "$BASE_API_URL/network/$network/groups/$group" +
+                    "/projects/$project/devices/$device/jobsLimit"
+        ) {
             header(ACCESS_TOKEN_HEADER, accessToken)
         }
+        logger.info {
+            "Received a jobs limit of runningJobs (${response.runningJobs}) / " +
+                    "maximumJobs (${response.maximumJobs})"
+        }
+        return response
     }
 
     suspend fun runExperiment(
@@ -87,18 +116,58 @@ class IbmqApi {
         group: String,
         project: String
     ): RunExperimentResponse {
-        return client.post("$BASE_API_URL/network/$network/groups/$group/projects/$project/runExperiment") {
+        logger.info {
+            "Attempting to run an experiment with idCode (${request.codeId}) " +
+                    "on backend with name (${request.backend.name})"
+        }
+        val response = client.post<RunExperimentResponse>(
+            "$BASE_API_URL/network/$network/groups/$group" +
+                    "/projects/$project/runExperiment"
+        ) {
             header(ACCESS_TOKEN_HEADER, accessToken)
             contentType(ContentType.Application.Json)
             body = request
         }
+        logger.info { "Received a job with id (${response.id})" }
+        return response
     }
 
     suspend fun versions(accessToken: String, request: VersionsRequest, code: String): VersionsResponse {
-        return client.post("$BASE_API_URL/codes/$code/versions/") {
+        logger.info { "Attempting to update a version with codeId (${request.idCode})" }
+        val response = client.post<VersionsResponse>("$BASE_API_URL/codes/$code/versions/") {
             header(ACCESS_TOKEN_HEADER, accessToken)
             contentType(ContentType.Application.Json)
             body = request
         }
+        logger.info { "Received updated version with codeId (${request.idCode})" }
+        return response
     }
 }
+
+expect fun IbmqApi.logInWithTokenSync(request: LogInWithTokenRequest): LogInWithTokenResponse
+
+expect fun IbmqApi.apiTokenSync(accessToken: String, userId: String): ApiTokenResponse
+
+expect fun IbmqApi.networksSync(accessToken: String): NetworksResponse
+
+expect fun IbmqApi.backendsSync(accessToken: String): BackendsResponse
+
+expect fun IbmqApi.jobsSync(accessToken: String): JobsResponse
+
+expect fun IbmqApi.jobsLimitSync(
+    accessToken: String,
+    network: String,
+    group: String,
+    project: String,
+    device: String
+): JobsLimitResponse
+
+expect fun IbmqApi.runExperimentSync(
+    accessToken: String,
+    request: RunExperimentRequest,
+    network: String,
+    group: String,
+    project: String
+): RunExperimentResponse
+
+expect fun IbmqApi.versionsSync(accessToken: String, request: VersionsRequest, code: String): VersionsResponse

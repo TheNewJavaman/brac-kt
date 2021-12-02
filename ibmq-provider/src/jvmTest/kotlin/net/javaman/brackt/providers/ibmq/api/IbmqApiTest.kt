@@ -1,9 +1,12 @@
 package net.javaman.brackt.providers.ibmq.api
 
 import io.ktor.client.features.ClientRequestException
-import kotlinx.coroutines.runBlocking
+import net.javaman.brackt.api.BracKtApi
 import net.javaman.brackt.api.util.injections.injection
+import net.javaman.brackt.api.util.logging.Logger
 import net.javaman.brackt.api.util.properties.PropertyManager
+import net.javaman.brackt.providers.ibmq.IbmqProvider
+import net.javaman.brackt.providers.ibmq.TestData.CODE_ID
 import net.javaman.brackt.providers.ibmq.TestData.DEVICE
 import net.javaman.brackt.providers.ibmq.TestData.GROUP
 import net.javaman.brackt.providers.ibmq.TestData.LOG_IN_WITH_TOKEN_REQUEST
@@ -11,7 +14,6 @@ import net.javaman.brackt.providers.ibmq.TestData.NETWORK
 import net.javaman.brackt.providers.ibmq.TestData.PROJECT
 import net.javaman.brackt.providers.ibmq.TestData.RUN_EXPERIMENT_REQUEST
 import net.javaman.brackt.providers.ibmq.TestData.VERSIONS_REQUEST
-import net.javaman.brackt.providers.ibmq.TestUtil
 import org.junit.jupiter.api.MethodOrderer
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
@@ -21,85 +23,88 @@ import org.junit.jupiter.api.TestMethodOrder
 class IbmqApiTest {
     private val propertyManager: PropertyManager by injection()
     private val ibmqApi: IbmqApi by injection()
+    private val logger: Logger by injection()
 
     init {
-        TestUtil.addInjections()
+        BracKtApi.addInjections()
+        IbmqProvider.addInjections()
     }
 
     @Test
     @Order(1)
-    fun logInWithToken_ok() {
+    fun logInWithTokenSync_ok() {
         val request = LOG_IN_WITH_TOKEN_REQUEST
-        val response = runBlocking { ibmqApi.logInWithToken(request) }
+        val response = ibmqApi.logInWithTokenSync(request)
 
-        propertyManager.setProperty("IBMQ_ACCESS_TOKEN", response.id)
-        propertyManager.setProperty("IBMQ_USER_ID", response.userId)
+        propertyManager["TEST_IBMQ_ACCESS_TOKEN"] = response.id
+        propertyManager["TEST_IBMQ_USER_ID"] = response.userId
     }
 
     @Test
     @Order(2)
-    fun apiToken_ok() {
-        val accessToken = propertyManager.getProperty<String>("IBMQ_ACCESS_TOKEN")
-        val userId = propertyManager.getProperty<String>("IBMQ_USER_ID")
-        runBlocking { ibmqApi.apiToken(accessToken, userId) }
+    fun apiTokenSync_ok() {
+        val accessToken: String = propertyManager["TEST_IBMQ_ACCESS_TOKEN"]
+        val userId: String = propertyManager["TEST_IBMQ_USER_ID"]
+        ibmqApi.apiTokenSync(accessToken, userId)
     }
 
     @Test
     @Order(3)
-    fun networks_ok() {
-        val accessToken = propertyManager.getProperty<String>("IBMQ_ACCESS_TOKEN")
-        runBlocking { ibmqApi.networks(accessToken) }
+    fun networksSync_ok() {
+        val accessToken: String = propertyManager["TEST_IBMQ_ACCESS_TOKEN"]
+        ibmqApi.networksSync(accessToken)
     }
 
     @Test
     @Order(4)
-    fun backends_ok() {
-        val accessToken = propertyManager.getProperty<String>("IBMQ_ACCESS_TOKEN")
-        runBlocking { ibmqApi.backends(accessToken) }
+    fun backendsSync_ok() {
+        val accessToken: String = propertyManager["TEST_IBMQ_ACCESS_TOKEN"]
+        ibmqApi.backendsSync(accessToken)
     }
 
     @Test
     @Order(5)
-    fun jobs_ok() {
-        val accessToken = propertyManager.getProperty<String>("IBMQ_ACCESS_TOKEN")
-        runBlocking { ibmqApi.jobs(accessToken) }
+    fun jobsSync_ok() {
+        val accessToken: String = propertyManager["TEST_IBMQ_ACCESS_TOKEN"]
+        ibmqApi.jobsSync(accessToken)
     }
 
     @Test
     @Order(6)
-    fun jobsLimit_ok() {
-        val accessToken = propertyManager.getProperty<String>("IBMQ_ACCESS_TOKEN")
+    fun jobsLimitSync_ok() {
+        val accessToken: String = propertyManager["TEST_IBMQ_ACCESS_TOKEN"]
         val network = NETWORK
         val group = GROUP
         val project = PROJECT
         val device = DEVICE
-        runBlocking { ibmqApi.jobsLimit(accessToken, network, group, project, device) }
+        ibmqApi.jobsLimitSync(accessToken, network, group, project, device)
     }
 
     @Test
     @Order(7)
-    fun runExperiment_ok() {
+    fun runExperimentSync_ok() {
+        val accessToken: String = propertyManager["TEST_IBMQ_ACCESS_TOKEN"]
         val request = RUN_EXPERIMENT_REQUEST
-        val accessToken = propertyManager.getProperty<String>("IBMQ_ACCESS_TOKEN")
         val network = NETWORK
         val group = GROUP
         val project = PROJECT
         try {
-            runBlocking { ibmqApi.runExperiment(accessToken, request, network, group, project) }
+            ibmqApi.runExperimentSync(accessToken, request, network, group, project)
         } catch (e: ClientRequestException) {
-            // If too many tests have been run in a short period of time, IBM will rate-limit the API token
             if ("REACHED_JOBS_LIMIT" !in e.message) throw e
+            else logger.info { "Maximum number of concurrent jobs reached. You really gotta get a better API key..." }
         }
     }
 
     @Test
     @Order(8)
-    fun versions_ok() {
+    fun versionsSync_ok() {
+        val accessToken: String = propertyManager["TEST_IBMQ_ACCESS_TOKEN"]
+        val userId: String = propertyManager["TEST_IBMQ_USER_ID"]
         val request = VERSIONS_REQUEST.copy(
-            userId = propertyManager.getProperty("IBMQ_USER_ID")
+            userId = userId
         )
-        val accessToken = propertyManager.getProperty<String>("IBMQ_ACCESS_TOKEN")
-        val code = propertyManager.getProperty<String>("IBMQ_ID_CODE")
-        runBlocking { ibmqApi.versions(accessToken, request, code) }
+        val code = CODE_ID
+        ibmqApi.versionsSync(accessToken, request, code)
     }
 }

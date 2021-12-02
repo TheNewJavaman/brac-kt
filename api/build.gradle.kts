@@ -29,9 +29,10 @@ kotlin {
             dependencies {
                 implementation(kotlin("stdlib-common"))
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC")
             }
         }
-        val jvmMain by getting
+        val jvmMain by getting {}
         val jvmTest by getting {
             dependencies {
                 implementation("org.junit.jupiter:junit-jupiter:5.7.0")
@@ -48,6 +49,6 @@ detekt {
     )
 }
 
-tasks.withType<Test> {
+tasks.withType<Test>().getByName("jvmTest") {
     useJUnitPlatform()
 }

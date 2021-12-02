@@ -6,7 +6,7 @@ package net.javaman.brackt.api.util.properties
 actual class PropertyManager {
     val customProperties = mutableMapOf<String, Any>()
 
-    actual inline fun <reified T : Any> getProperty(key: String): T {
+    actual inline operator fun <reified T : Any> get(key: String): T {
         val allProperties = mutableMapOf<String, Any>()
         allProperties.putAll(customProperties)
         allProperties.putAll(System.getenv())
@@ -14,7 +14,7 @@ actual class PropertyManager {
         return value as T
     }
 
-    actual fun <T : Any> setProperty(key: String, value: T) {
+    actual operator fun <T : Any> set(key: String, value: T) {
         customProperties[key] = value
     }
 }

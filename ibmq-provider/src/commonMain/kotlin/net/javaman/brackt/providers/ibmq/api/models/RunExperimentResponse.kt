@@ -16,7 +16,7 @@ data class RunExperimentResponse(
     val hubInfo: ExperimentHubInfoResponse,
     val liveDataEnabled: Boolean,
     val codeId: String,
-    val code: String,
+    val code: String? = null,
     val name: String? = null,
     val tags: List<String>? = null,
     val id: String,

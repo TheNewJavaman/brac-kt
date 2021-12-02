@@ -1,5 +1,6 @@
 package net.javaman.brackt.api.util.injections
 
+import net.javaman.brackt.api.util.logging.Logger
 import kotlin.jvm.JvmStatic
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty

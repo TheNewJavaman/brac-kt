@@ -33,8 +33,10 @@ kotlin {
                 implementation("io.ktor:ktor-client-cio:1.6.5")
                 implementation("io.ktor:ktor-client-serialization:1.6.5")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC")
             }
         }
+        val jvmMain by getting {}
         val jvmTest by getting {
             dependencies {
                 implementation("org.junit.jupiter:junit-jupiter:5.7.0")
@@ -46,10 +48,11 @@ kotlin {
 detekt {
     this.source = objects.fileCollection().from(
         "src/commonMain/kotlin",
+        "src/jvmMain/kotlin",
         "src/jvmTest/kotlin"
     )
 }
 
-tasks.withType<Test> {
+tasks.withType<Test>().getByName("jvmTest") {
     useJUnitPlatform()
 }

@@ -15,7 +15,7 @@ class Logger(val className: String) {
         @JvmStatic
         var acceptableLevel: LoggingLevel = LoggingLevel.INFO
 
-        const val CLASS_NAME_CHARS = 48
+        const val CLASS_NAME_CHARS = 64
 
         @JvmStatic
         val LEVEL_CHARS = LoggingLevel.values().maxOf { it.name.length }

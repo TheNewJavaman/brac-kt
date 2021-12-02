@@ -8,9 +8,16 @@ import net.javaman.brackt.providers.ibmq.api.models.LogInWithTokenRequest
 import net.javaman.brackt.providers.ibmq.api.models.QasmVersion
 import net.javaman.brackt.providers.ibmq.api.models.RunExperimentRequest
 import net.javaman.brackt.providers.ibmq.api.models.VersionsRequest
+import net.javaman.brackt.providers.ibmq.transpiler.QasmProgram
 
 object TestData {
     private val propertyManager: PropertyManager by injection()
+
+    @JvmStatic
+    val API_TOKEN = propertyManager.get<String>("IBMQ_API_TOKEN")
+
+    @JvmStatic
+    val CODE_ID = propertyManager.get<String>("IBMQ_CODE_ID")
 
     const val NETWORK = "ibm-q"
     const val GROUP = "open"
@@ -31,7 +38,7 @@ object TestData {
 
     @JvmStatic
     val LOG_IN_WITH_TOKEN_REQUEST = LogInWithTokenRequest(
-        apiToken = propertyManager.getProperty("IBMQ_API_TOKEN")
+        apiToken = API_TOKEN
     )
 
     @JvmStatic
@@ -45,18 +52,28 @@ object TestData {
     )
 
     @JvmStatic
+    val ID_CODE = QasmProgram.randomIdCode()
+
+    @JvmStatic
     val RUN_EXPERIMENT_REQUEST = RunExperimentRequest(
         qasms = listOf(EXPERIMENT_QASM_REQUEST),
         backend = EXPERIMENT_BACKEND_REQUEST,
-        codeId = propertyManager.getProperty("IBMQ_CODE_ID")
+        codeId = ID_CODE
     )
 
     @JvmStatic
     val VERSIONS_REQUEST = VersionsRequest(
-        idCode = propertyManager.getProperty("IBMQ_ID_CODE"),
+        idCode = CODE_ID,
         name = "Untitled circuit",
         qasm = QASM,
         codeType = QasmVersion.QASM2,
         userId = "KNOWN AT RUNTIME"
+    )
+
+    @JvmStatic
+    val QASM_PROGRAM = QasmProgram(
+        qasm = QASM,
+        version = QasmVersion.QASM2,
+        idCode = ID_CODE
     )
 }
