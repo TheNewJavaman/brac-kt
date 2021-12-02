@@ -32,8 +32,8 @@ class QuantumCircuitTest {
             h(qubitMap[1])
         }
         qc.compose {
-            run { hPairMacro onQubits listOf(0, 1) }
-            run { hPairMacro onQubits listOf(2, 3) }
+            runMacro { hPairMacro onQubits listOf(0, 1) }
+            runMacro { hPairMacro onQubits listOf(2, 3) }
         }
     }
 
@@ -57,8 +57,8 @@ class QuantumCircuitTest {
             cx(qubitMap[0], qubitMap[1])
         }
         qc.compose {
-            run { swapMacro onQubits listOf(0, 1) }
-            run { swapMacro onQubits listOf(0, 1) }
+            runMacro { swapMacro onQubits listOf(0, 1) }
+            runMacro { swapMacro onQubits listOf(0, 1) }
             repeat(n) { measure(qubit = it, bit = it) }
         }
     }

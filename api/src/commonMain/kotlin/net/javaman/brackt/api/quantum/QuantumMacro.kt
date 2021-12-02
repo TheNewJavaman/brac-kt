@@ -13,8 +13,8 @@ import net.javaman.brackt.api.util.assertions.assert
  *     h(qubitMap[1])
  * }
  * qc.compose {
- *     run { hPair onQubits listOf(0, 1) }
- *     run { hPair onQubits listOf(2, 3) }
+ *     runMacro { hPair onQubits listOf(0, 1) }
+ *     runMacro { hPair onQubits listOf(2, 3) }
  * }
  * ```
  */

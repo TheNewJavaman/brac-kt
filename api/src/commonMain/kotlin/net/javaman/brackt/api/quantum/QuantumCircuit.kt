@@ -35,7 +35,7 @@ class QuantumCircuit constructor(
 ) {
     fun compose(block: QuantumCircuit.() -> Unit) = block()
 
-    fun run(block: () -> Pair<QuantumMacro, QubitMap>) {
+    fun runMacro(block: () -> Pair<QuantumMacro, QubitMap>) {
         val (macro, qubitMap) = block()
         macro(this, qubitMap)
     }

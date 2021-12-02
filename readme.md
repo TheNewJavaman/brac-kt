@@ -40,14 +40,14 @@ Macro to swap two qubits; swap two qubits twice in a circuit, then measure:
 ```kotlin
 val n = 2
 val qc = QuantumCircuit(name = "Swap (N=$n)", numQubits = n)
-val swapMacro = QuantumMacro(numQubits = 2) { qubitMap ->
+val swap = QuantumMacro(numQubits = 2) { qubitMap ->
     cx(qubitMap[0], qubitMap[1])
     cx(qubitMap[1], qubitMap[0])
     cx(qubitMap[0], qubitMap[1])
 }
 qc.compose {
-    run { swapMacro onQubits listOf(0, 1) }
-    run { swapMacro onQubits listOf(0, 1) }
+    runMacro { swap onQubits listOf(0, 1) }
+    runMacro { swap onQubits listOf(0, 1) }
     repeat(n) { measure(qubit = it, bit = it) }
 }
 ```
