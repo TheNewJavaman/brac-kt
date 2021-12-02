@@ -27,7 +27,7 @@ import kotlin.math.PI
 @Suppress("TooManyFunctions") // Needs all QuantumGates
 class QuantumCircuit constructor(
     val name: String? = null,
-    val numQubits: Int = 5,
+    val numQubits: Int,
     val numBits: Int = numQubits,
     //private val qubits: List<Qubit> = List(numQubits) { Qubit(it) },
     //private val bits: List<Bit> = List(numBits) { Bit(it) },
@@ -101,5 +101,31 @@ class QuantumCircuit constructor(
                     -PI <= lambda && lambda <= PI
         }
         circuit.add(QuantumGate.U(qubit, theta, phi, lambda))
+    }
+
+    fun cx(controlQubit: Int, targetQubit: Int) {
+        assert {
+            controlQubit < numQubits &&
+                    targetQubit < numQubits &&
+                    controlQubit != targetQubit
+        }
+        circuit.add(QuantumGate.ControlledX(controlQubit, targetQubit))
+    }
+
+    fun cz(qubit1: Int, qubit2: Int) {
+        assert {
+            qubit1 < numQubits &&
+                    qubit2 < numQubits &&
+                    qubit1 != qubit2
+        }
+        circuit.add(QuantumGate.ControlledZ(qubit1, qubit2))
+    }
+
+    fun measure(qubit: Int, bit: Int) {
+        assert {
+            qubit < numQubits &&
+                    bit < numBits
+        }
+        circuit.add(QuantumGate.Measure(qubit, bit))
     }
 }

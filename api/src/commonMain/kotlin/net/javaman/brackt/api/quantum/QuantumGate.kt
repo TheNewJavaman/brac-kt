@@ -1,8 +1,9 @@
 package net.javaman.brackt.api.quantum
 
 /**
- * All necessary quantum operations are derived from this class. Should consider un-sealing this interface if providers
- * offer custom gates
+ * All necessary quantum operations are derived from this class
+ *
+ * Should consider un-sealing this interface if providers offer custom gates
  */
 sealed interface QuantumGate {
     data class Identity(val qubit: Int) : QuantumGate
@@ -16,4 +17,7 @@ sealed interface QuantumGate {
     data class TDagger(val qubit: Int) : QuantumGate
     data class Phase(val qubit: Int, val phi: Double) : QuantumGate
     data class U(val qubit: Int, val theta: Double, val phi: Double, val lambda: Double) : QuantumGate
+    data class ControlledX(val controlQubit: Int, val targetQubit: Int) : QuantumGate
+    data class ControlledZ(val qubit1: Int, val qubit2: Int) : QuantumGate
+    data class Measure(val qubit: Int, val bit: Int) : QuantumGate
 }

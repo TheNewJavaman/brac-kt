@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="4462.8335"
-   height="2231.4167"
-   viewBox="0 0 1180.7915 590.3957"
+   width="4400.0776"
+   height="2171.4895"
+   viewBox="0 0 1164.1874 574.53994"
    version="1.1"
    id="svg5"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
@@ -28,15 +28,15 @@
      showgrid="false"
      units="px"
      inkscape:showpageshadow="false"
-     inkscape:zoom="5.6568542"
-     inkscape:cx="4294.7014"
-     inkscape:cy="2187.7"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="2159.5041"
+     inkscape:cy="1353.4024"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      inkscape:snap-page="true"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -172,13 +172,49 @@
          result="composite2"
          id="feComposite7369" />
     </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter1158"
+       x="-0.018885457"
+       y="-0.036729431"
+       width="1.0431375"
+       height="1.0838961">
+      <feFlood
+         flood-opacity="0.552941"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood1148" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite1150" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="7.35786"
+         result="blur"
+         id="feGaussianBlur1152" />
+      <feOffset
+         dx="6.52174"
+         dy="6.52174"
+         result="offset"
+         id="feOffset1154" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite1156" />
+    </filter>
   </defs>
   <g
      inkscape:label="Background"
      inkscape:groupmode="layer"
      id="layer1"
      style="display:inline"
-     transform="translate(149.10381,58.292225)">
+     transform="translate(141.19931,50.294186)">
     <rect
        style="fill:#182f3a;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect952"
@@ -191,7 +227,7 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Symbols"
-     transform="translate(149.10381,58.292225)">
+     transform="translate(141.19931,50.294186)">
     <g
        id="g56142"
        style="display:inline;filter:url(#filter58794)"
@@ -203,7 +239,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:Quicksand;-inkscape-font-specification:Quicksand;white-space:pre;shape-inside:url(#rect37973);fill:#988c1f;fill-opacity:1;stroke:none"><tspan
            x="105.97852"
            y="37"
-           id="tspan1146">brac kt</tspan></text>
+           id="tspan1218">brac kt</tspan></text>
       <path
          style="display:inline;fill:none;stroke:#988c1f;stroke-width:10.5833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="M -23.257281,-5.6437301 -99.635911,126.64794 -23.257281,258.9396 -99.635911,126.64794 -23.257281,-5.6437301"
@@ -219,7 +255,7 @@
     </g>
     <path
        id="rect1010"
-       style="fill:none;stroke:#988c1f;stroke-width:10.5833;stroke-linecap:round;stroke-linejoin:round"
+       style="display:none;fill:none;stroke:#988c1f;stroke-width:10.5833;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter1158)"
        sodipodi:type="inkscape:offset"
        inkscape:radius="17.228422"
        inkscape:original="M -149.10352 -58.292969 L -149.10352 532.10352 L 1031.6875 532.10352 L 1031.6875 -58.292969 L -149.10352 -58.292969 z "

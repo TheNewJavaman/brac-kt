@@ -1,4 +1,4 @@
- [![Code Linting (Detekt)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/linting.yml/badge.svg)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/linting.yml) [![Publish Docs (Dokka)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/docs.yml/badge.svg)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/docs.yml) [![Tests (Kotlin Multiplatform)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/tests.yml/badge.svg)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/tests.yml)
+[![Code Linting (Detekt)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/linting.yml/badge.svg)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/linting.yml) [![Publish Docs (Dokka)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/docs.yml/badge.svg)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/docs.yml) [![Tests (Kotlin Multiplatform)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/tests.yml/badge.svg)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/tests.yml)
 
 <table>
 <tr>
@@ -17,11 +17,42 @@ A Kotlin/Multiplatform interface for quantum computing
 </td>
 </tr>
 </table>
-</p>
 
 ## Installation
 
 Import the root project into IntelliJ. Current version supports JDK 11 Corretto with Gradle 7.3
+
+## Examples
+
+Initialize and measure three qubits in superposition:
+
+```kotlin
+val n = 3
+val qc = QuantumCircuit(name = "Superposition (N=$n)", numQubits = n)
+qc.compose {
+    repeat(n) { h(qubit = it) }
+    repeat(n) { measure(qubit = it, bit = it) }
+}
+```
+
+Macro to swap two qubits; swap two qubits twice in a circuit, then measure:
+
+```kotlin
+val n = 2
+val qc = QuantumCircuit(name = "Swap (N=$n)", numQubits = n)
+val swapMacro = QuantumMacro(numQubits = 2) { qubitMap ->
+    cx(qubitMap[0], qubitMap[1])
+    cx(qubitMap[1], qubitMap[0])
+    cx(qubitMap[0], qubitMap[1])
+}
+qc.compose {
+    run { swapMacro onQubits listOf(0, 1) }
+    run { swapMacro onQubits listOf(0, 1) }
+    repeat(n) { measure(qubit = it, bit = it) }
+}
+```
+
+IBM Q examples coming soon. API client is done, transpiler is next
 
 ## Goals
 
@@ -34,7 +65,8 @@ What am I trying to accomplish?
         - Slow
         - Not very well adopted outside of data science
     - Kotlin has many improvements over Python:
-        - Multiplatform projects (like brac-kt) can compile to the JVM, JS, or native libs; can interop with each backend
+        - Multiplatform projects (like brac-kt) can compile to the JVM, JS, or native libs; can interop with each
+          backend
         - Type-safe, null-safe, etc.
         - Very fast, depends on the backend implementation
         - Each backend has its own plethora of use cases:
