@@ -1,6 +1,6 @@
 plugins {
     kotlin("multiplatform")
-    id("io.gitlab.arturbosch.detekt") version "1.19.0-RC2"
+    id("io.gitlab.arturbosch.detekt")
     id("org.jetbrains.dokka")
 }
 
@@ -27,9 +27,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(kotlin("stdlib-common"))
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.1")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC")
             }
         }
         val jvmMain by getting {}
