@@ -11,10 +11,12 @@ import kotlin.reflect.KProperty
  * ```kotlin
  * InjectionManager.add {
  *     one { PropertyManager() }
- *     many { Logger.fromKClass(it) }
+ *     one { IbmqApi() }
+ *     many { Logger(it) }
  * }
  * ```
- * There is one shared [PropertyManager] instance, but each [Logger] instance has its own class reference
+ * There are two shared [PropertyManager] and [IbmqApi] instances, but each [Logger] instance has its own class
+ * reference
  */
 class InjectionManager {
     companion object {
@@ -49,3 +51,5 @@ class InjectionManager {
  * Syntactic sugar for [InjectionManager]
  */
 fun injection() = InjectionManager()
+
+class UninitializedInjectionException(override val message: String) : Exception(message)

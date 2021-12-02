@@ -23,4 +23,17 @@ class QuantumCircuitTest {
             }
         }
     }
+
+    @Test
+    fun compose_withMacro() {
+        val qc = QuantumCircuit(numQubits = 4)
+        val hPair = QuantumMacro(numQubits = 2) { qubitMap ->
+            h(qubitMap[0])
+            h(qubitMap[1])
+        }
+        qc.compose {
+            run { hPair onQubits listOf(0, 1) }
+            run { hPair onQubits listOf(2, 3) }
+        }
+    }
 }

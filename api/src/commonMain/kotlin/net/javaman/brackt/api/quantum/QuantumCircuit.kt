@@ -5,6 +5,24 @@ import kotlin.math.PI
 
 /**
  * A named set of registers that hold [Qubit] and [Bit] lists
+ *
+ * To randomize three qubits:
+ * ```kotlin
+ * val qc = QuantumCircuit(name = "Basic Circuit", numQubits = 3, numBits = 3)
+ * qc.compose {
+ *     h(0)
+ *     h(1)
+ *     h(2)
+ * }
+ * ```
+ *
+ * Or use Kotlin's built-in functions:
+ * ```kotlin
+ * val qc = QuantumCircuit(name = "Basic Circuit", numQubits = 3, numBits = 3)
+ * qc.compose {
+ *     repeat(3) { h(it) }
+ * }
+ * ```
  */
 @Suppress("TooManyFunctions") // Needs all QuantumGates
 class QuantumCircuit constructor(
@@ -16,6 +34,11 @@ class QuantumCircuit constructor(
     private val circuit: MutableList<QuantumGate> = mutableListOf()
 ) {
     fun compose(block: QuantumCircuit.() -> Unit) = block()
+
+    fun run(block: () -> Pair<QuantumMacro, QubitMap>) {
+        val (macro, qubitMap) = block()
+        macro(this, qubitMap)
+    }
 
     fun i(qubit: Int) {
         assert { qubit < numQubits }

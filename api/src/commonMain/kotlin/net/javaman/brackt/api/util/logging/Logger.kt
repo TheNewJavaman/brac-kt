@@ -1,10 +1,9 @@
-package net.javaman.brackt.api.util.logger
+package net.javaman.brackt.api.util.logging
 
 import kotlinx.datetime.Clock
 import net.javaman.brackt.api.util.formatters.PadDirection
 import net.javaman.brackt.api.util.formatters.pretty
 import net.javaman.brackt.api.util.formatters.withLength
-import net.javaman.brackt.api.util.injections.FromKClassObject
 import kotlin.jvm.JvmStatic
 import kotlin.reflect.KClass
 
@@ -12,12 +11,9 @@ import kotlin.reflect.KClass
  * Prints well-formatted messages to the console using pure Kotlin and a clean syntax. Useful for multiplatform projects
  */
 class Logger(val className: String) {
-    companion object : FromKClassObject<Logger> {
+    companion object {
         @JvmStatic
         var acceptableLevel: LoggingLevel = LoggingLevel.INFO
-
-        @JvmStatic
-        override fun fromKClass(kClass: KClass<*>) = Logger(kClass)
 
         const val CLASS_NAME_CHARS = 48
 
@@ -42,4 +38,13 @@ class Logger(val className: String) {
     fun info(block: () -> Any) = log(LoggingLevel.INFO, block)
     fun debug(block: () -> Any) = log(LoggingLevel.DEBUG, block)
     fun trace(block: () -> Any) = log(LoggingLevel.TRACE, block)
+}
+
+@Suppress("MagicNumber") // Explicit severity levels is more transparent than enum ordinals
+enum class LoggingLevel(val severity: Int) {
+    ERROR(4),
+    WARN(3),
+    INFO(2),
+    DEBUG(1),
+    TRACE(0)
 }

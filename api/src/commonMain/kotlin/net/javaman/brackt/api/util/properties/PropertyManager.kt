@@ -8,3 +8,5 @@ expect class PropertyManager {
 
     fun <T : Any> setProperty(key: String, value: T)
 }
+
+class UninitializedPropertyException(override val message: String) : Exception(message)
