@@ -4,11 +4,9 @@ import io.ktor.client.features.ClientRequestException
 import net.javaman.brackt.api.BracKtApi
 import net.javaman.brackt.api.util.injections.injection
 import net.javaman.brackt.api.util.logging.Logger
-import net.javaman.brackt.providers.ibmq.TestData.API_TOKEN
-import net.javaman.brackt.providers.ibmq.TestData.CODE_ID
-import net.javaman.brackt.providers.ibmq.TestData.QASM_PROGRAM
+import net.javaman.brackt.api.util.properties.PropertyManager
+import net.javaman.brackt.providers.ibmq.TestData.NEW_REQUEST
 import net.javaman.brackt.providers.ibmq.TestData.RUN_EXPERIMENT_REQUEST
-import net.javaman.brackt.providers.ibmq.TestData.VERSIONS_REQUEST
 import org.junit.jupiter.api.MethodOrderer
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
@@ -17,6 +15,7 @@ import org.junit.jupiter.api.TestMethodOrder
 @TestMethodOrder(MethodOrderer.OrderAnnotation::class)
 class IbmqProviderTest {
     private val ibmqProvider: IbmqProvider by injection()
+    private val propertyManager: PropertyManager by injection()
     private val logger: Logger by injection()
 
     init {
@@ -27,7 +26,8 @@ class IbmqProviderTest {
     @Test
     @Order(1)
     fun logIn_ok() {
-        ibmqProvider.logIn(API_TOKEN)
+        val apiToken: String = propertyManager["IBMQ_API_TOKEN"]
+        ibmqProvider.logIn(apiToken)
     }
 
     @Test
@@ -81,19 +81,35 @@ class IbmqProviderTest {
 
     @Test
     @Order(7)
-    fun getJobs_ok() {
-        ibmqProvider.getJobs()
+    fun newExperiment_ok() {
+        val request = NEW_REQUEST
+        ibmqProvider.newExperiment(request)
     }
 
     @Test
     @Order(8)
-    fun getJobsLimit_ok() {
-        ibmqProvider.getJobsLimit()
+    fun getExperiments_ok() {
+        ibmqProvider.getExperiments()
     }
 
     @Test
     @Order(9)
-    fun runExperiment_request_ok() {
+    fun updateExperiment_ok() {
+        val codeId = ibmqProvider.code.idCode!!
+        val request = ibmqProvider.code.copy(id = null)
+        ibmqProvider.updateExperiment(codeId, request)
+    }
+
+    @Test
+    @Order(10)
+    fun getExperiment_ok() {
+        val codeId = ibmqProvider.code.idCode!!
+        ibmqProvider.getExperiment(codeId)
+    }
+
+    @Test
+    @Order(11)
+    fun runExperiment_ok() {
         val request = RUN_EXPERIMENT_REQUEST
         try {
             ibmqProvider.runExperiment(request)
@@ -104,28 +120,14 @@ class IbmqProviderTest {
     }
 
     @Test
-    @Order(10)
-    fun runExperiment_program_ok() {
-        val program = QASM_PROGRAM
-        try {
-            ibmqProvider.runExperiment(program)
-        } catch (e: ClientRequestException) {
-            if ("REACHED_JOBS_LIMIT" !in e.message) throw e
-            else logger.info { "Maximum number of concurrent jobs reached. You really gotta get a better API key..." }
-        }
-    }
-
-    @Test
-    @Order(11)
-    fun updateExperiment_request_ok() {
-        val request = VERSIONS_REQUEST
-        ibmqProvider.updateExperiment(CODE_ID, request)
-    }
-
-    @Test
     @Order(12)
-    fun updateExperiment_program_ok() {
-        val program = QASM_PROGRAM
-        ibmqProvider.updateExperiment(CODE_ID, program)
+    fun getJobs_ok() {
+        ibmqProvider.getJobs()
+    }
+
+    @Test
+    @Order(13)
+    fun getJobsLimit_ok() {
+        ibmqProvider.getJobsLimit()
     }
 }

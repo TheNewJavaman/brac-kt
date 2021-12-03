@@ -1,3 +1,5 @@
+@file:Suppress("MatchingDeclarationName") // Keep the naming convention of the package
+
 package net.javaman.brackt.providers.ibmq.api.models
 
 import kotlinx.datetime.Instant

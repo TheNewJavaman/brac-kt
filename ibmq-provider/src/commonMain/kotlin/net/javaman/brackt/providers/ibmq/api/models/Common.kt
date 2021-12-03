@@ -6,29 +6,28 @@ import kotlinx.serialization.Required
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class VersionsRequest(
+data class CodeModel(
     @Required
     val description: Map<String, String> = mapOf("en" to ""),
     @Required
     val type: String = "Experiment",
     @Required
     val active: Boolean = true,
-    val idCode: String,
-    val name: String,
+    val versionId: Int? = null,
+    val idCode: String? = null,
+    @Required
+    val name: String = "Untitled Circuit",
     val qasm: String,
-    val codeType: QasmVersion,
     @Required
+    val codeType: QasmVersion = QasmVersion.QASM2,
     val creationDate: Instant = Clock.System.now(),
-    @Required
     val deleted: Boolean = false,
-    @Required
     val orderDate: Long = Clock.System.now().toEpochMilliseconds(),
-    @Required
     val userDeleted: Boolean = false,
     @Required
     val isPublic: Boolean = false,
-    @Required
     val lastUpdateDate: Instant = Clock.System.now(),
+    val id: String? = null,
     val userId: String
 )
 

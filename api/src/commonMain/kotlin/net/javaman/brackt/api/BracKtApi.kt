@@ -7,6 +7,9 @@ import kotlin.jvm.JvmStatic
 
 class BracKtApi private constructor() {
     companion object {
+        /**
+         * Add injections for this module
+         */
         @JvmStatic
         fun addInjections() = InjectionManager.add {
             many { Logger(it) }
