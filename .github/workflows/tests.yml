@@ -26,7 +26,6 @@ jobs:
       - name: Run tests
         env:
             IBMQ_API_TOKEN: ${{ secrets.IBMQ_API_TOKEN }}
-            IBMQ_CODE_ID: ${{ secrets.IBMQ_CODE_ID }}
         run: |
           chmod +x gradlew
           ./gradlew allTests
