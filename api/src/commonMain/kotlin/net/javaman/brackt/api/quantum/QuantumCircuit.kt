@@ -1,7 +1,6 @@
 package net.javaman.brackt.api.quantum
 
 import net.javaman.brackt.api.util.assertions.assert
-import kotlin.math.PI
 
 /**
  * A named set of registers that hold [Qubit] and [Bit] lists
@@ -31,8 +30,18 @@ class QuantumCircuit constructor(
     val numBits: Int = numQubits,
     //private val qubits: List<Qubit> = List(numQubits) { Qubit(it) },
     //private val bits: List<Bit> = List(numBits) { Bit(it) },
-    private val circuit: MutableList<QuantumGate> = mutableListOf()
+    val circuit: MutableList<QuantumGate> = mutableListOf()
 ) {
+    constructor(
+        name: String? = null,
+        numQubits: Int,
+        numBits: Int = numQubits,
+        circuit: MutableList<QuantumGate> = mutableListOf(),
+        block: QuantumCircuit.() -> Unit
+    ) : this(name, numQubits, numBits, circuit) {
+        block()
+    }
+
     fun compose(block: QuantumCircuit.() -> Unit) = block()
 
     fun runMacro(block: () -> Pair<QuantumMacro, QubitMap>) {
@@ -86,20 +95,12 @@ class QuantumCircuit constructor(
     }
 
     fun p(qubit: Int, phi: Double) {
-        assert {
-            qubit < numQubits &&
-                    -PI <= phi && phi <= PI
-        }
+        assert { qubit < numQubits }
         circuit.add(QuantumGate.Phase(qubit, phi))
     }
 
     fun u(qubit: Int, theta: Double, phi: Double, lambda: Double) {
-        assert {
-            qubit < numQubits &&
-                    -PI <= theta && theta <= PI &&
-                    -PI <= phi && phi <= PI &&
-                    -PI <= lambda && lambda <= PI
-        }
+        assert { qubit < numQubits }
         circuit.add(QuantumGate.U(qubit, theta, phi, lambda))
     }
 

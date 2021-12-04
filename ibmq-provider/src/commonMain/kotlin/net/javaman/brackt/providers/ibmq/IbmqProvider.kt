@@ -1,7 +1,12 @@
 package net.javaman.brackt.providers.ibmq
 
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.cio.CIO
+import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.features.json.serializer.KotlinxSerializer
+import io.ktor.client.request.get
+import net.javaman.brackt.api.quantum.QuantumCircuit
 import net.javaman.brackt.api.util.concurrency.runSync
-import net.javaman.brackt.api.util.formatters.censor
 import net.javaman.brackt.api.util.injections.InjectionManager
 import net.javaman.brackt.api.util.injections.injection
 import net.javaman.brackt.api.util.logging.Logger
@@ -9,23 +14,29 @@ import net.javaman.brackt.providers.ibmq.api.IbmqApi
 import net.javaman.brackt.providers.ibmq.api.models.ApiTokenResponse
 import net.javaman.brackt.providers.ibmq.api.models.BackendResponse
 import net.javaman.brackt.providers.ibmq.api.models.BackendsResponse
-import net.javaman.brackt.providers.ibmq.api.models.CodeModel
+import net.javaman.brackt.providers.ibmq.api.models.Code
+import net.javaman.brackt.providers.ibmq.api.models.JobResponse
 import net.javaman.brackt.providers.ibmq.api.models.JobsLimitResponse
 import net.javaman.brackt.providers.ibmq.api.models.JobsResponse
 import net.javaman.brackt.providers.ibmq.api.models.LastestResponse
 import net.javaman.brackt.providers.ibmq.api.models.LatestResponse
 import net.javaman.brackt.providers.ibmq.api.models.LogInWithTokenRequest
 import net.javaman.brackt.providers.ibmq.api.models.LogInWithTokenResponse
-import net.javaman.brackt.providers.ibmq.api.models.NetworkGroupResponse
-import net.javaman.brackt.providers.ibmq.api.models.NetworkProjectResponse
-import net.javaman.brackt.providers.ibmq.api.models.NetworkResponse
+import net.javaman.brackt.providers.ibmq.api.models.NetworkGroup
+import net.javaman.brackt.providers.ibmq.api.models.NetworkHub
+import net.javaman.brackt.providers.ibmq.api.models.NetworkProject
 import net.javaman.brackt.providers.ibmq.api.models.NetworksResponse
 import net.javaman.brackt.providers.ibmq.api.models.NewRequest
 import net.javaman.brackt.providers.ibmq.api.models.NewResponse
+import net.javaman.brackt.providers.ibmq.api.models.ResultDownloadUrlResponse
+import net.javaman.brackt.providers.ibmq.api.models.ResultResponse
+import net.javaman.brackt.providers.ibmq.api.models.RunExperimentBackend
+import net.javaman.brackt.providers.ibmq.api.models.RunExperimentQasm
 import net.javaman.brackt.providers.ibmq.api.models.RunExperimentRequest
 import net.javaman.brackt.providers.ibmq.api.models.RunExperimentResponse
 import net.javaman.brackt.providers.ibmq.api.models.VersionsRequest
 import net.javaman.brackt.providers.ibmq.api.models.VersionsResponse
+import net.javaman.brackt.providers.ibmq.transpiler.toQasm
 import kotlin.jvm.JvmStatic
 
 /**
@@ -36,16 +47,27 @@ class IbmqProvider {
     private val ibmqApi: IbmqApi by injection()
     private val logger: Logger by injection()
 
+    private val client = HttpClient(CIO) {
+        install(JsonFeature) {
+            serializer = KotlinxSerializer()
+        }
+    }
+
     lateinit var accessToken: String
     lateinit var userId: String
-    lateinit var network: NetworkResponse
-    lateinit var group: NetworkGroupResponse
-    lateinit var project: NetworkProjectResponse
+    lateinit var network: NetworkHub
+    lateinit var group: NetworkGroup
+    lateinit var project: NetworkProject
     lateinit var device: BackendResponse
-    lateinit var code: CodeModel
+    lateinit var code: Code
+    lateinit var jobId: String
 
     companion object {
         const val DEVICE_STATUS_ACTIVE = "active"
+        const val JOB_STATUS_COMPLETE = "COMPLETED"
+        const val JOB_TIMEOUT_MINUTES = 10
+        const val JOB_POLL_RATE_MS = 2_000L
+        const val JOB_LOG_RATE_MS = 10_000
 
         /**
          * Add injections for this module
@@ -61,7 +83,7 @@ class IbmqProvider {
      * Log in using an API token; for JVM, pass an environment variable from [PropertyManager]
      */
     fun logIn(apiToken: String): LogInWithTokenResponse {
-        logger.info { "Logging in with apiToken (${apiToken.censor()})" }
+        logger.info { "Logging in with an API token" }
         val request = LogInWithTokenRequest(apiToken)
         val response = runSync { ibmqApi.logInWithToken(request) }
         accessToken = response.id
@@ -156,7 +178,7 @@ class IbmqProvider {
      */
     fun runExperiment(request: RunExperimentRequest): RunExperimentResponse {
         logger.info { "Running an experiment" }
-        return runSync {
+        val response = runSync {
             ibmqApi.runExperiment(
                 accessToken,
                 request,
@@ -165,7 +187,28 @@ class IbmqProvider {
                 project.name
             )
         }
+        jobId = response.id
+        return response
     }
+
+    /**
+     * Run a [QuantumCircuit] on a device
+     */
+    fun runExperiment(qc: QuantumCircuit, shots: Int = 1024, name: String = "") = runExperiment(
+        RunExperimentRequest(
+            qasms = listOf(
+                RunExperimentQasm(
+                    qasm = qc.toQasm()
+                )
+            ),
+            backend = RunExperimentBackend(
+                name = device.name
+            ),
+            codeId = "",
+            shots = shots,
+            name = name
+        )
+    )
 
     /**
      * Upload a new version to a saved circuit
@@ -204,6 +247,34 @@ class IbmqProvider {
         code = response
         return response
     }
+
+    /**
+     * Get the status of a run
+     */
+    fun getRun(jobId: String): JobResponse {
+        logger.info { "Getting the status of a job" }
+        return runSync { ibmqApi.job(accessToken, jobId) }
+    }
+
+    /**
+     * Get a URL for the results of a run
+     */
+    fun getResultDownloadUrl(jobId: String): ResultDownloadUrlResponse {
+        logger.info { "Getting result download URL" }
+        return runSync { ibmqApi.resultDownloadUrl(accessToken, jobId) }
+    }
+
+    /**
+     * Get the results of a run from a URL
+     */
+    fun getResult(url: String): ResultResponse {
+        logger.info { "Getting results from a URL" }
+        val response = runSync { client.get<ResultResponse>(url) }
+        logger.info { "Received results download with size (${response.results.size})" }
+        return response
+    }
 }
 
 class DeviceNotAvailableException(message: String) : Exception(message)
+
+class JobTimeoutException(message: String) : Exception(message)

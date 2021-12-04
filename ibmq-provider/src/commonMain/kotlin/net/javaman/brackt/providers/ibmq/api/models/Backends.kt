@@ -17,16 +17,16 @@ data class BackendResponse(
     val isSimulator: Boolean,
     val quantumVolume: Int? = null,
     val clops: Int? = null,
-    val processorType: BackendProcessorTypeResponse,
+    val processorType: BackendProcessorType,
     val revision: Double? = null,
-    val deviceStatus: BackendDeviceStatusResponse,
+    val deviceStatus: BackendDeviceStatus,
     val queueLength: Int,
     val inputAllowed: List<String>,
     val category: String? = null
 )
 
 @Serializable
-data class BackendProcessorTypeResponse(
+data class BackendProcessorType(
     val family: String,
     val description: String? = null,
     val revision: Double? = null,
@@ -34,7 +34,7 @@ data class BackendProcessorTypeResponse(
 )
 
 @Serializable
-data class BackendDeviceStatusResponse(
+data class BackendDeviceStatus(
     val state: Boolean,
     val status: String,
     val message: String

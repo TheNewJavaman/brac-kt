@@ -1,6 +1,7 @@
 package net.javaman.brackt.api.quantum
 
 import net.javaman.brackt.api.util.assertions.assert
+import kotlin.jvm.JvmStatic
 
 /**
  * Allows creating reusable pieces of [QuantumCircuit]s.
@@ -18,14 +19,35 @@ import net.javaman.brackt.api.util.assertions.assert
  * }
  * ```
  */
-class QuantumMacro private constructor(val block: QuantumCircuit.(qubitMap: QubitMap) -> Unit) {
-    constructor(numQubits: Int, macro: QuantumCircuit.(qubitMap: QubitMap) -> Unit) : this({ qubitMap ->
-        assert { numQubits == qubitMap.size }
-        macro(qubitMap)
-    })
+class QuantumMacro(val numQubits: Int, val macro: QuantumCircuit.(qubitMap: QubitMap) -> Unit) {
+    var safeMacro: QuantumCircuit.(qubitMap: QubitMap) -> Unit
+
+    companion object {
+        @JvmStatic
+        val swap = QuantumMacro(numQubits = 2) { qubitMap ->
+            cx(qubitMap[0], qubitMap[1])
+            cx(qubitMap[1], qubitMap[0])
+            cx(qubitMap[0], qubitMap[1])
+        }
+
+        @JvmStatic
+        val cz = QuantumMacro(numQubits = 2) { qubitMap ->
+            h(qubitMap[0])
+            cx(qubitMap[1], qubitMap[0])
+            h(qubitMap[0])
+        }
+    }
+
+    init {
+        val thisMacro = this
+        safeMacro = { qubitMap ->
+            assert { thisMacro.numQubits == qubitMap.size }
+            macro(qubitMap)
+        }
+    }
 
     operator fun invoke(qc: QuantumCircuit, qubitMap: QubitMap) {
-        block(qc, qubitMap)
+        safeMacro(qc, qubitMap)
     }
 
     infix fun onQubits(qubitMap: QubitMap) = Pair(this, qubitMap)

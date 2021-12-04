@@ -5,42 +5,36 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class JobsResponse(
-    val meta: JobsMetaResponse,
-    val items: List<JobsItemResponse>
+    val meta: JobsMeta,
+    val items: List<JobsItem>
 )
 
 @Serializable
-data class JobsMetaResponse(
+data class JobsMeta(
     val skip: Int,
     val limit: Int,
     val count: Int
 )
 
 @Serializable
-data class JobsItemResponse(
+data class JobsItem(
     val id: String,
-    val backend: JobsBackendResponse,
+    val backend: Backend,
     val runMode: String? = null,
     val status: String,
     val creationDate: Instant,
     val name: String? = null,
     val tags: List<String>,
     val liveDataEnabled: Boolean,
-    val provider: JobsProviderResponse,
+    val provider: JobsItemProvider,
     val userId: String,
     val endDate: Instant? = null,
     val createdBy: String,
-    val infoQueue: JobsInfoQueueResponse? = null
+    val infoQueue: JobsItemInfoQueue? = null
 )
 
 @Serializable
-data class JobsBackendResponse(
-    val name: String,
-    val id: String
-)
-
-@Serializable
-data class JobsProviderResponse(
+data class JobsItemProvider(
     val hub: String,
     val group: String,
     val project: String,
@@ -48,7 +42,7 @@ data class JobsProviderResponse(
 )
 
 @Serializable
-data class JobsInfoQueueResponse(
+data class JobsItemInfoQueue(
     val status: String,
     val position: Int,
     val hubPriority: Double,

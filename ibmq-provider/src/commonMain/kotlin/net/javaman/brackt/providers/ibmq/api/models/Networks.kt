@@ -6,10 +6,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 
-typealias NetworksResponse = List<NetworkResponse>
+typealias NetworksResponse = List<NetworkHub>
 
 @Serializable
-data class NetworkResponse(
+data class NetworkHub(
     val name: String,
     val title: String,
     val description: String,
@@ -25,43 +25,43 @@ data class NetworkResponse(
     val ownerId: String,
     val device: List<String>,
     val priority: Int,
-    val groups: Map<String, NetworkGroupResponse>,
+    val groups: Map<String, NetworkGroup>,
 )
 
 @Serializable
-data class NetworkGroupResponse(
+data class NetworkGroup(
     val name: String,
     val title: String,
     val isDefault: Boolean,
     val description: String,
     val creationDate: Instant,
     val deleted: Boolean,
-    val projects: Map<String, NetworkProjectResponse>
+    val projects: Map<String, NetworkProject>
 )
 
 @Serializable
-data class NetworkProjectResponse(
+data class NetworkProject(
     val name: String,
     val title: String,
     val isDefault: Boolean,
     val description: String,
     val creationDate: Instant,
     val deleted: Boolean,
-    val devices: Map<String, NetworkDeviceResponse>,
+    val devices: Map<String, NetworkDevice>,
     val users: Map<String, @Contextual Any>
 )
 
 @Serializable
-data class NetworkDeviceResponse(
+data class NetworkDevice(
     val priority: Int,
     val name: String,
     val deleted: Boolean,
     val specificConfiguration: Map<String, JsonElement>? = null,
-    val configuration: NetworkConfigurationResponse? = null
+    val configuration: NetworkDeviceConfiguration? = null
 )
 
 @Serializable
-data class NetworkConfigurationResponse(
+data class NetworkDeviceConfiguration(
     val limit: Int? = null,
     val capabilities: Map<String, JsonElement>
 )

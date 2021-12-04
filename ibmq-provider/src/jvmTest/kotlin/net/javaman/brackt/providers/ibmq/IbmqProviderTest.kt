@@ -2,6 +2,7 @@ package net.javaman.brackt.providers.ibmq
 
 import io.ktor.client.features.ClientRequestException
 import net.javaman.brackt.api.BracKtApi
+import net.javaman.brackt.api.quantum.QuantumCircuit
 import net.javaman.brackt.api.util.injections.injection
 import net.javaman.brackt.api.util.logging.Logger
 import net.javaman.brackt.api.util.properties.PropertyManager
@@ -129,5 +130,33 @@ class IbmqProviderTest {
     @Order(13)
     fun getJobsLimit_ok() {
         ibmqProvider.getJobsLimit()
+    }
+
+    @Test
+    @Order(14)
+    fun runExperimentAndWait_qasm_ok() {
+        val request = RUN_EXPERIMENT_REQUEST
+        try {
+            ibmqProvider.runExperiment(request).andWait()
+        } catch (e: ClientRequestException) {
+            if ("REACHED_JOBS_LIMIT" !in e.message) throw e
+            else logger.info { "Maximum number of concurrent jobs reached. You really gotta get a better API key..." }
+        }
+    }
+
+    @Test
+    @Order(15)
+    fun runExperiment_compose_ok() {
+        val n = 3
+        val qc = QuantumCircuit(numQubits = n) {
+            repeat(n) { h(it) }
+            repeat(n) { measure(it, it) }
+        }
+        try {
+            ibmqProvider.runExperiment(qc).andWait()
+        } catch (e: ClientRequestException) {
+            if ("REACHED_JOBS_LIMIT" !in e.message) throw e
+            else logger.info { "Maximum number of concurrent jobs reached. You really gotta get a better API key..." }
+        }
     }
 }

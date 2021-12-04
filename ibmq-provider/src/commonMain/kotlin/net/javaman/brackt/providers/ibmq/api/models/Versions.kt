@@ -1,5 +1,5 @@
 package net.javaman.brackt.providers.ibmq.api.models
 
-typealias VersionsRequest = CodeModel
+typealias VersionsRequest = Code
 
-typealias VersionsResponse = CodeModel
+typealias VersionsResponse = Code

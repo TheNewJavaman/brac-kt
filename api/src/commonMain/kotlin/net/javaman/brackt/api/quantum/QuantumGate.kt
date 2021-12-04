@@ -3,9 +3,9 @@ package net.javaman.brackt.api.quantum
 /**
  * All necessary quantum operations are derived from this class
  *
- * Should consider un-sealing this interface if providers offer custom gates
+ * Custom providers can implement this interface and write extensions for [QuantumCircuit]
  */
-sealed interface QuantumGate {
+interface QuantumGate {
     data class Identity(val qubit: Int) : QuantumGate
     data class PauliX(val qubit: Int) : QuantumGate
     data class PauliY(val qubit: Int) : QuantumGate

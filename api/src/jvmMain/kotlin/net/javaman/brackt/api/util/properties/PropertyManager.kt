@@ -10,7 +10,7 @@ actual class PropertyManager {
         val allProperties = mutableMapOf<String, Any>()
         allProperties.putAll(customProperties)
         allProperties.putAll(System.getenv())
-        val value = allProperties[key] ?: throw UninitializedPropertyException("Could not find key=$key")
+        val value = allProperties[key] ?: throw UninitializedPropertyException("Could not find key ($key)")
         return value as T
     }
 

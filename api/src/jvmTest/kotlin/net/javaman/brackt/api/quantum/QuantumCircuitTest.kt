@@ -70,10 +70,10 @@ class QuantumCircuitTest {
         qc.compose {
             // Initialize all qubits in superposition
             repeat(n) { h(it) }
-            cz(0, 1)
+// todo cz
             repeat(n) { h(it) }
             repeat(n) { z(it) }
-            cz(0, 1)
+// todo cz
             repeat(n) { h(it) }
         }
     }

@@ -14,6 +14,7 @@ import net.javaman.brackt.api.util.injections.injection
 import net.javaman.brackt.api.util.logging.Logger
 import net.javaman.brackt.providers.ibmq.api.models.ApiTokenResponse
 import net.javaman.brackt.providers.ibmq.api.models.BackendsResponse
+import net.javaman.brackt.providers.ibmq.api.models.JobResponse
 import net.javaman.brackt.providers.ibmq.api.models.JobsLimitResponse
 import net.javaman.brackt.providers.ibmq.api.models.JobsResponse
 import net.javaman.brackt.providers.ibmq.api.models.LastestResponse
@@ -23,6 +24,7 @@ import net.javaman.brackt.providers.ibmq.api.models.LogInWithTokenResponse
 import net.javaman.brackt.providers.ibmq.api.models.NetworksResponse
 import net.javaman.brackt.providers.ibmq.api.models.NewRequest
 import net.javaman.brackt.providers.ibmq.api.models.NewResponse
+import net.javaman.brackt.providers.ibmq.api.models.ResultDownloadUrlResponse
 import net.javaman.brackt.providers.ibmq.api.models.RunExperimentRequest
 import net.javaman.brackt.providers.ibmq.api.models.RunExperimentResponse
 import net.javaman.brackt.providers.ibmq.api.models.VersionsRequest
@@ -207,6 +209,30 @@ class IbmqApi {
             body = request
         }
         logger.info { "Received code with codeId (${response.idCode})" }
+        return response
+    }
+
+    /**
+     * Get the status of a specific job
+     */
+    suspend fun job(accessToken: String, jobId: String): JobResponse {
+        logger.info { "Requesting the status of job ($jobId)" }
+        val response = client.get<JobResponse>("$BASE_API_URL/jobs/$jobId/v/1") {
+            header(ACCESS_TOKEN_HEADER, accessToken)
+        }
+        logger.info { "Received job with status (${response.status})" }
+        return response
+    }
+
+    /**
+     * Get a URL to download the results of a job
+     */
+    suspend fun resultDownloadUrl(accessToken: String, jobId: String): ResultDownloadUrlResponse {
+        logger.info { "Requesting result download URL for job ($jobId)" }
+        val response = client.get<ResultDownloadUrlResponse>("$BASE_API_URL/jobs/$jobId/resultDownloadUrl") {
+            header(ACCESS_TOKEN_HEADER, accessToken)
+        }
+        logger.info { "Received result download URL" }
         return response
     }
 }

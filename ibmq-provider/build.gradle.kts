@@ -1,27 +1,29 @@
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization") version "1.6.0"
-    id("io.gitlab.arturbosch.detekt")
+    kotlin("plugin.serialization")
     id("org.jetbrains.dokka")
 }
-
-group = "net.javaman"
-version = "0.1.0"
 
 repositories {
     mavenCentral()
 }
 
+val jvmTarget: String by ext
+val datetimeVersion: String by ext
+val coroutinesVersion: String by ext
+val ktorVersion: String by ext
+val jupiterVersion: String by ext
+
 kotlin {
     jvm {
         val main by compilations.getting {
             kotlinOptions {
-                jvmTarget = "11"
+                jvmTarget = jvmTarget
             }
         }
         val test by compilations.getting {
             kotlinOptions {
-                jvmTarget = "11"
+                jvmTarget = jvmTarget
             }
         }
     }
@@ -29,16 +31,19 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(project(":api"))
-                implementation("io.ktor:ktor-client-core:1.6.5")
-                implementation("io.ktor:ktor-client-cio:1.6.5")
-                implementation("io.ktor:ktor-client-serialization:1.6.5")
-                api("org.jetbrains.kotlinx:kotlinx-datetime:0.3.1")
+                implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("io.ktor:ktor-client-cio:$ktorVersion")
+                implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+                api("org.jetbrains.kotlinx:kotlinx-datetime:$datetimeVersion")
             }
         }
         val jvmTest by getting {
             dependencies {
-                implementation("org.junit.jupiter:junit-jupiter:5.7.0")
+                implementation("org.junit.jupiter:junit-jupiter:$jupiterVersion")
             }
+        }
+        all {
+            languageSettings.optIn("kotlin.RequiresOptIn")
         }
     }
 }

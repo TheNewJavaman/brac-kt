@@ -6,7 +6,7 @@ import kotlinx.serialization.Required
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class CodeModel(
+data class Code(
     @Required
     val description: Map<String, String> = mapOf("en" to ""),
     @Required
@@ -35,3 +35,21 @@ data class CodeModel(
 enum class QasmVersion {
     QASM2
 }
+
+@Serializable
+data class Backend(
+    val id: String? = null,
+    val name: String
+)
+
+@Serializable
+data class HubInfo(
+    val hub: HubInfoName,
+    val group: HubInfoName,
+    val project: HubInfoName
+)
+
+@Serializable
+data class HubInfoName(
+    val name: String
+)

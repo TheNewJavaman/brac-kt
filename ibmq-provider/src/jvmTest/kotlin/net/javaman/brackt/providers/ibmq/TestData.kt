@@ -1,9 +1,9 @@
 package net.javaman.brackt.providers.ibmq
 
 import net.javaman.brackt.api.util.injections.injection
-import net.javaman.brackt.providers.ibmq.api.models.CodeModel
-import net.javaman.brackt.providers.ibmq.api.models.ExperimentBackendRequest
-import net.javaman.brackt.providers.ibmq.api.models.ExperimentQasmRequest
+import net.javaman.brackt.providers.ibmq.api.models.Code
+import net.javaman.brackt.providers.ibmq.api.models.RunExperimentBackend
+import net.javaman.brackt.providers.ibmq.api.models.RunExperimentQasm
 import net.javaman.brackt.providers.ibmq.api.models.RunExperimentRequest
 
 object TestData {
@@ -26,7 +26,7 @@ object TestData {
 
     @JvmStatic
     val NEW_REQUEST by lazy {
-        CodeModel(
+        Code(
             qasm = QASM,
             userId = ibmqProvider.userId
         )
@@ -35,12 +35,12 @@ object TestData {
     @JvmStatic
     val RUN_EXPERIMENT_REQUEST by lazy {
         RunExperimentRequest(
-            backend = ExperimentBackendRequest(
+            backend = RunExperimentBackend(
                 name = ibmqProvider.device.name
             ),
             codeId = ibmqProvider.code.idCode!!,
             qasms = listOf(
-                ExperimentQasmRequest(
+                RunExperimentQasm(
                     qasm = QASM
                 )
             )

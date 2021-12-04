@@ -4,37 +4,39 @@ plugins {
     id("org.jetbrains.dokka")
 }
 
-group = "net.javaman"
-version = "0.1.0"
-
 repositories {
     mavenCentral()
 }
+
+val jvmTarget: String by ext
+val datetimeVersion: String by ext
+val coroutinesVersion: String by ext
+val jupiterVersion: String by ext
 
 kotlin {
     jvm {
         val main by compilations.getting {
             kotlinOptions {
-                jvmTarget = "11"
+                jvmTarget = jvmTarget
             }
         }
         val test by compilations.getting {
             kotlinOptions {
-                jvmTarget = "11"
+                jvmTarget = jvmTarget
             }
         }
     }
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.1")
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:$datetimeVersion")
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
             }
         }
         val jvmMain by getting {}
         val jvmTest by getting {
             dependencies {
-                implementation("org.junit.jupiter:junit-jupiter:5.7.0")
+                implementation("org.junit.jupiter:junit-jupiter:$jupiterVersion")
             }
         }
     }
