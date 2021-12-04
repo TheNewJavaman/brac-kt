@@ -134,19 +134,7 @@ class IbmqProviderTest {
 
     @Test
     @Order(14)
-    fun runExperimentAndWait_qasm_ok() {
-        val request = RUN_EXPERIMENT_REQUEST
-        try {
-            ibmqProvider.runExperiment(request).andWait()
-        } catch (e: ClientRequestException) {
-            if ("REACHED_JOBS_LIMIT" !in e.message) throw e
-            else logger.info { "Maximum number of concurrent jobs reached. You really gotta get a better API key..." }
-        }
-    }
-
-    @Test
-    @Order(15)
-    fun runExperiment_compose_ok() {
+    fun runExperimentAndWait_ok() {
         val n = 3
         val qc = QuantumCircuit(numQubits = n) {
             repeat(n) { h(it) }

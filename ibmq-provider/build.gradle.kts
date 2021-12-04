@@ -48,6 +48,13 @@ kotlin {
     }
 }
 
+publishing {
+    publications.configureEach {
+        this as MavenPublication
+        artifactId = "brac-kt-$artifactId"
+    }
+}
+
 detekt {
     this.source = objects.fileCollection().from(
         "src/commonMain/kotlin",
