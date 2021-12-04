@@ -30,7 +30,7 @@ object Application {
 
         // Run the circuit on an IBM Quantum device
         // By default, brac-kt will choose a simulator with 5 or more qubits with the shortest queue
-        // Add your IBM API token as environment variable "IBMQ_API_TOKEN" within IntelliJ
+        // Add your IBM API token as environment variable IBMQ_API_TOKEN within IntelliJ
         val apiToken: String = propertyManager["IBMQ_API_TOKEN"]
         ibmqProvider.logIn(apiToken)
         ibmqProvider.selectNetwork()

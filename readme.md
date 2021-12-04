@@ -12,7 +12,7 @@ A Kotlin/Multiplatform interface for quantum computing
 <tr>
 <td colspan=2>
 <div align="center">
-<i>Named after bra-ket quantum notation (with "kt" for Kotlin)</i>
+<i>Named after bra-ket quantum notation (with "kt" for Kotlin), pronounced "bracket"</i>
 </div>
 </td>
 </tr>
@@ -20,7 +20,7 @@ A Kotlin/Multiplatform interface for quantum computing
 
 ## Installation
 
-Import the root project into IntelliJ. Current version supports JDK 11 Corretto with Gradle 7.3
+Import the root project into IntelliJ. Current version supports JDK 11 Temurin with Gradle 7.3
 
 ## Examples
 
@@ -49,7 +49,7 @@ object Application {
 
         // Run the circuit on an IBM Quantum device
         // By default, brac-kt will choose a simulator with 5 or more qubits with the shortest queue
-        // Add your IBM API token as environment variable "IBMQ_API_TOKEN" within IntelliJ
+        // Add your IBM API token as environment variable IBMQ_API_TOKEN within IntelliJ
         val apiToken: String = propertyManager["IBMQ_API_TOKEN"]
         ibmqProvider.logIn(apiToken)
         ibmqProvider.selectNetwork()
@@ -62,15 +62,16 @@ object Application {
 The example code will output:
 
 ```
-[2021-12-04 00:04:09.060] [...avaman.brackt.providers.ibmq.api.models.RunExperimentResponse] [INFO ] Qubit outcomes:
-[2021-12-04 00:04:09.060] [...avaman.brackt.providers.ibmq.api.models.RunExperimentResponse] [INFO ]     0x0: 0.12890625 (132/1024)
-[2021-12-04 00:04:09.060] [...avaman.brackt.providers.ibmq.api.models.RunExperimentResponse] [INFO ]     0x1: 0.12792969 (131/1024)
-[2021-12-04 00:04:09.060] [...avaman.brackt.providers.ibmq.api.models.RunExperimentResponse] [INFO ]     0x2: 0.13769531 (141/1024)
-[2021-12-04 00:04:09.060] [...avaman.brackt.providers.ibmq.api.models.RunExperimentResponse] [INFO ]     0x3: 0.12695312 (130/1024)
-[2021-12-04 00:04:09.060] [...avaman.brackt.providers.ibmq.api.models.RunExperimentResponse] [INFO ]     0x4: 0.1171875 (120/1024)
-[2021-12-04 00:04:09.060] [...avaman.brackt.providers.ibmq.api.models.RunExperimentResponse] [INFO ]     0x5: 0.12109375 (124/1024)
-[2021-12-04 00:04:09.060] [...avaman.brackt.providers.ibmq.api.models.RunExperimentResponse] [INFO ]     0x6: 0.109375 (112/1024)
-[2021-12-04 00:04:09.060] [...avaman.brackt.providers.ibmq.api.models.RunExperimentResponse] [INFO ]     0x7: 0.13085938 (134/1024)
+...
+[...] [INFO ] Qubit outcomes:
+[...] [INFO ]     0x0: 0.12890625 (132/1024)
+[...] [INFO ]     0x1: 0.12792969 (131/1024)
+[...] [INFO ]     0x2: 0.13769531 (141/1024)
+[...] [INFO ]     0x3: 0.12695312 (130/1024)
+[...] [INFO ]     0x4: 0.1171875 (120/1024)
+[...] [INFO ]     0x5: 0.12109375 (124/1024)
+[...] [INFO ]     0x6: 0.109375 (112/1024)
+[...] [INFO ]     0x7: 0.13085938 (134/1024)
 ```
 
 ## Goals
