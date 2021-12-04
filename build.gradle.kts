@@ -9,6 +9,10 @@ plugins {
     id("maven-publish")
 }
 
+repositories {
+    mavenCentral()
+}
+
 subprojects {
     group = "net.javaman.brac-kt"
     version = "0.1.0"
