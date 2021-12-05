@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
     id("org.jetbrains.dokka")
+    id("maven-publish")
 }
 
 repositories {
@@ -41,6 +42,9 @@ kotlin {
             dependencies {
                 implementation("org.junit.jupiter:junit-jupiter:$jupiterVersion")
             }
+            tasks.withType<Test> {
+                useJUnitPlatform()
+            }
         }
         all {
             languageSettings.optIn("kotlin.RequiresOptIn")
@@ -61,8 +65,4 @@ detekt {
         "src/jvmMain/kotlin",
         "src/jvmTest/kotlin"
     )
-}
-
-tasks.withType<Test>().getByName("jvmTest") {
-    useJUnitPlatform()
 }

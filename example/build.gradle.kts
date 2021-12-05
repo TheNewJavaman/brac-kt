@@ -5,11 +5,14 @@ plugins {
 
 repositories {
     mavenCentral()
+    maven {
+        url = uri("https://jitpack.io")
+    }
 }
 
 dependencies {
-    implementation(project(":api"))
-    implementation(project(":ibmq-provider"))
+    implementation("net.javaman.brac-kt:brac-kt-api:main-SNAPSHOT")
+    implementation("net.javaman.brac-kt:brac-kt-ibmq-provider:main-SNAPSHOT")
 }
 
 application {

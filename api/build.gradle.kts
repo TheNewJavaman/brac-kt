@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("io.gitlab.arturbosch.detekt")
     id("org.jetbrains.dokka")
+    id("maven-publish")
 }
 
 repositories {
@@ -23,6 +24,9 @@ kotlin {
         val test by compilations.getting {
             kotlinOptions {
                 jvmTarget = jvmTarget
+            }
+            tasks.withType<Test> {
+                useJUnitPlatform()
             }
         }
     }
@@ -55,8 +59,4 @@ detekt {
         "src/jvmMain/kotlin",
         "src/jvmTest/kotlin"
     )
-}
-
-tasks.withType<Test>().getByName("jvmTest") {
-    useJUnitPlatform()
 }
