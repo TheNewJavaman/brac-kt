@@ -22,11 +22,28 @@ A Kotlin/Multiplatform interface for quantum computing
 </tr>
 </table>
 
-## Installation
+## Setup
 
-Import the root project into IntelliJ. Current version supports JDK 11 Temurin with Gradle 7.3
+Include the following sections in your `build.gradle.kts`:
 
-## Examples
+```kotlin
+repositories {
+    mavenCentral()
+    maven {
+        url = uri("https://jitpack.io")
+    }
+}
+
+dependencies {
+    implementation("net.javaman.brac-kt:brac-kt-api:main-SNAPSHOT")
+    implementation("net.javaman.brac-kt:brac-kt-ibmq-provider:main-SNAPSHOT")
+}
+```
+
+The version `main-SNAPSHOT` represents the last successful build from this repository. If that's too experimental for
+you, replace it with the release version above (ex: `0.1.1`)
+
+## Example
 
 Check out the `example` subproject for a full, reproducible example. Here's the gist:
 
