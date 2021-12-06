@@ -1,6 +1,7 @@
 package net.javaman.brackt.api.quantum
 
 import net.javaman.brackt.api.util.assertions.assert
+import kotlin.jvm.JvmOverloads
 
 /**
  * A named set of registers that hold [Qubit] and [Bit] lists
@@ -24,7 +25,7 @@ import net.javaman.brackt.api.util.assertions.assert
  * ```
  */
 @Suppress("TooManyFunctions") // Needs all QuantumGates
-class QuantumCircuit constructor(
+class QuantumCircuit @JvmOverloads constructor(
     val name: String? = null,
     val numQubits: Int,
     val numBits: Int = numQubits,

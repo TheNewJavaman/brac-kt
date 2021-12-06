@@ -1,15 +1,14 @@
 @file:Suppress("MagicNumber")
 
-package net.javaman.brackt.examples.jvm
-
-import kotlinx.coroutines.runBlocking
 import net.javaman.brackt.api.BracKtApi
 import net.javaman.brackt.api.quantum.QuantumCircuit
 import net.javaman.brackt.api.util.injections.injection
 import net.javaman.brackt.api.util.properties.PropertyManager
 import net.javaman.brackt.providers.ibmq.IbmqProvider
 
-object ExampleJvmApplication {
+suspend fun main() = App.run()
+
+object App {
     // Dependencies are managed by InjectionManager
     private val propertyManager: PropertyManager by injection()
     private val ibmqProvider: IbmqProvider by injection()
@@ -19,8 +18,7 @@ object ExampleJvmApplication {
         IbmqProvider.addInjections()
     }
 
-    @JvmStatic
-    fun main(args: Array<String>): Unit = runBlocking { // runBlocking uses Kotlin's (speedy) coroutines
+    suspend fun run() { // suspend keyword allows using Kotlin's (speedy) coroutines
         // Create a basic quantum circuit: three qubits in superposition, then measured
         val n = 3
         val qc = QuantumCircuit(name = "Example Superposition", numQubits = 3) {

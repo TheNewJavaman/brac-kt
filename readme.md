@@ -48,7 +48,7 @@ you, replace it with the release version above (ex: `0.1.1`)
 Check out the example subprojects for full, reproducible examples. Here's the gist:
 
 ```kotlin
-object ExampleJvmApplication {
+object Application {
     // Dependencies are managed by InjectionManager
     private val propertyManager: PropertyManager by injection()
     private val ibmqProvider: IbmqProvider by injection()
@@ -93,6 +93,20 @@ The example code will output:
 [...] [INFO ]     0x6: 0.109375 (112/1024)
 [...] [INFO ]     0x7: 0.13085938 (134/1024)
 ```
+
+## Multiplatform Support
+
+If you plan on integrating with other languages (Java, JavaScript, TypeScript, etc.), I recommend creating a
+multi-language codebase. Although Kotlin can compile to raw JVM bytecode/JS exports, the syntax for invoking
+coroutines (functions that allow for asynchronous processing, namely APIs like IBM Q) is not straight-forward.
+
+Create a new Gradle project that supports Kotlin + another language. For example, an existing Java codebase can easily
+add Kotlin support through Gradle plugin `kotlin("jvm")` and source folder `src/main/kotlin`. New Kotlin codebases can
+use existing JavaScript modules (through NPM, for example) and transpile back into JavaScript. Use the examples to get
+started.
+
+More work will be done for calling Kotlin code from native languages. The end goal is to have easy access to Kotlin
+capabilities without having to integrate Kotlin source code into an existing codebase.
 
 ## Goals
 

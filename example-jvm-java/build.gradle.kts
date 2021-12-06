@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("jvm")
     application
@@ -5,16 +7,21 @@ plugins {
 
 repositories {
     mavenCentral()
-    maven {
-        url = uri("https://jitpack.io")
-    }
 }
+
+val jvmTarget: String by ext
 
 dependencies {
     implementation(project(":brac-kt-api"))
     implementation(project(":brac-kt-ibmq-provider"))
 }
 
+tasks.withType<KotlinCompile>().all {
+    kotlinOptions {
+        jvmTarget = jvmTarget
+    }
+}
+
 application {
-    mainClass.set("net.javaman.brackt.examples.jvm.ExampleJvmApplication")
+    mainClass.set("Application")
 }
