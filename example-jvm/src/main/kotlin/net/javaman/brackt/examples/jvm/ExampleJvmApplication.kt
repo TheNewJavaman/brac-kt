@@ -1,3 +1,5 @@
+@file:Suppress("MagicNumber")
+
 package net.javaman.brackt.examples.jvm
 
 import kotlinx.coroutines.runBlocking
