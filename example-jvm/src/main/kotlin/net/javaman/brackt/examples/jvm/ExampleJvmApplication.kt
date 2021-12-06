@@ -1,6 +1,4 @@
-@file:Suppress("MagicNumber")
-
-package net.javaman.brackt.example
+package net.javaman.brackt.examples.jvm
 
 import kotlinx.coroutines.runBlocking
 import net.javaman.brackt.api.BracKtApi
@@ -9,7 +7,7 @@ import net.javaman.brackt.api.util.injections.injection
 import net.javaman.brackt.api.util.properties.PropertyManager
 import net.javaman.brackt.providers.ibmq.IbmqProvider
 
-object ExampleApplication {
+object ExampleJvmApplication {
     // Dependencies are managed by InjectionManager
     private val propertyManager: PropertyManager by injection()
     private val ibmqProvider: IbmqProvider by injection()

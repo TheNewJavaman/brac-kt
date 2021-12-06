@@ -48,7 +48,7 @@ you, replace it with the release version above (ex: `0.1.1`)
 Check out the example subprojects for full, reproducible examples. Here's the gist:
 
 ```kotlin
-object ExampleApplication {
+object ExampleJvmApplication {
     // Dependencies are managed by InjectionManager
     private val propertyManager: PropertyManager by injection()
     private val ibmqProvider: IbmqProvider by injection()

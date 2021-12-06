@@ -16,5 +16,5 @@ dependencies {
 }
 
 application {
-    mainClass.set("net.javaman.brackt.example.ExampleApplication")
+    mainClass.set("net.javaman.brackt.examples.jvm.ExampleJvmApplication")
 }
