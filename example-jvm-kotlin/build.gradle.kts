@@ -11,10 +11,10 @@ repositories {
 }
 
 dependencies {
-    implementation("net.javaman.brac-kt:brac-kt-api:main-SNAPSHOT")
-    implementation("net.javaman.brac-kt:brac-kt-ibmq-provider:main-SNAPSHOT")
+    implementation(project(":brac-kt-api"))
+    implementation(project(":brac-kt-ibmq-provider"))
 }
 
 application {
-    mainClass.set("net.javaman.brackt.example.Application")
+    mainClass.set("net.javaman.brackt.example.ExampleApplication")
 }

@@ -13,6 +13,7 @@ val jvmTarget: String by ext
 val datetimeVersion: String by ext
 val ktorVersion: String by ext
 val jupiterVersion: String by ext
+val coroutinesVersion: String by ext
 
 kotlin {
     jvm {
@@ -48,6 +49,7 @@ kotlin {
                 api("org.jetbrains.kotlinx:kotlinx-datetime:$datetimeVersion")
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
             }
         }
         val commonTest by getting {

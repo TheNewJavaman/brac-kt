@@ -22,6 +22,7 @@ subprojects {
         set("datetimeVersion", "0.3.1")
         set("ktorVersion", "1.6.6")
         set("jupiterVersion", "5.7.0")
+        set("coroutinesVersion", "1.6.0-RC")
     }
 }
 
