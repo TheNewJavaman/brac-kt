@@ -2,4 +2,5 @@
 .idea/
 *.hprof
 
+build/
 */build/

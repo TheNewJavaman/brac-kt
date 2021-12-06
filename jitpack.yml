@@ -2,4 +2,4 @@ jdk:
   - openjdk11
 install:
   - chmod +x ./gradlew
-  - ./gradlew clean build publishToMavenLocal -x :ibmq-provider:jvmTest -x :api:jvmTest
+  - ./gradlew clean build publishToMavenLocal -x :brac-kt-api:jsBrowserTest -x :brac-kt-api:jsNodeTest -x :brac-kt-api:jvmTest -x :brac-kt-ibmq-provider:jsBrowserTest -x :brac-kt-ibmq-provider:jsNodeTest -x :brac-kt-ibmq-provider:jvmTest

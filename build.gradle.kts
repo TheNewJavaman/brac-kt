@@ -13,15 +13,14 @@ repositories {
 
 subprojects {
     group = "net.javaman.brac-kt"
-    version = "0.1.0"
+    version = "0.1.2"
 
     apply(plugin = "io.gitlab.arturbosch.detekt")
 
     ext {
         set("jvmTarget", "11")
         set("datetimeVersion", "0.3.1")
-        set("coroutinesVersion", "1.6.0-RC")
-        set("ktorVersion", "1.6.5")
+        set("ktorVersion", "1.6.6")
         set("jupiterVersion", "5.7.0")
     }
 }
