@@ -45,7 +45,7 @@ you, replace it with the release version above (ex: `0.1.1`)
 
 ## Example
 
-Check out the `example` subproject for a full, reproducible example. Here's the gist:
+Check out the example subprojects for full, reproducible examples. Here's the gist:
 
 ```kotlin
 object ExampleApplication {
