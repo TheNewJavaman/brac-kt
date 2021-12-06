@@ -39,6 +39,7 @@ kotlin {
                 useMocha {}
             }
         }
+        binaries.executable()
     }
     sourceSets {
         val commonMain by getting {
