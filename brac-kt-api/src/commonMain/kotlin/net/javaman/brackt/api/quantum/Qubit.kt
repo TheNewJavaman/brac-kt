@@ -13,26 +13,26 @@ data class Qubit(
 )
 
 data class QubitState(
-    val zeroAmpl: net.javaman.brackt.api.math.ComplexNumber,
-    val oneAmpl: net.javaman.brackt.api.math.ComplexNumber
+    val zeroAmpl: ComplexNumber,
+    val oneAmpl: ComplexNumber
 ) {
     companion object {
         @JvmStatic
         val ZERO = QubitState(
-            net.javaman.brackt.api.math.ComplexNumber(1.0, 0.0),
-            net.javaman.brackt.api.math.ComplexNumber(0.0, 0.0)
+            ComplexNumber(1.0, 0.0),
+            ComplexNumber(0.0, 0.0)
         )
 
         @JvmStatic
         val ONE = QubitState(
-            net.javaman.brackt.api.math.ComplexNumber(0.0, 0.0),
-            net.javaman.brackt.api.math.ComplexNumber(1.0, 0.0)
+            ComplexNumber(0.0, 0.0),
+            ComplexNumber(1.0, 0.0)
         )
 
         @JvmStatic
         val HADAMARD = QubitState(
-            net.javaman.brackt.api.math.ComplexNumber(sqrt(2.0) / 2.0, 0.0),
-            net.javaman.brackt.api.math.ComplexNumber(sqrt(2.0) / 2.0, 0.0)
+            ComplexNumber(sqrt(2.0) / 2.0, 0.0),
+            ComplexNumber(sqrt(2.0) / 2.0, 0.0)
         )
     }
 }

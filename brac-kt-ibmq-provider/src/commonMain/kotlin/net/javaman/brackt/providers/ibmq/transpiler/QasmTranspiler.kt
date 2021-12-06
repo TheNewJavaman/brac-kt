@@ -33,7 +33,3 @@ fun QuantumCircuit.toQasm(): String = (listOf(
         else -> throw UnsupportedOperationException("Unsupported gate (${it::class.simpleName})")
     }
 }).joinToString(";") + ";"
-
-fun QuantumMacro.toQasm(qubitMap: QubitMap) = QuantumCircuit(numQubits = numQubits) {
-    runMacro { onQubits(qubitMap) }
-}.toQasm()

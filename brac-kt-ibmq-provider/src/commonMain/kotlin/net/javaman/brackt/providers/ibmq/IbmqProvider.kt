@@ -30,6 +30,7 @@ import net.javaman.brackt.providers.ibmq.api.models.RunExperimentResponse
 import net.javaman.brackt.providers.ibmq.api.models.VersionsRequest
 import net.javaman.brackt.providers.ibmq.api.models.VersionsResponse
 import net.javaman.brackt.providers.ibmq.transpiler.toQasm
+import kotlin.js.JsName
 import kotlin.jvm.JvmStatic
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.minutes
@@ -109,6 +110,7 @@ class IbmqProvider {
     /**
      * Select a network manually using a lambda
      */
+    @JsName("selectNetworkWithPicker")
     suspend fun selectNetwork(picker: IbmqProvider.(NetworksResponse) -> Unit) {
         val response = ibmqApi.networks(accessToken)
         picker(this, response)
@@ -141,6 +143,7 @@ class IbmqProvider {
     /**
      * Select a device using a custom lambda
      */
+    @JsName("selectDeviceWithPicker")
     suspend fun selectDevice(picker: IbmqProvider.(BackendsResponse) -> Unit) {
         val response = ibmqApi.backends(accessToken)
         picker(this, response)
@@ -160,6 +163,7 @@ class IbmqProvider {
     /**
      * Run an experiment on a device
      */
+    @JsName("runExperimentWithRequest")
     suspend fun runExperiment(request: RunExperimentRequest): RunExperimentResponse {
         val response = ibmqApi.runExperiment(
             accessToken,
@@ -277,6 +281,7 @@ class IbmqProvider {
      * Run an experiment and wait for the job to complete
      */
     @OptIn(ExperimentalTime::class)
+    @JsName("runExperimentAndWaitWithRequest")
     suspend fun runExperimentAndWait(
         request: RunExperimentRequest,
         timeoutDuration: Duration = JOB_TIMEOUT_DURATION
