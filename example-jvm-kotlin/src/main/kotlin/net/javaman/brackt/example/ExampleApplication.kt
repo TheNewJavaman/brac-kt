@@ -20,7 +20,7 @@ object ExampleApplication {
     }
 
     @JvmStatic
-    fun main(args: Array<String>): Unit = runBlocking { // Use runBlocking to access IBM's API
+    fun main(args: Array<String>): Unit = runBlocking { // runBlocking uses Kotlin's (speedy) coroutines
         // Create a basic quantum circuit: three qubits in superposition, then measured
         val n = 3
         val qc = QuantumCircuit(name = "Example Superposition", numQubits = 3) {

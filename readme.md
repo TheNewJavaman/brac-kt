@@ -48,7 +48,7 @@ you, replace it with the release version above (ex: `0.1.1`)
 Check out the `example` subproject for a full, reproducible example. Here's the gist:
 
 ```kotlin
-object Application {
+object ExampleApplication {
     // Dependencies are managed by InjectionManager
     private val propertyManager: PropertyManager by injection()
     private val ibmqProvider: IbmqProvider by injection()
@@ -58,9 +58,8 @@ object Application {
         IbmqProvider.addInjections()
     }
 
-    // Run the program
     @JvmStatic
-    fun main(args: Array<String>) {
+    fun main(args: Array<String>): Unit = runBlocking { // runBlocking uses Kotlin's (speedy) coroutines
         // Create a basic quantum circuit: three qubits in superposition, then measured
         val n = 3
         val qc = QuantumCircuit(name = "Example Superposition", numQubits = 3) {
@@ -70,12 +69,12 @@ object Application {
 
         // Run the circuit on an IBM Quantum device
         // By default, brac-kt will choose a simulator with 5 or more qubits with the shortest queue
-        // Add your IBM API token as environment variable IBMQ_API_TOKEN within IntelliJ
+        // Add your IBM API token as environment variable IBMQ_API_TOKEN
         val apiToken: String = propertyManager["IBMQ_API_TOKEN"]
         ibmqProvider.logIn(apiToken)
         ibmqProvider.selectNetwork()
         ibmqProvider.selectDevice()
-        ibmqProvider.runExperiment(qc).andWait()
+        ibmqProvider.runExperimentAndWait(qc)
     }
 }
 ```
