@@ -1,12 +1,17 @@
+@file:OptIn(ExperimentalJsExport::class)
+
 package net.javaman.brackt.providers.ibmq.transpiler
 
 import net.javaman.brackt.api.quantum.QuantumCircuit
 import net.javaman.brackt.api.quantum.QuantumGate
 import net.javaman.brackt.api.quantum.QuantumMacro
 import net.javaman.brackt.api.quantum.QubitMap
+import kotlin.js.ExperimentalJsExport
+import kotlin.js.JsExport
 import kotlin.math.max
 
 @Suppress("ComplexMethod") // The conditionals are simple, there are just a lot of them
+@JsExport
 fun QuantumCircuit.toQasm(): String = (listOf(
     "OPENQASM 2.0",
     "include \"qelib1.inc\"",

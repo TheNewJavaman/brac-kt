@@ -1,10 +1,15 @@
+@file:OptIn(ExperimentalJsExport::class)
+
 package net.javaman.brackt.providers.ibmq.api.models
 
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Required
 import kotlinx.serialization.Serializable
+import kotlin.js.ExperimentalJsExport
+import kotlin.js.JsExport
 
+@JsExport
 @Serializable
 data class Code(
     @Required
@@ -36,12 +41,14 @@ enum class QasmVersion {
     QASM2
 }
 
+@JsExport
 @Serializable
 data class Backend(
     val id: String? = null,
     val name: String
 )
 
+@JsExport
 @Serializable
 data class HubInfo(
     val hub: HubInfoName,
@@ -49,6 +56,7 @@ data class HubInfo(
     val project: HubInfoName
 )
 
+@JsExport
 @Serializable
 data class HubInfoName(
     val name: String

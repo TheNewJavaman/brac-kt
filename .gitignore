@@ -1,6 +1,7 @@
 .gradle/
 .idea/
 *.hprof
-
 build/
 */build/
+*/node_modules/
+*/dist/

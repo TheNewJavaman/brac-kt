@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalJsExport::class)
+
 package net.javaman.brackt.providers.ibmq.api
 
 import io.ktor.client.request.get
@@ -25,6 +27,8 @@ import net.javaman.brackt.providers.ibmq.api.models.RunExperimentRequest
 import net.javaman.brackt.providers.ibmq.api.models.RunExperimentResponse
 import net.javaman.brackt.providers.ibmq.api.models.VersionsRequest
 import net.javaman.brackt.providers.ibmq.api.models.VersionsResponse
+import kotlin.js.ExperimentalJsExport
+import kotlin.js.JsExport
 
 /**
  * An HTTP client for [IBM Quantum](https://quantum-computing.ibm.com/)

@@ -1,9 +1,14 @@
+@file:OptIn(ExperimentalJsExport::class)
+
 package net.javaman.brackt.providers.ibmq.api.models
 
 import kotlinx.serialization.Serializable
+import kotlin.js.ExperimentalJsExport
+import kotlin.js.JsExport
 
 typealias BackendsResponse = List<BackendResponse>
 
+@JsExport
 @Serializable
 data class BackendResponse(
     val hasAccess: Boolean,
@@ -25,6 +30,7 @@ data class BackendResponse(
     val category: String? = null
 )
 
+@JsExport
 @Serializable
 data class BackendProcessorType(
     val family: String,
@@ -33,6 +39,7 @@ data class BackendProcessorType(
     val segment: String? = null
 )
 
+@JsExport
 @Serializable
 data class BackendDeviceStatus(
     val state: Boolean,

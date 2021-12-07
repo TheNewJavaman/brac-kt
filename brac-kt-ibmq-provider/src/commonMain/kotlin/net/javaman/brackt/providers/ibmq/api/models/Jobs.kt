@@ -1,14 +1,20 @@
+@file:OptIn(ExperimentalJsExport::class)
+
 package net.javaman.brackt.providers.ibmq.api.models
 
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
+import kotlin.js.ExperimentalJsExport
+import kotlin.js.JsExport
 
+@JsExport
 @Serializable
 data class JobsResponse(
     val meta: JobsMeta,
     val items: List<JobsItem>
 )
 
+@JsExport
 @Serializable
 data class JobsMeta(
     val skip: Int,
@@ -16,6 +22,7 @@ data class JobsMeta(
     val count: Int
 )
 
+@JsExport
 @Serializable
 data class JobsItem(
     val id: String,
@@ -33,6 +40,7 @@ data class JobsItem(
     val infoQueue: JobsItemInfoQueue? = null
 )
 
+@JsExport
 @Serializable
 data class JobsItemProvider(
     val hub: String,
@@ -41,6 +49,7 @@ data class JobsItemProvider(
     val backend: String
 )
 
+@JsExport
 @Serializable
 data class JobsItemInfoQueue(
     val status: String,

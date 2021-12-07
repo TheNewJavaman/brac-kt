@@ -1,6 +1,11 @@
+@file:OptIn(ExperimentalJsExport::class)
+
 package net.javaman.brackt.api.quantum
 
 import net.javaman.brackt.api.util.assertions.assert
+import kotlin.js.ExperimentalJsExport
+import kotlin.js.JsExport
+import kotlin.js.JsName
 import kotlin.jvm.JvmOverloads
 
 /**
@@ -25,6 +30,7 @@ import kotlin.jvm.JvmOverloads
  * ```
  */
 @Suppress("TooManyFunctions") // Needs all QuantumGates
+@JsExport
 class QuantumCircuit @JvmOverloads constructor(
     val name: String? = null,
     val numQubits: Int,
@@ -33,6 +39,7 @@ class QuantumCircuit @JvmOverloads constructor(
     //private val bits: List<Bit> = List(numBits) { Bit(it) },
     val circuit: MutableList<QuantumGate> = mutableListOf()
 ) {
+    @JsName("QuantumCircuitCompose")
     constructor(
         name: String? = null,
         numQubits: Int,

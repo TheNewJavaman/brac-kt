@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalJsExport::class)
+
 package net.javaman.brackt.api.util.logging
 
 import kotlinx.datetime.Clock
@@ -5,12 +7,16 @@ import net.javaman.brackt.api.util.formatters.PadDirection
 import net.javaman.brackt.api.util.formatters.pretty
 import net.javaman.brackt.api.util.formatters.withLength
 import net.javaman.brackt.api.util.reflection.getPlatformQualifiedName
+import kotlin.js.ExperimentalJsExport
+import kotlin.js.JsExport
+import kotlin.js.JsName
 import kotlin.jvm.JvmStatic
 import kotlin.reflect.KClass
 
 /**
  * Prints well-formatted messages to the console using pure Kotlin and a clean syntax. Useful for multiplatform projects
  */
+@JsExport
 class Logger(val className: String) {
     companion object {
         @JvmStatic
@@ -22,7 +28,7 @@ class Logger(val className: String) {
         val LEVEL_CHARS = LoggingLevel.values().maxOf { it.name.length }
     }
 
-    constructor(kClass: KClass<*>) : this(kClass.getPlatformQualifiedName())
+    @JsName("LoggerByClass") constructor(kClass: KClass<*>) : this(kClass.getPlatformQualifiedName())
 
     fun log(level: LoggingLevel, block: () -> Any) {
         if (acceptableLevel.severity <= level.severity) {

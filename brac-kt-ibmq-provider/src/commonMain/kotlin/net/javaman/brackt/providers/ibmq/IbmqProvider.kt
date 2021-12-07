@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalJsExport::class)
+
 package net.javaman.brackt.providers.ibmq
 
 import io.ktor.client.request.get
@@ -30,6 +32,8 @@ import net.javaman.brackt.providers.ibmq.api.models.RunExperimentResponse
 import net.javaman.brackt.providers.ibmq.api.models.VersionsRequest
 import net.javaman.brackt.providers.ibmq.api.models.VersionsResponse
 import net.javaman.brackt.providers.ibmq.transpiler.toQasm
+import kotlin.js.ExperimentalJsExport
+import kotlin.js.JsExport
 import kotlin.js.JsName
 import kotlin.jvm.JvmStatic
 import kotlin.time.Duration
@@ -60,7 +64,7 @@ class IbmqProvider {
 
         @OptIn(ExperimentalTime::class)
         @JvmStatic
-        private val JOB_TIMEOUT_DURATION = 5.minutes
+        val JOB_TIMEOUT_DURATION = 5.minutes
 
         @OptIn(ExperimentalTime::class)
         @JvmStatic
@@ -303,6 +307,8 @@ class IbmqProvider {
     }
 }
 
+@JsExport
 class DeviceNotAvailableException(message: String) : Exception(message)
 
+@JsExport
 class JobTimeoutException(message: String) : Exception(message)

@@ -1,9 +1,14 @@
+@file:OptIn(ExperimentalJsExport::class)
+
 package net.javaman.brackt.providers.ibmq.api.models
 
 import kotlinx.datetime.Instant
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlin.js.ExperimentalJsExport
+import kotlin.js.JsExport
 
+@JsExport
 @Serializable
 data class JobResponse(
     val kind: String? = null,
@@ -28,6 +33,7 @@ data class JobResponse(
     val clientInfo: JobClientInfo
 )
 
+@JsExport
 @Serializable
 data class JobSummaryData(
     val size: JobSummaryDataSize,
@@ -36,12 +42,14 @@ data class JobSummaryData(
     val resultTime: Double? = null
 )
 
+@JsExport
 @Serializable
 data class JobSummaryDataSize(
     val input: Int,
     val output: Int? = null
 )
 
+@JsExport
 @Serializable
 data class JobSummaryDataSummary(
     @SerialName("qobj_config")
@@ -56,6 +64,7 @@ data class JobSummaryDataSummary(
     val maxQubitsUsed: Int
 )
 
+@JsExport
 @Serializable
 data class JobSummaryDataSummaryQobjConfig(
     @SerialName("n_qubits")
@@ -67,6 +76,7 @@ data class JobSummaryDataSummaryQobjConfig(
     val cost: Double
 )
 
+@JsExport
 @Serializable
 data class JobClientInfo(
     val name: String

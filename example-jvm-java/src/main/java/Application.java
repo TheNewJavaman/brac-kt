@@ -1,6 +1,16 @@
+import net.javaman.brackt.api.BracKtApi;
 import net.javaman.brackt.api.quantum.QuantumCircuit;
+import net.javaman.brackt.providers.ibmq.IbmqProvider;
+import net.javaman.brackt.providers.ibmq.IbmqProviderKt;
 
 public class Application {
+    private static final IbmqProvider ibmqProvider = new IbmqProvider();
+
+    static {
+        BracKtApi.addInjections();
+        IbmqProvider.addInjections();
+    }
+
     public static void main(String[] args) {
         // Construct the QuantumCircuit in Java
         int n = 3;
@@ -9,6 +19,10 @@ public class Application {
         for (int i = 0; i < n; i++) qc.measure(i, i);
 
         // Let Kotlin handle the coroutines
-        BracKtIntegration.callIbmq(qc);
+        String apiToken = System.getenv("IBMQ_API_TOKEN");
+        IbmqProviderKt.logInSync(ibmqProvider, apiToken);
+        IbmqProviderKt.selectNetworkSync(ibmqProvider);
+        IbmqProviderKt.selectDeviceSync(ibmqProvider);
+        IbmqProviderKt.runExperimentAndWaitSync(ibmqProvider, qc);
     }
 }

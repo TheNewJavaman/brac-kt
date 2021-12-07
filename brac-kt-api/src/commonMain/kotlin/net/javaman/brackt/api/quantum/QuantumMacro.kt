@@ -1,6 +1,10 @@
+@file:OptIn(ExperimentalJsExport::class)
+
 package net.javaman.brackt.api.quantum
 
 import net.javaman.brackt.api.util.assertions.assert
+import kotlin.js.ExperimentalJsExport
+import kotlin.js.JsExport
 import kotlin.jvm.JvmStatic
 
 /**
@@ -19,6 +23,7 @@ import kotlin.jvm.JvmStatic
  * }
  * ```
  */
+@JsExport
 class QuantumMacro(val numQubits: Int, val macro: QuantumCircuit.(qubitMap: QubitMap) -> Unit) {
     var safeMacro: QuantumCircuit.(qubitMap: QubitMap) -> Unit
 

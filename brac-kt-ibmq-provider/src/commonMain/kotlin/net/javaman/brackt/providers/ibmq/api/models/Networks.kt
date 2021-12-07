@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalJsExport::class)
+
 package net.javaman.brackt.providers.ibmq.api.models
 
 import kotlinx.datetime.Instant
@@ -5,9 +7,12 @@ import kotlinx.serialization.Contextual
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
+import kotlin.js.ExperimentalJsExport
+import kotlin.js.JsExport
 
 typealias NetworksResponse = List<NetworkHub>
 
+@JsExport
 @Serializable
 data class NetworkHub(
     val name: String,
@@ -28,6 +33,7 @@ data class NetworkHub(
     val groups: Map<String, NetworkGroup>,
 )
 
+@JsExport
 @Serializable
 data class NetworkGroup(
     val name: String,
@@ -39,6 +45,7 @@ data class NetworkGroup(
     val projects: Map<String, NetworkProject>
 )
 
+@JsExport
 @Serializable
 data class NetworkProject(
     val name: String,
@@ -51,6 +58,7 @@ data class NetworkProject(
     val users: Map<String, @Contextual Any>
 )
 
+@JsExport
 @Serializable
 data class NetworkDevice(
     val priority: Int,
@@ -60,6 +68,7 @@ data class NetworkDevice(
     val configuration: NetworkDeviceConfiguration? = null
 )
 
+@JsExport
 @Serializable
 data class NetworkDeviceConfiguration(
     val limit: Int? = null,

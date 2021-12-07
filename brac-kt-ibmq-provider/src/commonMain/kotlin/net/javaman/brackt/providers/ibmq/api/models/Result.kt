@@ -1,9 +1,14 @@
+@file:OptIn(ExperimentalJsExport::class)
+
 package net.javaman.brackt.providers.ibmq.api.models
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonArray
+import kotlin.js.ExperimentalJsExport
+import kotlin.js.JsExport
 
+@JsExport
 @Serializable
 data class ResultResponse(
     @SerialName("backend_name")
@@ -24,6 +29,7 @@ data class ResultResponse(
     val timeTaken: Double
 )
 
+@JsExport
 @Serializable
 data class ResultHeader(
     @SerialName("backend_name")
@@ -32,6 +38,7 @@ data class ResultHeader(
     val backendVersion: String,
 )
 
+@JsExport
 @Serializable
 data class ResultMetadata(
     @SerialName("max_gpu_memory_mb")
@@ -50,6 +57,7 @@ data class ResultMetadata(
     val timeTaken: Double
 )
 
+@JsExport
 @Serializable
 data class ResultResult(
     val data: ResultResultData,
@@ -64,6 +72,7 @@ data class ResultResult(
     val timeTaken: Double
 )
 
+@JsExport
 @Serializable
 data class ResultResultData(
     val counts: Map<String, Int>
@@ -76,6 +85,7 @@ data class ResultResultData(
     }
 }
 
+@JsExport
 @Serializable
 data class ResultResultHeader(
     @SerialName("clbit_labels")
@@ -96,6 +106,7 @@ data class ResultResultHeader(
     val qubitLabels: List<JsonArray>
 )
 
+@JsExport
 @Serializable
 data class ResultResultMetadata(
     @SerialName("active_input_qubits")
@@ -120,6 +131,7 @@ data class ResultResultMetadata(
     val remappedQubits: Boolean
 )
 
+@JsExport
 @Serializable
 data class ResultResultFusion(
     val enabled: Boolean

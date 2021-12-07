@@ -1,10 +1,13 @@
 @file:Suppress("MatchingDeclarationName") // Keep the naming convention of the package
+@file:OptIn(ExperimentalJsExport::class)
 
 package net.javaman.brackt.providers.ibmq.api.models
 
 import kotlinx.serialization.Serializable
+import kotlin.js.ExperimentalJsExport
+import kotlin.js.JsExport
 
-@Suppress("MatchingDeclarationName") // Keep the naming convention of the package
+@JsExport
 @Serializable
 data class JobsLimitResponse(
     val maximumJobs: Int,

@@ -1,19 +1,14 @@
+@file:OptIn(ExperimentalJsExport::class)
+
 package net.javaman.brackt.providers.ibmq.api.models
 
-import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Required
 import kotlinx.serialization.Serializable
-import net.javaman.brackt.api.util.formatters.decodedUrl
-import net.javaman.brackt.api.util.injections.injection
-import net.javaman.brackt.api.util.logging.Logger
-import net.javaman.brackt.providers.ibmq.IbmqProvider
-import net.javaman.brackt.providers.ibmq.JobTimeoutException
-import kotlin.time.Duration
-import kotlin.time.Duration.Companion.milliseconds
-import kotlin.time.Duration.Companion.minutes
-import kotlin.time.ExperimentalTime
+import kotlin.js.ExperimentalJsExport
+import kotlin.js.JsExport
 
+@JsExport
 @Serializable
 data class RunExperimentRequest(
     val qasms: List<RunExperimentQasm>,
@@ -27,16 +22,19 @@ data class RunExperimentRequest(
     val tags: List<String> = emptyList()
 )
 
+@JsExport
 @Serializable
 data class RunExperimentQasm(
     val qasm: String
 )
 
+@JsExport
 @Serializable
 data class RunExperimentBackend(
     val name: String
 )
 
+@JsExport
 @Serializable
 data class RunExperimentResponse(
     val qasms: List<RunExperimentQasm>,
@@ -57,6 +55,7 @@ data class RunExperimentResponse(
     val userId: String
 )
 
+@JsExport
 @Serializable
 data class RunExperimentIp(
     val ip: String,
