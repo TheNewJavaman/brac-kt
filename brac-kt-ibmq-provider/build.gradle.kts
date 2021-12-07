@@ -3,6 +3,7 @@ plugins {
     kotlin("plugin.serialization")
     id("org.jetbrains.dokka")
     id("maven-publish")
+    id("io.gitlab.arturbosch.detekt")
 }
 
 repositories {

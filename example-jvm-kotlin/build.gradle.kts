@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm")
     application
+    id("io.gitlab.arturbosch.detekt")
 }
 
 repositories {
@@ -8,7 +9,6 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":brac-kt-api"))
     implementation(project(":brac-kt-ibmq-provider"))
 }
 

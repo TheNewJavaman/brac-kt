@@ -5,4 +5,4 @@ import kotlin.reflect.KClass
 /**
  * Qualified name reflection is not supported by Kotlin/JS
  */
-actual fun KClass<*>.getPlatformQualifiedName() = "brac-kt"
+actual fun KClass<*>.getPlatformName() = this.simpleName ?: "Anonymous"

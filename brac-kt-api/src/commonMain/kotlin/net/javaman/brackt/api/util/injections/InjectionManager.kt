@@ -1,6 +1,7 @@
 package net.javaman.brackt.api.util.injections
 
 import net.javaman.brackt.api.util.logging.Logger
+import net.javaman.brackt.api.util.reflection.getPlatformName
 import kotlin.jvm.JvmStatic
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
@@ -37,14 +38,16 @@ class InjectionManager {
     }
 
     inline fun <reified T : Any> many(noinline block: (KClass<*>) -> T) {
-        if (manyInstanceMap.keys.none { it == T::class }) manyInstanceMap[T::class] = block
+        if (manyInstanceMap.keys.none { it == T::class}) {
+            manyInstanceMap[T::class] = block
+        }
     }
 
     inline operator fun <reified T> getValue(thisRef: Any, property: KProperty<*>): T {
         return manyInstanceMap.keys.firstOrNull { it == T::class }?.let {
             manyInstanceMap[it]!!.invoke(thisRef::class) as T
         } ?: oneInstanceList.firstOrNull { T::class.isInstance(it) } as? T
-        ?: throw UninitializedInjectionException("")
+        ?: throw UninitializedInjectionException("${T::class.getPlatformName()} has not yet been initialized")
     }
 }
 
@@ -54,3 +57,7 @@ class InjectionManager {
 fun injection() = InjectionManager()
 
 class UninitializedInjectionException(override val message: String) : Exception(message)
+
+interface InjectionAdder {
+    fun addInjections()
+}

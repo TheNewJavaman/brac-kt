@@ -5,7 +5,7 @@ package net.javaman.brackt.providers.ibmq.transpiler
 import net.javaman.brackt.api.quantum.QuantumCircuit
 import net.javaman.brackt.api.quantum.QuantumGate
 import net.javaman.brackt.api.quantum.QuantumMacro
-import net.javaman.brackt.api.quantum.QubitMap
+import net.javaman.brackt.api.util.reflection.getPlatformName
 import kotlin.js.ExperimentalJsExport
 import kotlin.js.JsExport
 import kotlin.math.max
@@ -35,6 +35,6 @@ fun QuantumCircuit.toQasm(): String = (listOf(
             runMacro { QuantumMacro.cz onQubits listOf(it.qubit1, it.qubit2) }
         }.toQasm()
         is QuantumGate.Measure -> "measure q[${it.qubit}] -> c[${it.bit}]"
-        else -> throw UnsupportedOperationException("Unsupported gate (${it::class.simpleName})")
+        else -> throw UnsupportedOperationException("Unsupported gate (${it::class.getPlatformName()})")
     }
 }).joinToString(";") + ";"

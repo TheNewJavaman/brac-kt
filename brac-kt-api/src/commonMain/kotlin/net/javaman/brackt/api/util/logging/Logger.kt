@@ -6,7 +6,7 @@ import kotlinx.datetime.Clock
 import net.javaman.brackt.api.util.formatters.PadDirection
 import net.javaman.brackt.api.util.formatters.pretty
 import net.javaman.brackt.api.util.formatters.withLength
-import net.javaman.brackt.api.util.reflection.getPlatformQualifiedName
+import net.javaman.brackt.api.util.reflection.getPlatformName
 import kotlin.js.ExperimentalJsExport
 import kotlin.js.JsExport
 import kotlin.js.JsName
@@ -28,7 +28,7 @@ class Logger(val className: String) {
         val LEVEL_CHARS = LoggingLevel.values().maxOf { it.name.length }
     }
 
-    @JsName("LoggerByClass") constructor(kClass: KClass<*>) : this(kClass.getPlatformQualifiedName())
+    @JsName("LoggerByClass") constructor(kClass: KClass<*>) : this(kClass.getPlatformName())
 
     fun log(level: LoggingLevel, block: () -> Any) {
         if (acceptableLevel.severity <= level.severity) {

@@ -12,13 +12,13 @@ import net.javaman.brackt.providers.ibmq.TestData.RUN_EXPERIMENT_REQUEST
 import kotlin.test.Test
 
 class IbmqProviderTest {
-    private val ibmqProvider: IbmqProvider by injection()
+    private val ibmqProvider: IbmqProviderImpl by injection()
     private val propertyManager: PropertyManager by injection()
     private val logger: Logger by injection()
 
     init {
         BracKtApi.addInjections()
-        IbmqProvider.addInjections()
+        IbmqProviderImpl.addInjections()
     }
 
     // kotlin-test-common does not support test ordering, so we must run all the tests in one function

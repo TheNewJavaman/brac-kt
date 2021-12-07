@@ -7,7 +7,6 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":brac-kt-api"))
     implementation(project(":brac-kt-ibmq-provider"))
 }
 

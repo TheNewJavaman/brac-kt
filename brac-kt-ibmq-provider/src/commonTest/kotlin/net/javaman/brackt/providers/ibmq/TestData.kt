@@ -9,7 +9,7 @@ import net.javaman.brackt.providers.ibmq.api.models.RunExperimentRequest
 import kotlin.jvm.JvmStatic
 
 object TestData {
-    private val ibmqProvider: IbmqProvider by injection()
+    private val ibmqProvider: IbmqProviderImpl by injection()
 
     const val NETWORK = "ibm-q"
     const val GROUP = "open"

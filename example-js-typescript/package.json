@@ -1,18 +1,20 @@
 {
-  "name": "example-js-typescript",
-  "version": "0.1.4",
+  "name": "@thenewjavaman/example-js-typescript",
+  "version": "0.1.5",
   "description": "A Kotlin/Multiplatform interface for quantum computing",
-  "main": "app.js",
+  "main": "dist/app.js",
   "author": "Gabriel Pizarro",
   "dependencies": {
     "@js-joda/core": "^4.3.1",
-    "@thenewjavaman/brac-kt-api": "^0.1.4",
-    "@thenewjavaman/brac-kt-ibmq-provider": "^0.1.4",
     "eslint": "^8.4.1",
     "typescript": "^4.5.2"
   },
   "scripts": {
-    "start": "tsc && node dist/app.js"
+    "start": "node .",
+    "build": "tsc",
+    "buildProject": "cd .. && .\\gradlew jsProductionExecutableCompileSync && cd example-js-typescript",
+    "buildAndStart": "npm run build && npm start",
+    "buildAllAndStart": "npm run buildProject && npm run buildAndStart"
   },
   "devDependencies": {
     "@types/node": "^16.11.11"
