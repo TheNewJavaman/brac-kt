@@ -5,6 +5,10 @@ import net.javaman.brackt.api.quantum.QuantumCircuit
 import net.javaman.brackt.api.util.injections.injection
 import net.javaman.brackt.api.util.properties.PropertyManager
 import net.javaman.brackt.providers.ibmq.IbmqProvider
+import net.javaman.brackt.providers.ibmq.logIn
+import net.javaman.brackt.providers.ibmq.runExperimentAndWait
+import net.javaman.brackt.providers.ibmq.selectDevice
+import net.javaman.brackt.providers.ibmq.selectNetwork
 
 suspend fun main() = App.run()
 
@@ -27,7 +31,8 @@ object App {
         }
 
         // Run the circuit on an IBM Quantum device
-        // By default, brac-kt will choose a simulator with 5 or more qubits with the shortest queue
+        // By default,
+        // brac-kt will choose a simulator with 5 or more qubits with the shortest queue
         // Add your IBM API token as environment variable IBMQ_API_TOKEN
         val apiToken: String = propertyManager["IBMQ_API_TOKEN"]
         ibmqProvider.logIn(apiToken)

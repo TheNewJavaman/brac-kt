@@ -1,7 +1,7 @@
 import net.javaman.brackt.api.BracKtApi;
 import net.javaman.brackt.api.quantum.QuantumCircuit;
 import net.javaman.brackt.providers.ibmq.IbmqProvider;
-import net.javaman.brackt.providers.ibmq.IbmqProviderKt;
+import net.javaman.brackt.providers.ibmq.IbmqProviderPlatformKt;
 
 public class Application {
     private static final IbmqProvider ibmqProvider = new IbmqProvider();
@@ -20,9 +20,9 @@ public class Application {
 
         // Let Kotlin handle the coroutines
         String apiToken = System.getenv("IBMQ_API_TOKEN");
-        IbmqProviderKt.logInSync(ibmqProvider, apiToken);
-        IbmqProviderKt.selectNetworkSync(ibmqProvider);
-        IbmqProviderKt.selectDeviceSync(ibmqProvider);
-        IbmqProviderKt.runExperimentAndWaitSync(ibmqProvider, qc);
+        IbmqProviderPlatformKt.logInSync(ibmqProvider, apiToken);
+        IbmqProviderPlatformKt.selectNetworkSync(ibmqProvider);
+        IbmqProviderPlatformKt.selectDeviceSync(ibmqProvider);
+        IbmqProviderPlatformKt.runExperimentAndWaitSync(ibmqProvider, qc);
     }
 }

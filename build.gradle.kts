@@ -14,7 +14,7 @@ repositories {
 
 subprojects {
     group = "net.javaman.brac-kt"
-    version = "0.1.3"
+    version = "0.1.4"
 
     apply(plugin = "io.gitlab.arturbosch.detekt")
 
