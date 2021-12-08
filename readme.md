@@ -15,10 +15,50 @@ A Kotlin/Multiplatform interface for quantum computing
 </td>  
 </tr>
 <tr>
-<td colspan=2>
-<div align="center">
+<td colspan=2 align="center">
 <i>Named after bra-ket quantum notation (with "kt" for Kotlin), pronounced "bracket"</i>
-</div>
+</td>
+</tr>
+</table>
+
+## Support
+
+
+<table>
+<tr></tr>
+<tr>
+<td colspan=3 align="center">Write quantum circuits in any major language</td>
+</tr>
+<tr></tr>
+<tr>
+<th>Java Virtual Machine</th>
+<th>JavaScript Runtimes (Browser, Node.js)</th>
+<th>Native (Coming Soon)</th>
+</tr>
+<tr>
+<td>
+
+- Java
+- Kotlin
+- Groovy
+- Scala
+
+</td>
+<td>
+
+- JavaScript
+- TypeScript
+- CoffeeScript
+- Kotlin
+
+</td>
+<td>
+
+- C
+- C++
+- Objective-C
+- Kotlin
+
 </td>
 </tr>
 </table>
@@ -189,37 +229,44 @@ In the future, native binaries (C/C++/lib/DLL) will also be available.
 
 What am I trying to accomplish?
 
-- Replace standard Python libraries with a pure Kotlin implementation
-    - Python has many limitations:
-        - Restricted to one runtime (Python)
-        - Not type-safe, null-safe, etc.
-        - Slow
-        - Not very well adopted outside of data science
-    - Kotlin has many improvements over Python:
-        - Multiplatform projects (like brac-kt) can compile to the JVM, JS, or native libs; can interop with each
-          backend
-        - Type-safe, null-safe, etc.
-        - Very fast, depends on the backend implementation
-        - Each backend has its own plethora of use cases:
-            - JVM: Desktop applications, servers
-            - JS: Websites, servers
-            - Native: Desktop applications, workstation tasks (think scientific research)
-    - Reduce dependency on a single framework
-- Replace fractured online quantum circuit builders
-    - Each graphical circuit builder is specific to a certain company's hardware
-    - Hard to learn/high entry barrier
-    - Very uncommon to write programs this way because it's slow
-- Lower the entry barrier for quantum
-    - It's too hard to get started
-    - Online resources, including free textbooks, have made it easier, but it's still extremely hard to learn
-    - Provide more algorithm explanations and pre-built circuits for beginners
-- If I have time, work on a _very_ basic simulator
-    - Just a proof-of-concept that the hardware-agnostic circuit builder is easy to implement for specific platforms
+### Summary
 
-Summary:
+1. Write quantum circuits once, run on any hardware
+2. Write quantum circuits in any major language using the same library (see Support above)
+3. Simplify the quantum development process
 
-1. Fix the fractured quantum ecosystem with a multi-runtime, hardware-agnostic circuit builder
-2. Make it easier for people to write quantum software
+### Details
+
+1. Write quantum circuits once, run on any hardware
+    - Each hardware provider provides their own tools, which can't cross-compile
+    - Make it easy to test on different providers
+    - Make it easy to switch providers when new features become available
+2. Write quantum circuits in any major language using the same library
+    - Replace standard Python libraries with a pure Kotlin/Multiplatform implementation
+        - Python has many limitations:
+            - Restricted to only the Python runtime
+            - Not type-safe, null-safe; prone to runtime errors
+            - Slow for non-C implementations; limits choices for big projects
+            - Not well-adopted outside of data science
+        - Kotlin fixes these issues:
+            - Can run on the JVM, JS (browser or node.js), and native runtimes
+            - Type-safe, null-safe; compile-time checks safeguard the development process
+            - Very performant, especially for server applications on the JVM
+                - Most quantum deployments will need a server application to interface with the hardware!
+            - Can run on any major runtime, so it can interop with most popular libraries
+                - JVM: Desktop applications, servers
+                - JS: Desktop apps, websites, sometimes servers (although they're less performant)
+                - Native: Desktop applications, interop with legacy/low-level software, workstations tasks (scientific
+                  research)
+    - Easy to develop fullstack apps using one library in both frontend and backend
+    - Provides more options for beginners, easier for people with non-data science backgrounds
+3. Simplify quantum development process
+    - Developers need to know too much math
+        - Beginners or developers without science backgrounds should be able to build quantum applications
+        - Provide advanced modules to abstract real-world problems into quantum circuits
+    - Graphical circuit builders are generally restricted to just a few hardware providers; consider building a brac-kt
+      GUI
+    - In general, lower the entry barrier for quantum
 
 ## Plans
 
@@ -229,36 +276,56 @@ Summary:
 <th>Details</th>
 </tr>
 <tr>
-<td>Quantum circuit builder</td>
+<td>Native backend</td>
 <td>
 
-- Enum for all basic gates
-    - Single-qubit gates are complete
-    - Entanglement/CNOT, measurement operations needed
-
-</td>
-<tr>
-<td>IBM Q Provider</td>
-<td>
-
-- Continue documenting API
-    - Read through more Qiskit code
-    - Use Chrome devtools more in the online circuit builder
-    - Finish adding read-only endpoints
-- Write QASM compiler from quantum circuit builder
-    - Reverse-engineer QASM-related endpoints
+- Support C/C++ for Windows/MacOS/Linux
+    - Should be easy thanks to Kotlin
+    - Will interop with native libraries!
+    - Compile into libs/DLLs
+- Better support for native applications; write a program in C#/Swift and interface with brac-kt easily
 
 </td>
 </tr>
 <tr>
-<td>First-class support for JS backend</td>
+<td>Other providers</td>
 <td>
 
-- Support composing quantum circuits in JavaScript or TypeScript
-    - Ideally, write a GUI in React to build circuits
-    - Release to npm, test in Node.js
-- Compile unified API module for JS backend
-    - Implement `PropertyManager` for JS
+- Add support for other hardware manufacturers
+    - Rigetti, GCP, AWS, Azure, etc.
+    - Reverse-engineer APIs (double-check that bot accounts for testing aren't prohibited)
+- JavaScript difficulties
+    - JS will treat each hardware provider package's brac-kt API as a separate entity, meaning that circuits can't be
+      shared across providers. This defeats the purpose of brac-kt!
+    - Two solutions:
+        - Don't bundle API with provider packages (preferred, but harder to figure out)
+        - Build circuits using functions, where qc parameter has
+          type `provider.a.Quantum Circuit | provider.b.QuantumCircuit` (it's fine, but not as good as the first
+          solution)
+- More important later
+    - This feature will matter more when hardware providers are actually competing for market share
+    - Right now, people still need to figure out the software. The hardware selection only matters because you're locked
+      into the single hardware ecosystem, which is what brac-kt will solve
+
+</td>
+</tr>
+<tr>
+<td>Better documentation</td>
+<td>
+
+- In addition to the [dokka docs](https://javaman.net/brac-kt), write better documentation for utils, hardware
+  providers, examples, macros, etc.
+
+</td>
+</tr>
+<tr>
+<td>Advanced modules</td>
+<td>
+
+- Build modules that abstract regular problems into quantum circuits
+- Read through more online courses, textbooks, etc. to learn about real-world applications and algorithms
+- Make it easy for any developer to get started without having to know all the linalg math
+- See if QCP can be implemented; that would be a good first step
 
 </td>
 </tr>
