@@ -12,9 +12,7 @@ repositories {
 
 val jvmTarget: String by ext
 val datetimeVersion: String by ext
-val ktorVersion: String by ext
 val jupiterVersion: String by ext
-val coroutinesVersion: String by ext
 
 kotlin {
     jvm {
@@ -40,7 +38,7 @@ kotlin {
         }
         nodejs {
             testTask {
-                useMocha {}
+                useMocha()
             }
         }
         compilations["main"].packageJson {
@@ -60,14 +58,27 @@ kotlin {
         }
         binaries.executable()
     }
+    linuxX64 {
+        binaries {
+            sharedLib {
+                baseName = "brac_kt_ibmq_provider"
+                export(project(":brac-kt-api"))
+            }
+        }
+    }
+    mingwX64 {
+        binaries {
+            sharedLib {
+                baseName = "brac_kt_ibmq_provider"
+                export(project(":brac-kt-api"))
+            }
+        }
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
                 api(project(":brac-kt-api"))
                 api("org.jetbrains.kotlinx:kotlinx-datetime:$datetimeVersion")
-                implementation("io.ktor:ktor-client-core:$ktorVersion")
-                implementation("io.ktor:ktor-client-serialization:$ktorVersion")
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
             }
         }
         val commonTest by getting {
@@ -76,26 +87,22 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
             }
         }
-        val jsMain by getting {
-            dependencies {
-                implementation("io.ktor:ktor-client-js:$ktorVersion")
-            }
-        }
+        val jsMain by getting
         val jsTest by getting {
             dependencies {
                 implementation(kotlin("test-js"))
             }
         }
-        val jvmMain by getting {
-            dependencies {
-                implementation("io.ktor:ktor-client-cio:$ktorVersion")
-            }
-        }
+        val jvmMain by getting
         val jvmTest by getting {
             dependencies {
                 implementation(kotlin("test"))
             }
         }
+        val linuxX64Main by getting
+        val linuxX64Test by getting
+        val mingwX64Main by getting
+        val mingwX64Test by getting
         all {
             languageSettings.optIn("kotlin.RequiresOptIn")
         }
@@ -107,6 +114,10 @@ detekt {
         "src/commonMain/kotlin",
         "src/commonTest/kotlin",
         "src/jsMain/kotlin",
-        "src/jvmMain/kotlin"
+        "src/jsTest/kotlin",
+        "src/jvmMain/kotlin",
+        "src/jvmTest/kotlin",
+        "src/mingwX64Main/kotlin",
+        "src/mingwX64Test/kotlin"
     )
 }

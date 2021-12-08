@@ -22,3 +22,6 @@ class BracKtApi private constructor() {
         }
     }
 }
+
+@JsExport
+fun addInjections() = BracKtApi.addInjections()

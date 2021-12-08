@@ -12,7 +12,7 @@ import net.javaman.brackt.api.util.injections.injection
 import net.javaman.brackt.api.util.logging.Logger
 import net.javaman.brackt.providers.ibmq.api.IbmqApi
 import net.javaman.brackt.providers.ibmq.api.IbmqApiImpl
-import net.javaman.brackt.providers.ibmq.api.client
+import net.javaman.brackt.api.util.http.client
 import net.javaman.brackt.providers.ibmq.api.models.BackendResponse
 import net.javaman.brackt.providers.ibmq.api.models.BackendsResponse
 import net.javaman.brackt.providers.ibmq.api.models.Code
@@ -326,3 +326,6 @@ class JobTimeoutException(message: String) : Exception(message)
 
 @JsExport
 class JobCancelledException(message: String) : Exception(message)
+
+@JsExport
+fun addInjections() = IbmqProviderImpl.addInjections()

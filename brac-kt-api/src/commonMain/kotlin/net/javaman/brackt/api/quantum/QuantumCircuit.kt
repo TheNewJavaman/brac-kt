@@ -37,16 +37,16 @@ class QuantumCircuit @JvmOverloads constructor(
     val numBits: Int = numQubits,
     //private val qubits: List<Qubit> = List(numQubits) { Qubit(it) },
     //private val bits: List<Bit> = List(numBits) { Bit(it) },
-    val circuit: MutableList<QuantumGate> = mutableListOf()
 ) {
+    val circuit: MutableList<QuantumGate> = mutableListOf()
+
     @JsName("QuantumCircuitCompose")
     constructor(
         name: String? = null,
         numQubits: Int,
         numBits: Int = numQubits,
-        circuit: MutableList<QuantumGate> = mutableListOf(),
         block: QuantumCircuit.() -> Unit
-    ) : this(name, numQubits, numBits, circuit) {
+    ) : this(name, numQubits, numBits) {
         block()
     }
 

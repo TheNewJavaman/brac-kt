@@ -23,17 +23,13 @@ A Kotlin/Multiplatform interface for quantum computing
 
 ## Support
 
+Write quantum circuits in any major language:
 
 <table>
-<tr></tr>
-<tr>
-<td colspan=3 align="center">Write quantum circuits in any major language</td>
-</tr>
-<tr></tr>
 <tr>
 <th>Java Virtual Machine</th>
 <th>JavaScript Runtimes (Browser, Node.js)</th>
-<th>Native (Coming Soon)</th>
+<th>Native Platforms (Windows, Linux)</th>
 </tr>
 <tr>
 <td>
@@ -48,15 +44,15 @@ A Kotlin/Multiplatform interface for quantum computing
 
 - JavaScript
 - TypeScript
-- CoffeeScript
 - Kotlin
+- CoffeeScript
 
 </td>
 <td>
 
 - C
 - C++
-- Objective-C
+- C#
 - Kotlin
 
 </td>
@@ -65,7 +61,7 @@ A Kotlin/Multiplatform interface for quantum computing
 
 ## Installation
 
-The brac-kt API will be included with any providers you install
+The brac-kt API will be included with any providers you install.
 
 ### Gradle (JVM)
 
@@ -149,36 +145,6 @@ public class Application {
 }
 ```
 
-### Kotlin (JS)
-
-```kotlin
-suspend fun main() = App.run()
-
-object App {
-    init {
-        BracKtApi.addInjections()
-        IbmqProvider.addInjections()
-    }
-
-    private val propertyManager: PropertyManager by injection()
-    private val ibmqProvider: IbmqProviderImpl by injection()
-
-    suspend fun run() {
-        val n = 3
-        val qc = QuantumCircuit(name = "Example Superposition", numQubits = 3) {
-            repeat(n) { h(qubit = it) }
-            repeat(n) { measure(qubit = it, bit = it) }
-        }
-
-        val apiToken: String = propertyManager["IBMQ_API_TOKEN"]
-        ibmqProvider.logIn(apiToken)
-        ibmqProvider.selectNetwork()
-        ibmqProvider.selectDevice()
-        ibmqProvider.runExperimentAndWait(qc)
-    }
-}
-```
-
 ### TypeScript (JS)
 
 ```typescript
@@ -197,6 +163,27 @@ const app = async () => {
     await ibmqProvider.selectDeviceAsync();
     await ibmqProvider.runExperimentAndWaitAsync(qc);
 };
+```
+
+### C++ (Native)
+
+```cpp
+int main(int argc, char **argv) {
+    BracKt *bracKt = libbrac_kt_ibmq_provider_symbols();
+    bracKt->api.addInjections();
+    bracKt->ibmq_provider.addInjections();
+
+    int n = 3;
+    QuantumCircuit qc = bracKt->api.quantum.QuantumCircuit.QuantumCircuit_("Example Superposition", n, n);
+    for (int i = 0; i < n; i++) bracKt->api.quantum.QuantumCircuit.h(qc, i);
+    for (int i = 0; i < n; i++) bracKt->api.quantum.QuantumCircuit.measure(qc, i, i);
+
+    IbmqProvider ibmqProvider = bracKt->ibmq_provider.IbmqProvider.IbmqProvider();
+    bracKt->ibmq_provider.IbmqProvider.logInSync(ibmqProvider, getenv("IBMQ_API_TOKEN"));
+    bracKt->ibmq_provider.IbmqProvider.selectNetworkSync(ibmqProvider);
+    bracKt->ibmq_provider.IbmqProvider.selectDeviceSync_(ibmqProvider, true, n);
+    bracKt->ibmq_provider.IbmqProvider.runExperimentAndWaitSync(ibmqProvider, qc);
+}
 ```
 
 ### Output
@@ -219,11 +206,9 @@ Every example outputs:
 ## Multiplatform Support
 
 Integrating with other languages is seamless because brac-kt compiles into Java bytecode and JavaScript with TypeScript
-definitions. Additionally, each platform has its own unique features; for example, Java has additional synchronous API
-methods, whereas JavaScript has async/await versions. Kotlin on both platforms gets a few unique features: a
-cross-platform property manager, dependency injection, and all-around cleaner syntax.
-
-In the future, native binaries (C/C++/lib/DLL) will also be available.
+definitions. Additionally, each platform has its own unique features; for example, Java and C/C++ have additional
+synchronous API methods, whereas JavaScript has async/await versions. Kotlin on all platforms gets a few unique
+features: a cross-platform property manager, dependency injection, and all-around cleaner syntax.
 
 ## Goals
 
@@ -252,7 +237,6 @@ What am I trying to accomplish?
             - Can run on the JVM, JS (browser or node.js), and native runtimes
             - Type-safe, null-safe; compile-time checks safeguard the development process
             - Very performant, especially for server applications on the JVM
-                - Most quantum deployments will need a server application to interface with the hardware!
             - Can run on any major runtime, so it can interop with most popular libraries
                 - JVM: Desktop applications, servers
                 - JS: Desktop apps, websites, sometimes servers (although they're less performant)

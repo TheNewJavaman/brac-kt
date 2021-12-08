@@ -14,18 +14,10 @@ import net.javaman.brackt.providers.ibmq.api.models.RunExperimentRequest
 import net.javaman.brackt.providers.ibmq.api.models.VersionsRequest
 import kotlin.time.Duration
 
-// Due to a Kotlin/JS bug when compiling companion objects, we must redeclare this static method
-@JsExport
-fun addInjections() = IbmqProvider.addInjections()
-
 @Suppress("TooManyFunctions")
 @JsExport
 actual class IbmqProvider {
     private val ibmqProviderImpl: IbmqProviderImpl by injection()
-
-    companion object {
-        fun addInjections() = IbmqProviderImpl.addInjections()
-    }
 
     fun logInAsync(apiToken: String) = GlobalScope.promise { ibmqProviderImpl.logIn(apiToken) }
 

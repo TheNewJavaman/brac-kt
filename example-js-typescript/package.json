@@ -1,6 +1,5 @@
 {
   "name": "@thenewjavaman/example-js-typescript",
-  "version": "0.1.6",
   "description": "A Kotlin/Multiplatform interface for quantum computing",
   "main": "dist/app.js",
   "author": "Gabriel Pizarro",

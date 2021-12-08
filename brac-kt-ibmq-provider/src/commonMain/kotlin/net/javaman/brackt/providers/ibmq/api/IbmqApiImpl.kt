@@ -6,6 +6,7 @@ import io.ktor.client.request.post
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import net.javaman.brackt.api.util.formatters.censor
+import net.javaman.brackt.api.util.http.client
 import net.javaman.brackt.api.util.injections.injection
 import net.javaman.brackt.api.util.logging.Logger
 import net.javaman.brackt.providers.ibmq.api.models.ApiTokenResponse

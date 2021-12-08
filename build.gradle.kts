@@ -14,14 +14,15 @@ repositories {
 
 subprojects {
     group = "net.javaman.brac-kt"
-    version = "0.1.6"
+    version = "0.1.7"
 
     ext {
         set("jvmTarget", "11")
         set("datetimeVersion", "0.3.1")
         set("ktorVersion", "1.6.6")
         set("jupiterVersion", "5.7.0")
-        set("coroutinesVersion", "1.6.0-RC")
+        set("coroutinesVersion", "1.5.2")
+        set("coroutinesMtVersion", "1.5.2-native-mt")
     }
 }
 

@@ -3,6 +3,7 @@ package net.javaman.brackt.api.util.injections
 import net.javaman.brackt.api.util.logging.Logger
 import net.javaman.brackt.api.util.reflection.getPlatformName
 import kotlin.jvm.JvmStatic
+import kotlin.native.concurrent.ThreadLocal
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
 
@@ -21,6 +22,7 @@ import kotlin.reflect.KProperty
  * reference
  */
 class InjectionManager {
+    @ThreadLocal
     companion object {
         @JvmStatic
         val oneInstanceList = mutableListOf<Any>()

@@ -1,4 +1,4 @@
-package net.javaman.brackt.providers.ibmq.api
+package net.javaman.brackt.api.util.http
 
 import io.ktor.client.HttpClient
 
