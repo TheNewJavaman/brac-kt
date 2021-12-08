@@ -149,36 +149,6 @@ public class Application {
 }
 ```
 
-### Kotlin (JS)
-
-```kotlin
-suspend fun main() = App.run()
-
-object App {
-    init {
-        BracKtApi.addInjections()
-        IbmqProvider.addInjections()
-    }
-
-    private val propertyManager: PropertyManager by injection()
-    private val ibmqProvider: IbmqProviderImpl by injection()
-
-    suspend fun run() {
-        val n = 3
-        val qc = QuantumCircuit(name = "Example Superposition", numQubits = 3) {
-            repeat(n) { h(qubit = it) }
-            repeat(n) { measure(qubit = it, bit = it) }
-        }
-
-        val apiToken: String = propertyManager["IBMQ_API_TOKEN"]
-        ibmqProvider.logIn(apiToken)
-        ibmqProvider.selectNetwork()
-        ibmqProvider.selectDevice()
-        ibmqProvider.runExperimentAndWait(qc)
-    }
-}
-```
-
 ### TypeScript (JS)
 
 ```typescript
@@ -252,7 +222,6 @@ What am I trying to accomplish?
             - Can run on the JVM, JS (browser or node.js), and native runtimes
             - Type-safe, null-safe; compile-time checks safeguard the development process
             - Very performant, especially for server applications on the JVM
-                - Most quantum deployments will need a server application to interface with the hardware!
             - Can run on any major runtime, so it can interop with most popular libraries
                 - JVM: Desktop applications, servers
                 - JS: Desktop apps, websites, sometimes servers (although they're less performant)
