@@ -6,10 +6,6 @@ import net.javaman.brackt.api.quantum.QuantumCircuit
 import net.javaman.brackt.api.util.injections.injection
 import net.javaman.brackt.api.util.properties.PropertyManager
 import net.javaman.brackt.providers.ibmq.IbmqProviderImpl
-import net.javaman.brackt.providers.ibmq.logIn
-import net.javaman.brackt.providers.ibmq.runExperimentAndWait
-import net.javaman.brackt.providers.ibmq.selectDevice
-import net.javaman.brackt.providers.ibmq.selectNetwork
 
 object Application {
     // Dependencies are managed by InjectionManager

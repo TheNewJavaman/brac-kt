@@ -14,7 +14,7 @@ repositories {
 
 subprojects {
     group = "net.javaman.brac-kt"
-    version = "0.1.5"
+    version = "0.1.6"
 
     ext {
         set("jvmTarget", "11")
