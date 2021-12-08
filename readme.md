@@ -25,6 +25,8 @@ A Kotlin/Multiplatform interface for quantum computing
 
 ## Installation
 
+The brac-kt API will be included with any providers you install
+
 ### Gradle (JVM)
 
 Add to `build.gradle.kts`:
