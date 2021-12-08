@@ -58,14 +58,14 @@ npm i @thenewjavaman/brac-kt-ibmq-provider
 object Application {
     init {
         BracKtApi.addInjections()
-        IbmqProviderImpl.addInjections()
+        IbmqProvider.addInjections()
     }
 
     private val propertyManager: PropertyManager by injection()
-    private val ibmqProvider: IbmqProviderImpl by injection()
+    private val ibmqProvider: IbmqProvider by injection()
 
     @JvmStatic
-    fun main(args: Array<String>): Unit = runBlocking {
+    fun main(args: Array<String>) {
         val n = 3
         val qc = QuantumCircuit(name = "Example Superposition", numQubits = 3) {
             repeat(n) { h(qubit = it) }
@@ -73,10 +73,10 @@ object Application {
         }
 
         val apiToken: String = propertyManager["IBMQ_API_TOKEN"]
-        ibmqProvider.logIn(apiToken)
-        ibmqProvider.selectNetwork()
-        ibmqProvider.selectDevice()
-        ibmqProvider.runExperimentAndWait(qc)
+        ibmqProvider.logInSync(apiToken)
+        ibmqProvider.selectNetworkSync()
+        ibmqProvider.selectDeviceSync()
+        ibmqProvider.runExperimentAndWaitSync(qc)
     }
 }
 ```
@@ -87,7 +87,7 @@ object Application {
 public class Application {
     static {
         BracKtApi.addInjections();
-        IbmqProviderImpl.addInjections();
+        IbmqProvider.addInjections();
     }
 
     private static final IbmqProvider ibmqProvider = new IbmqProvider();
@@ -113,13 +113,13 @@ public class Application {
 suspend fun main() = App.run()
 
 object App {
-    private val propertyManager: PropertyManager by injection()
-    private val ibmqProvider: IbmqProviderImpl by injection()
-
     init {
         BracKtApi.addInjections()
-        IbmqProviderImpl.addInjections()
+        IbmqProvider.addInjections()
     }
+
+    private val propertyManager: PropertyManager by injection()
+    private val ibmqProvider: IbmqProviderImpl by injection()
 
     suspend fun run() {
         val n = 3

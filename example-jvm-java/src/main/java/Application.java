@@ -1,12 +1,11 @@
 import net.javaman.brackt.api.BracKtApi;
 import net.javaman.brackt.api.quantum.QuantumCircuit;
 import net.javaman.brackt.providers.ibmq.IbmqProvider;
-import net.javaman.brackt.providers.ibmq.IbmqProviderImpl;
 
 public class Application {
     static {
         BracKtApi.addInjections();
-        IbmqProviderImpl.addInjections();
+        IbmqProvider.addInjections();
     }
 
     private static final IbmqProvider ibmqProvider = new IbmqProvider();

@@ -57,7 +57,3 @@ class InjectionManager {
 fun injection() = InjectionManager()
 
 class UninitializedInjectionException(override val message: String) : Exception(message)
-
-interface InjectionAdder {
-    fun addInjections()
-}

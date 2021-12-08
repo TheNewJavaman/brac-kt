@@ -1,13 +1,11 @@
-// Imports
 require('@js-joda/core');
 const bracKt = require('../../build/js/packages/brac-kt-ibmq-provider/kotlin/brac-kt-ibmq-provider').net.javaman.brackt
 
-// Type definitions
 const Logger = bracKt.api.util.logging.Logger;
 const QuantumCircuit = bracKt.api.quantum.QuantumCircuit;
 const IbmqProvider = bracKt.providers.ibmq.IbmqProvider;
 
-const run = async () => {
+const app = async () => {
     bracKt.api.addInjections();
     bracKt.providers.ibmq.addInjections();
 
@@ -23,7 +21,7 @@ const run = async () => {
     await ibmqProvider.runExperimentAndWaitAsync(qc);
 };
 
-run().then(() => {
+app().then(() => {
     const logger = new Logger("app");
-    logger.info(() => "Async run complete");
+    logger.info(() => "Async app complete");
 });

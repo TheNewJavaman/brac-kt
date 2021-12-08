@@ -2,7 +2,6 @@ package net.javaman.brackt.providers.ibmq
 
 import kotlinx.coroutines.runBlocking
 import net.javaman.brackt.api.quantum.QuantumCircuit
-import net.javaman.brackt.api.util.injections.InjectionAdder
 import net.javaman.brackt.api.util.injections.injection
 import net.javaman.brackt.providers.ibmq.IbmqProviderImpl.Companion.JOB_TIMEOUT_DURATION
 import net.javaman.brackt.providers.ibmq.api.models.BackendsResponse
@@ -16,8 +15,9 @@ import kotlin.time.Duration
 actual class IbmqProvider {
     private val ibmqProviderImpl: IbmqProviderImpl by injection()
 
-    actual companion object : InjectionAdder {
-        override fun addInjections() = IbmqProviderImpl.addInjections()
+    companion object {
+        @JvmStatic
+        fun addInjections() = IbmqProviderImpl.addInjections()
     }
 
     fun logInSync(apiToken: String) = runBlocking { ibmqProviderImpl.logIn(apiToken) }

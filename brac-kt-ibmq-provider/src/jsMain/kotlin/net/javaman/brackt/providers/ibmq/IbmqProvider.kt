@@ -6,9 +6,7 @@ import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.promise
 import net.javaman.brackt.api.quantum.QuantumCircuit
-import net.javaman.brackt.api.util.injections.InjectionAdder
 import net.javaman.brackt.api.util.injections.injection
-import net.javaman.brackt.providers.ibmq.IbmqProviderImpl.Companion.JOB_TIMEOUT_DURATION
 import net.javaman.brackt.providers.ibmq.api.models.BackendsResponse
 import net.javaman.brackt.providers.ibmq.api.models.NetworksResponse
 import net.javaman.brackt.providers.ibmq.api.models.NewRequest
@@ -25,8 +23,8 @@ fun addInjections() = IbmqProvider.addInjections()
 actual class IbmqProvider {
     private val ibmqProviderImpl: IbmqProviderImpl by injection()
 
-    actual companion object : InjectionAdder {
-        override fun addInjections() = IbmqProviderImpl.addInjections()
+    companion object {
+        fun addInjections() = IbmqProviderImpl.addInjections()
     }
 
     fun logInAsync(apiToken: String) = GlobalScope.promise { ibmqProviderImpl.logIn(apiToken) }

@@ -1,23 +1,22 @@
 @file:Suppress("MagicNumber")
 
-import kotlinx.coroutines.runBlocking
 import net.javaman.brackt.api.BracKtApi
 import net.javaman.brackt.api.quantum.QuantumCircuit
 import net.javaman.brackt.api.util.injections.injection
 import net.javaman.brackt.api.util.properties.PropertyManager
-import net.javaman.brackt.providers.ibmq.IbmqProviderImpl
+import net.javaman.brackt.providers.ibmq.IbmqProvider
 
 object Application {
     init {
         BracKtApi.addInjections()
-        IbmqProviderImpl.addInjections()
+        IbmqProvider.addInjections()
     }
 
     private val propertyManager: PropertyManager by injection()
-    private val ibmqProvider: IbmqProviderImpl by injection()
+    private val ibmqProvider: IbmqProvider by injection()
 
     @JvmStatic
-    fun main(args: Array<String>): Unit = runBlocking {
+    fun main(args: Array<String>) {
         val n = 3
         val qc = QuantumCircuit(name = "Example Superposition", numQubits = 3) {
             repeat(n) { h(qubit = it) }
@@ -25,9 +24,9 @@ object Application {
         }
 
         val apiToken: String = propertyManager["IBMQ_API_TOKEN"]
-        ibmqProvider.logIn(apiToken)
-        ibmqProvider.selectNetwork()
-        ibmqProvider.selectDevice()
-        ibmqProvider.runExperimentAndWait(qc)
+        ibmqProvider.logInSync(apiToken)
+        ibmqProvider.selectNetworkSync()
+        ibmqProvider.selectDeviceSync()
+        ibmqProvider.runExperimentAndWaitSync(qc)
     }
 }

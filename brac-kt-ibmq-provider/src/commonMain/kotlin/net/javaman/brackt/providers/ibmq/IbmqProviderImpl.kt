@@ -5,10 +5,8 @@ package net.javaman.brackt.providers.ibmq
 import io.ktor.client.request.get
 import kotlinx.coroutines.delay
 import kotlinx.datetime.Clock
-import kotlinx.datetime.Instant
 import net.javaman.brackt.api.quantum.QuantumCircuit
 import net.javaman.brackt.api.util.formatters.decodedUrl
-import net.javaman.brackt.api.util.injections.InjectionAdder
 import net.javaman.brackt.api.util.injections.InjectionManager
 import net.javaman.brackt.api.util.injections.injection
 import net.javaman.brackt.api.util.logging.Logger
@@ -318,9 +316,7 @@ open class IbmqProviderImpl {
 }
 
 @Suppress("UtilityClassWithPublicConstructor") // It's used in the `actual` implementations
-expect class IbmqProvider() {
-    companion object : InjectionAdder
-}
+expect class IbmqProvider()
 
 @JsExport
 class DeviceNotAvailableException(message: String) : Exception(message)
