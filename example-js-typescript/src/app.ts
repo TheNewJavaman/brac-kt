@@ -11,13 +11,11 @@ const run = async () => {
     bracKt.api.addInjections();
     bracKt.providers.ibmq.addInjections();
 
-    // New quantum circuit
     const n = 3;
     const qc = new QuantumCircuit("Example Superposition", 3);
     for (let i = 0; i < n; i++) qc.h(i);
     for (let i = 0; i < n; i++) qc.measure(i, i);
 
-    // Run the circuit on an IBM simulator
     const ibmqProvider = new IbmqProvider();
     await ibmqProvider.logInAsync(process.env.IBMQ_API_TOKEN);
     await ibmqProvider.selectNetworkAsync();
@@ -27,5 +25,5 @@ const run = async () => {
 
 run().then(() => {
     const logger = new Logger("app");
-    logger.info(() => "Run complete");
+    logger.info(() => "Async run complete");
 });

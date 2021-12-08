@@ -1,8 +1,9 @@
 [![](https://img.shields.io/github/workflow/status/TheNewJavaman/brac-kt/Code%20Linting%20(Detekt)/main?label=Code%20Linting&cacheSeconds=1)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/linting.yml)
 [![](https://img.shields.io/github/workflow/status/TheNewJavaman/brac-kt/Tests%20(Kotlin%20Multiplatform)/main?label=Tests&cacheSeconds=1)](https://github.com/TheNewJavaman/brac-kt/actions/workflows/tests.yml)
 [![](https://img.shields.io/github/workflow/status/TheNewJavaman/brac-kt/Publish%20Docs%20(Dokka)/main?label=Docs&cacheSeconds=1)](https://javaman.net/brac-kt)
-[![](https://img.shields.io/jitpack/v/github/TheNewJavaman/brac-kt?label=Release&cacheSeconds=1&color=informational)](https://jitpack.io/#net.javaman.brac-kt/brac-kt)
-[![](https://img.shields.io/badge/Release-main--SNAPSHOT-informational)](https://jitpack.io/#net.javaman.brac-kt/brac-kt)
+[![](https://img.shields.io/jitpack/v/github/TheNewJavaman/brac-kt?color=informational&label=JitPack&cacheSeconds=1)](https://jitpack.io/#net.javaman.brac-kt/brac-kt)
+[![](https://img.shields.io/badge/JitPack-main--SNAPSHOT-informational)](https://jitpack.io/#net.javaman.brac-kt/brac-kt)
+[![](https://img.shields.io/npm/v/@thenewjavaman/brac-kt-api?color=informational&cacheSeconds=1)](https://www.npmjs.com/~thenewjavaman)
 
 <table>
 <tr>
@@ -22,9 +23,11 @@ A Kotlin/Multiplatform interface for quantum computing
 </tr>
 </table>
 
-## Setup
+## Installation
 
-Include the following sections in your `build.gradle.kts`:
+### Gradle (JVM)
+
+Add to `build.gradle.kts`:
 
 ```kotlin
 repositories {
@@ -35,41 +38,40 @@ repositories {
 }
 
 dependencies {
-    implementation("net.javaman.brac-kt:brac-kt-api:main-SNAPSHOT")
-    implementation("net.javaman.brac-kt:brac-kt-ibmq-provider:main-SNAPSHOT")
+    implementation("net.javaman.brac-kt:brac-kt-ibmq-provider")
 }
 ```
 
-The version `main-SNAPSHOT` represents the last successful build from this repository. If that's too experimental for
-you, replace it with the release version above (ex: `0.1.1`)
+### npm (JS)
 
-## Example
+Install via `npm`:
 
-Check out the example subprojects for full, reproducible examples. Here's the gist:
+```shell
+npm i @thenewjavaman/brac-kt-ibmq-provider
+```
+
+## Examples
+
+### Kotlin (JVM)
 
 ```kotlin
 object Application {
-    // Dependencies are managed by InjectionManager
-    private val propertyManager: PropertyManager by injection()
-    private val ibmqProvider: IbmqProvider by injection()
-
     init {
         BracKtApi.addInjections()
-        IbmqProvider.addInjections()
+        IbmqProviderImpl.addInjections()
     }
 
+    private val propertyManager: PropertyManager by injection()
+    private val ibmqProvider: IbmqProviderImpl by injection()
+
     @JvmStatic
-    fun main(args: Array<String>): Unit = runBlocking { // runBlocking uses Kotlin's (speedy) coroutines
-        // Create a basic quantum circuit: three qubits in superposition, then measured
+    fun main(args: Array<String>): Unit = runBlocking {
         val n = 3
         val qc = QuantumCircuit(name = "Example Superposition", numQubits = 3) {
             repeat(n) { h(qubit = it) }
             repeat(n) { measure(qubit = it, bit = it) }
         }
 
-        // Run the circuit on an IBM Quantum device
-        // By default, brac-kt will choose a simulator with 5 or more qubits with the shortest queue
-        // Add your IBM API token as environment variable IBMQ_API_TOKEN
         val apiToken: String = propertyManager["IBMQ_API_TOKEN"]
         ibmqProvider.logIn(apiToken)
         ibmqProvider.selectNetwork()
@@ -79,7 +81,85 @@ object Application {
 }
 ```
 
-The example code will output:
+### Java (JVM)
+
+```java
+public class Application {
+    static {
+        BracKtApi.addInjections();
+        IbmqProviderImpl.addInjections();
+    }
+
+    private static final IbmqProvider ibmqProvider = new IbmqProvider();
+
+    public static void main(String[] args) {
+        int n = 3;
+        QuantumCircuit qc = new QuantumCircuit("Example Superposition", n);
+        for (int i = 0; i < n; i++) qc.h(i);
+        for (int i = 0; i < n; i++) qc.measure(i, i);
+
+        String apiToken = System.getenv("IBMQ_API_TOKEN");
+        ibmqProvider.logInSync(apiToken);
+        ibmqProvider.selectNetworkSync();
+        ibmqProvider.selectDeviceSync();
+        ibmqProvider.runExperimentAndWaitSync(qc);
+    }
+}
+```
+
+### Kotlin (JS)
+
+```kotlin
+suspend fun main() = App.run()
+
+object App {
+    private val propertyManager: PropertyManager by injection()
+    private val ibmqProvider: IbmqProviderImpl by injection()
+
+    init {
+        BracKtApi.addInjections()
+        IbmqProviderImpl.addInjections()
+    }
+
+    suspend fun run() {
+        val n = 3
+        val qc = QuantumCircuit(name = "Example Superposition", numQubits = 3) {
+            repeat(n) { h(qubit = it) }
+            repeat(n) { measure(qubit = it, bit = it) }
+        }
+
+        val apiToken: String = propertyManager["IBMQ_API_TOKEN"]
+        ibmqProvider.logIn(apiToken)
+        ibmqProvider.selectNetwork()
+        ibmqProvider.selectDevice()
+        ibmqProvider.runExperimentAndWait(qc)
+    }
+}
+```
+
+### TypeScript (JS)
+
+```typescript
+const app = async () => {
+    bracKt.api.addInjections();
+    bracKt.providers.ibmq.addInjections();
+
+    const n = 3;
+    const qc = new QuantumCircuit("Example Superposition", 3);
+    for (let i = 0; i < n; i++) qc.h(i);
+    for (let i = 0; i < n; i++) qc.measure(i, i);
+
+    const ibmqProvider = new IbmqProvider();
+    await ibmqProvider.logInAsync(process.env.IBMQ_API_TOKEN);
+    await ibmqProvider.selectNetworkAsync();
+    await ibmqProvider.selectDeviceAsync();
+    await ibmqProvider.runExperimentAndWaitAsync(qc);
+};
+```
+
+### Output
+
+Every example outputs:
 
 ```
 ...
@@ -96,17 +176,12 @@ The example code will output:
 
 ## Multiplatform Support
 
-If you plan on integrating with other languages (Java, JavaScript, TypeScript, etc.), I recommend creating a
-multi-language codebase. Although Kotlin can compile to raw JVM bytecode/JS exports, the syntax for invoking
-coroutines (functions that allow for asynchronous processing, namely APIs like IBM Q) is not straight-forward.
+Integrating with other languages is seamless because brac-kt compiles into Java bytecode and JavaScript with TypeScript
+definitions. Additionally, each platform has its own unique features; for example, Java has additional synchronous API
+methods, whereas JavaScript has async/await versions. Kotlin on both platforms gets a few unique features: a
+cross-platform property manager, dependency injection, and all-around cleaner syntax.
 
-Create a new Gradle project that supports Kotlin + another language. For example, an existing Java codebase can easily
-add Kotlin support through Gradle plugin `kotlin("jvm")` and source folder `src/main/kotlin`. New Kotlin codebases can
-use existing JavaScript modules (through NPM, for example) and transpile back into JavaScript. Use the examples to get
-started.
-
-More work will be done for calling Kotlin code from native languages. The end goal is to have easy access to Kotlin
-capabilities without having to integrate Kotlin source code into an existing codebase.
+In the future, native binaries (C/C++/lib/DLL) will also be available.
 
 ## Goals
 

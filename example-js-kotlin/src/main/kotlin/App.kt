@@ -9,7 +9,6 @@ import net.javaman.brackt.providers.ibmq.IbmqProviderImpl
 suspend fun main() = App.run()
 
 object App {
-    // Dependencies are managed by InjectionManager
     private val propertyManager: PropertyManager by injection()
     private val ibmqProvider: IbmqProviderImpl by injection()
 
@@ -18,18 +17,13 @@ object App {
         IbmqProviderImpl.addInjections()
     }
 
-    suspend fun run() { // suspend keyword allows using Kotlin's (speedy) coroutines
-        // Create a basic quantum circuit: three qubits in superposition, then measured
+    suspend fun run() {
         val n = 3
         val qc = QuantumCircuit(name = "Example Superposition", numQubits = 3) {
             repeat(n) { h(qubit = it) }
             repeat(n) { measure(qubit = it, bit = it) }
         }
 
-        // Run the circuit on an IBM Quantum device
-        // By default,
-        // brac-kt will choose a simulator with 5 or more qubits with the shortest queue
-        // Add your IBM API token as environment variable IBMQ_API_TOKEN
         val apiToken: String = propertyManager["IBMQ_API_TOKEN"]
         ibmqProvider.logIn(apiToken)
         ibmqProvider.selectNetwork()
