@@ -4,7 +4,7 @@
 [![](https://img.shields.io/jitpack/v/github/TheNewJavaman/brac-kt?color=informational&label=JitPack&cacheSeconds=1)](https://jitpack.io/#net.javaman.brac-kt/brac-kt)
 [![](https://img.shields.io/badge/JitPack-main--SNAPSHOT-informational)](https://jitpack.io/#net.javaman.brac-kt/brac-kt)
 [![](https://img.shields.io/npm/v/@thenewjavaman/brac-kt-api?color=informational&cacheSeconds=1)](https://www.npmjs.com/~thenewjavaman)
-
+[![](https://img.shields.io/tokei/lines/github/TheNewJavaman/brac-kt?color=important&label=Lines%20of%20Code)](https://github.com/TheNewJavaman/brac-kt)
 <table>
 <tr>
 <td><img src="resources/full-outline-downsized.png" alt="branding" width=1750/></td>
