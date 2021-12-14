@@ -88,6 +88,12 @@ Install via `npm`:
 npm i @thenewjavaman/brac-kt-ibmq-provider
 ```
 
+### Shared Library and Headers (Native)
+
+Download from [the releases page](https://github.com/TheNewJavaman/brac-kt/releases). 
+
+You'll need libcurl. It's on most Linux installations by default, or you can get it on MinGW (Windows) through `pacman`.
+
 ## Examples
 
 ### Kotlin (JVM)
