@@ -28,4 +28,4 @@ jobs:
             IBMQ_API_TOKEN: ${{ secrets.IBMQ_API_TOKEN }}
         run: |
           chmod +x gradlew
-          ./gradlew allTests
+          ./gradlew allTests -x mingwX64Test -x linuxX64Test
