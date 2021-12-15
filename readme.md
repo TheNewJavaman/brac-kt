@@ -26,6 +26,7 @@ A Kotlin/Multiplatform interface for quantum computing
 Write quantum circuits in any major language:
 
 <table>
+<tr></tr>
 <tr>
 <th>Java Virtual Machine</th>
 <th>JavaScript Runtimes (Browser, Node.js)</th>
