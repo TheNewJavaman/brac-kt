@@ -1,0 +1,384 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>QuantumCircuit</title>
+</head><body><link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>
+    <script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script><link href="../../../styles/style.css" rel="Stylesheet"><link href="../../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../../styles/main.css" rel="Stylesheet"><link href="../../../styles/prism.css" rel="Stylesheet"><link href="../../../styles/logo-styles.css" rel="Stylesheet"><script type="text/javascript" src="../../../scripts/clipboard.js" async></script><script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script><script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script><script type="text/javascript" src="../../../scripts/main.js" async></script><script type="text/javascript" src="../../../scripts/prism.js" async></script><script>const storage = localStorage.getItem("dokka-dark-mode")
+const savedDarkMode = storage ? JSON.parse(storage) : false
+if(savedDarkMode === true){
+    document.getElementsByTagName("html")[0].classList.add("theme-dark")
+}</script>
+
+  
+    <div class="navigation-wrapper" id="navigation-wrapper">
+      <div id="leftToggler"><span class="icon-toggler"></span></div>
+      <div class="library-name"><a href="../../../index.html"><span>brac-kt</span></a></div>
+      <div></div>
+      <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section"><button class="platform-tag platform-selector common-like" data-active="" data-filter=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+      </div>
+    </div>
+    <div id="container">
+      <div id="leftColumn">
+        <div id="sideMenu"></div>
+      </div>
+      <div id="main"><script type="text/javascript" src="../../../scripts/main.js"></script>
+        <div class="main-content" id="content" pageids="brac-kt-api::net.javaman.brackt.api.quantum/QuantumCircuit///PointingToDeclaration//-275422700">
+          <div class="breadcrumbs"><a href="../../index.html">brac-kt-api</a>/<a href="../index.html">net.javaman.brackt.api.quantum</a>/<a href="index.html">QuantumCircuit</a></div>
+          <div class="cover ">
+            <h1 class="cover"><span>Quantum</span><wbr><span><span>Circuit</span></span></h1>
+            <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+              <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">QuantumCircuit</a>&nbsp;<span><span class="token annotation">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation">JvmOverloads</span></a>&nbsp;</span><span class="token keyword">constructor</span><span class="token punctuation">(</span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span>numQubits<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span>numBits<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">A named set of registers that hold <a href="../-qubit/index.html">Qubit</a> and <a href="../-bit/index.html">Bit</a> lists</p><p class="paragraph">To randomize three qubits:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">val qc = QuantumCircuit(name = "Basic Circuit", numQubits = 3, numBits = 3)<br>qc.compose {<br>    h(0)<br>    h(1)<br>    h(2)<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">Or use Kotlin's built-in functions:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">val qc = QuantumCircuit(name = "Basic Circuit", numQubits = 3, numBits = 3)<br>qc.compose {<br>    repeat(3) { h(it) }<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>            </div>
+          </div>
+          <div class="tabbedcontent">
+            <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+            <div class="tabs-section-body">
+              <h2 class="tabbedcontent">Constructors</h2>
+              <div class="table" data-togglable="Constructors"><a data-name="-1237856194%2FConstructors%2F-275422700" anchor-label="QuantumCircuit" id="-1237856194%2FConstructors%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue TabbedContent">
+                    <div class=""><span class="inline-flex"><a href="-quantum-circuit.html">QuantumCircuit</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1237856194%2FConstructors%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-quantum-circuit.html"><span class="token function">QuantumCircuit</span></a><span class="token punctuation">(</span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span>numQubits<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span>numBits<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>numQubits<span class="token punctuation">, </span>block<span class="token operator">: </span><span class="token keyword"></span><a href="index.html">QuantumCircuit</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="371439393%2FConstructors%2F-275422700" anchor-label="QuantumCircuit" id="371439393%2FConstructors%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue TabbedContent">
+                    <div class=""><span class="inline-flex"><a href="-quantum-circuit.html">QuantumCircuit</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="371439393%2FConstructors%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation">JvmOverloads</span></a></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-quantum-circuit.html"><span class="token function">QuantumCircuit</span></a><span class="token punctuation">(</span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span>numQubits<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span>numBits<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>numQubits<span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h2 class="">Functions</h2>
+              <div class="table" data-togglable="Functions"><a data-name="-1447929404%2FFunctions%2F-275422700" anchor-label="compose" id="-1447929404%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="compose.html"><span><span>compose</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1447929404%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="compose.html"><span class="token function">compose</span></a><span class="token punctuation">(</span>block<span class="token operator">: </span><span class="token keyword"></span><a href="index.html">QuantumCircuit</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="1123896932%2FFunctions%2F-275422700" anchor-label="cx" id="1123896932%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="cx.html"><span><span>cx</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1123896932%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="cx.html"><span class="token function">cx</span></a><span class="token punctuation">(</span>controlQubit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span>targetQubit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="770808550%2FFunctions%2F-275422700" anchor-label="cz" id="770808550%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="cz.html"><span><span>cz</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="770808550%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="cz.html"><span class="token function">cz</span></a><span class="token punctuation">(</span>qubit1<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span>qubit2<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-1282460544%2FFunctions%2F-275422700" anchor-label="h" id="-1282460544%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="h.html"><span><span>h</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1282460544%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="h.html"><span class="token function">h</span></a><span class="token punctuation">(</span>qubit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="667839711%2FFunctions%2F-275422700" anchor-label="i" id="667839711%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="i.html"><span><span>i</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="667839711%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="i.html"><span class="token function">i</span></a><span class="token punctuation">(</span>qubit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-734943981%2FFunctions%2F-275422700" anchor-label="measure" id="-734943981%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="measure.html"><span><span>measure</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-734943981%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="measure.html"><span class="token function">measure</span></a><span class="token punctuation">(</span>qubit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span>bit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-376008035%2FFunctions%2F-275422700" anchor-label="p" id="-376008035%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="p.html"><span><span>p</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-376008035%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="p.html"><span class="token function">p</span></a><span class="token punctuation">(</span>qubit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span>phi<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-1815071401%2FFunctions%2F-275422700" anchor-label="runMacro" id="-1815071401%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="run-macro.html"><span>run</span><wbr><span><span>Macro</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1815071401%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="run-macro.html"><span class="token function">runMacro</span></a><span class="token punctuation">(</span>block<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html">Pair</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-quantum-macro/index.html">QuantumMacro</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../index.html#-208017398%2FClasslikes%2F-275422700">QubitMap</a><span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-1303994219%2FFunctions%2F-275422700" anchor-label="s" id="-1303994219%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="s.html"><span><span>s</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1303994219%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="s.html"><span class="token function">s</span></a><span class="token punctuation">(</span>qubit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-801114446%2FFunctions%2F-275422700" anchor-label="sdg" id="-801114446%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="sdg.html"><span><span>sdg</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-801114446%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="sdg.html"><span class="token function">sdg</span></a><span class="token punctuation">(</span>qubit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="646306036%2FFunctions%2F-275422700" anchor-label="t" id="646306036%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="t.html"><span><span>t</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="646306036%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="t.html"><span class="token function">t</span></a><span class="token punctuation">(</span>qubit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="831689553%2FFunctions%2F-275422700" anchor-label="tdg" id="831689553%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="tdg.html"><span><span>tdg</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="831689553%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="tdg.html"><span class="token function">tdg</span></a><span class="token punctuation">(</span>qubit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-1133968702%2FFunctions%2F-275422700" anchor-label="u" id="-1133968702%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="u.html"><span><span>u</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1133968702%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="u.html"><span class="token function">u</span></a><span class="token punctuation">(</span>qubit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span>theta<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">, </span>phi<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">, </span>lambda<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-142427536%2FFunctions%2F-275422700" anchor-label="x" id="-142427536%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="x.html"><span><span>x</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-142427536%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="x.html"><span class="token function">x</span></a><span class="token punctuation">(</span>qubit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="1807872719%2FFunctions%2F-275422700" anchor-label="y" id="1807872719%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="y.html"><span><span>y</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1807872719%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="y.html"><span class="token function">y</span></a><span class="token punctuation">(</span>qubit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-536794322%2FFunctions%2F-275422700" anchor-label="z" id="-536794322%2FFunctions%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="z.html"><span><span>z</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-536794322%2FFunctions%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="z.html"><span class="token function">z</span></a><span class="token punctuation">(</span>qubit<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h2 class="">Properties</h2>
+              <div class="table" data-togglable="Properties"><a data-name="-2037443775%2FProperties%2F-275422700" anchor-label="circuit" id="-2037443775%2FProperties%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="circuit.html">circuit</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2037443775%2FProperties%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><a data-name="-2037443775%2FProperties%2F-275422700" anchor-label="circuit" id="-2037443775%2FProperties%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="circuit.html">circuit</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-quantum-gate/index.html">QuantumGate</a><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-1537101979%2FProperties%2F-275422700" anchor-label="name" id="-1537101979%2FProperties%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="name.html">name</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1537101979%2FProperties%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><a data-name="-1537101979%2FProperties%2F-275422700" anchor-label="name" id="-1537101979%2FProperties%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="name.html">name</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="800420574%2FProperties%2F-275422700" anchor-label="numBits" id="800420574%2FProperties%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="num-bits.html">numBits</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="800420574%2FProperties%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><a data-name="800420574%2FProperties%2F-275422700" anchor-label="numBits" id="800420574%2FProperties%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="num-bits.html">numBits</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-288519814%2FProperties%2F-275422700" anchor-label="numQubits" id="-288519814%2FProperties%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="num-qubits.html">numQubits</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-288519814%2FProperties%2F-275422700"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-api:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-api:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-api:dokkaHtmlPartial/commonMain"><a data-name="-288519814%2FProperties%2F-275422700" anchor-label="numQubits" id="-288519814%2FProperties%2F-275422700" data-filterable-set=":brac-kt-api:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="num-qubits.html">numQubits</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer"><span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2021 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
+      </div>
+    </div>
+  
+</body></html>
+
+

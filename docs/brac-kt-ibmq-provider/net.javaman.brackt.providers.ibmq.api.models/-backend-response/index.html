@@ -1,0 +1,305 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>BackendResponse</title>
+</head><body><link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>
+    <script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script><link href="../../../styles/style.css" rel="Stylesheet"><link href="../../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../../styles/main.css" rel="Stylesheet"><link href="../../../styles/prism.css" rel="Stylesheet"><link href="../../../styles/logo-styles.css" rel="Stylesheet"><script type="text/javascript" src="../../../scripts/clipboard.js" async></script><script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script><script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script><script type="text/javascript" src="../../../scripts/main.js" async></script><script type="text/javascript" src="../../../scripts/prism.js" async></script><script>const storage = localStorage.getItem("dokka-dark-mode")
+const savedDarkMode = storage ? JSON.parse(storage) : false
+if(savedDarkMode === true){
+    document.getElementsByTagName("html")[0].classList.add("theme-dark")
+}</script>
+
+  
+    <div class="navigation-wrapper" id="navigation-wrapper">
+      <div id="leftToggler"><span class="icon-toggler"></span></div>
+      <div class="library-name"><a href="../../../index.html"><span>brac-kt</span></a></div>
+      <div></div>
+      <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section"><button class="platform-tag platform-selector common-like" data-active="" data-filter=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+      </div>
+    </div>
+    <div id="container">
+      <div id="leftColumn">
+        <div id="sideMenu"></div>
+      </div>
+      <div id="main"><script type="text/javascript" src="../../../scripts/main.js"></script>
+        <div class="main-content" id="content" pageids="brac-kt-ibmq-provider::net.javaman.brackt.providers.ibmq.api.models/BackendResponse///PointingToDeclaration//122367437">
+          <div class="breadcrumbs"><a href="../../index.html">brac-kt-ibmq-provider</a>/<a href="../index.html">net.javaman.brackt.providers.ibmq.api.models</a>/<a href="index.html">BackendResponse</a></div>
+          <div class="cover ">
+            <h1 class="cover"><span>Backend</span><wbr><span><span>Response</span></span></h1>
+            <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+              <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">BackendResponse</a><span class="token punctuation">(</span>hasAccess<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span>internalId<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span>accessType<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span>basisGates<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span>couplingMap<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token punctuation">, </span>backendVersion<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span>qubits<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span>isSimulator<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span>quantumVolume<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span>clops<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token punctuation">, </span>processorType<span class="token operator">: </span><a href="../-backend-processor-type/index.html">BackendProcessorType</a><span class="token punctuation">, </span>revision<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token punctuation">, </span>deviceStatus<span class="token operator">: </span><a href="../-backend-device-status/index.html">BackendDeviceStatus</a><span class="token punctuation">, </span>queueLength<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span>inputAllowed<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span>category<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>            </div>
+          </div>
+          <div class="tabbedcontent">
+            <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Properties">Properties</button></div>
+            <div class="tabs-section-body">
+              <h2 class="">Properties</h2>
+              <div class="table" data-togglable="Properties"><a data-name="-874665587%2FProperties%2F122367437" anchor-label="accessType" id="-874665587%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="access-type.html">accessType</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-874665587%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="-874665587%2FProperties%2F122367437" anchor-label="accessType" id="-874665587%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="access-type.html">accessType</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-185415577%2FProperties%2F122367437" anchor-label="backendVersion" id="-185415577%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="backend-version.html">backendVersion</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-185415577%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="-185415577%2FProperties%2F122367437" anchor-label="backendVersion" id="-185415577%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="backend-version.html">backendVersion</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-1587123615%2FProperties%2F122367437" anchor-label="basisGates" id="-1587123615%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="basis-gates.html">basisGates</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1587123615%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="-1587123615%2FProperties%2F122367437" anchor-label="basisGates" id="-1587123615%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="basis-gates.html">basisGates</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="1137129165%2FProperties%2F122367437" anchor-label="category" id="1137129165%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="category.html">category</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1137129165%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="1137129165%2FProperties%2F122367437" anchor-label="category" id="1137129165%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="category.html">category</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-169327962%2FProperties%2F122367437" anchor-label="clops" id="-169327962%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="clops.html">clops</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-169327962%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="-169327962%2FProperties%2F122367437" anchor-label="clops" id="-169327962%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="clops.html">clops</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="1148749808%2FProperties%2F122367437" anchor-label="couplingMap" id="1148749808%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="coupling-map.html">couplingMap</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1148749808%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="1148749808%2FProperties%2F122367437" anchor-label="couplingMap" id="1148749808%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="coupling-map.html">couplingMap</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="1800754723%2FProperties%2F122367437" anchor-label="deviceStatus" id="1800754723%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="device-status.html">deviceStatus</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1800754723%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="1800754723%2FProperties%2F122367437" anchor-label="deviceStatus" id="1800754723%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="device-status.html">deviceStatus</a><span class="token operator">: </span><a href="../-backend-device-status/index.html">BackendDeviceStatus</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-969405359%2FProperties%2F122367437" anchor-label="hasAccess" id="-969405359%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="has-access.html">hasAccess</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-969405359%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="-969405359%2FProperties%2F122367437" anchor-label="hasAccess" id="-969405359%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="has-access.html">hasAccess</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-165445043%2FProperties%2F122367437" anchor-label="inputAllowed" id="-165445043%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="input-allowed.html">inputAllowed</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-165445043%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="-165445043%2FProperties%2F122367437" anchor-label="inputAllowed" id="-165445043%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="input-allowed.html">inputAllowed</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="122341587%2FProperties%2F122367437" anchor-label="internalId" id="122341587%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="internal-id.html">internalId</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="122341587%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="122341587%2FProperties%2F122367437" anchor-label="internalId" id="122341587%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="internal-id.html">internalId</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="1779649013%2FProperties%2F122367437" anchor-label="isSimulator" id="1779649013%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="is-simulator.html">isSimulator</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1779649013%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="1779649013%2FProperties%2F122367437" anchor-label="isSimulator" id="1779649013%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="is-simulator.html">isSimulator</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="1039874272%2FProperties%2F122367437" anchor-label="name" id="1039874272%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="name.html">name</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1039874272%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="1039874272%2FProperties%2F122367437" anchor-label="name" id="1039874272%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="name.html">name</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="767015107%2FProperties%2F122367437" anchor-label="processorType" id="767015107%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="processor-type.html">processorType</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="767015107%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="767015107%2FProperties%2F122367437" anchor-label="processorType" id="767015107%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="processor-type.html">processorType</a><span class="token operator">: </span><a href="../-backend-processor-type/index.html">BackendProcessorType</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-1664353862%2FProperties%2F122367437" anchor-label="quantumVolume" id="-1664353862%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="quantum-volume.html">quantumVolume</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1664353862%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="-1664353862%2FProperties%2F122367437" anchor-label="quantumVolume" id="-1664353862%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="quantum-volume.html">quantumVolume</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-640452703%2FProperties%2F122367437" anchor-label="qubits" id="-640452703%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="qubits.html">qubits</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-640452703%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="-640452703%2FProperties%2F122367437" anchor-label="qubits" id="-640452703%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="qubits.html">qubits</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="1461564216%2FProperties%2F122367437" anchor-label="queueLength" id="1461564216%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="queue-length.html">queueLength</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1461564216%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="1461564216%2FProperties%2F122367437" anchor-label="queueLength" id="1461564216%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="queue-length.html">queueLength</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="2067742352%2FProperties%2F122367437" anchor-label="revision" id="2067742352%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a>
+                <div class="table-row" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="revision.html">revision</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2067742352%2FProperties%2F122367437"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="title">
+                        <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="Properties">
+                          <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain">common</button></div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"><a data-name="2067742352%2FProperties%2F122367437" anchor-label="revision" id="2067742352%2FProperties%2F122367437" data-filterable-set=":brac-kt-ibmq-provider:dokkaHtmlPartial/commonMain"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="revision.html">revision</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div>                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer"><span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2021 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
+      </div>
+    </div>
+  
+</body></html>
+
+

@@ -1,0 +1,56 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:net.javaman.brackt.api.util.properties/PropertyManager/customProperties/#/PointingToDeclaration/brac-kt-api/net.javaman.brackt.api.util.properties/-property-manager/[mingw-x64]custom-properties.html
+$dokka.location:net.javaman.brackt.providers.ibmq.api/IbmqApi/apiTokenSync/#kotlin.String#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq.api/-ibmq-api/[mingw-x64]api-token-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq.api/IbmqApi/backendsSync/#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq.api/-ibmq-api/[mingw-x64]backends-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq.api/IbmqApi/jobSync/#kotlin.String#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq.api/-ibmq-api/[mingw-x64]job-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq.api/IbmqApi/jobsLimitSync/#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq.api/-ibmq-api/[mingw-x64]jobs-limit-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq.api/IbmqApi/jobsSync/#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq.api/-ibmq-api/[mingw-x64]jobs-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq.api/IbmqApi/lastestSync/#kotlin.String#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq.api/-ibmq-api/[mingw-x64]lastest-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq.api/IbmqApi/latestSync/#kotlin.String#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq.api/-ibmq-api/[mingw-x64]latest-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq.api/IbmqApi/logInWithTokenSync/#net.javaman.brackt.providers.ibmq.api.models.LogInWithTokenRequest/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq.api/-ibmq-api/[mingw-x64]log-in-with-token-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq.api/IbmqApi/networksSync/#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq.api/-ibmq-api/[mingw-x64]networks-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq.api/IbmqApi/newCodeSync/#kotlin.String#net.javaman.brackt.providers.ibmq.api.models.Code/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq.api/-ibmq-api/[mingw-x64]new-code-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq.api/IbmqApi/resultDownloadUrlSync/#kotlin.String#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq.api/-ibmq-api/[mingw-x64]result-download-url-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq.api/IbmqApi/runExperimentSync/#kotlin.String#net.javaman.brackt.providers.ibmq.api.models.RunExperimentRequest#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq.api/-ibmq-api/[mingw-x64]run-experiment-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq.api/IbmqApi/versionsSync/#kotlin.String#net.javaman.brackt.providers.ibmq.api.models.Code#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq.api/-ibmq-api/[mingw-x64]versions-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/andWaitSync/#/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]and-wait-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/andWaitSync/#kotlin.time.Duration/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]and-wait-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/getApiTokenSync/#/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]get-api-token-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/getExperimentSync/#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]get-experiment-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/getExperimentsSync/#/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]get-experiments-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/getJobsLimitSync/#/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]get-jobs-limit-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/getJobsSync/#/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]get-jobs-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/getResultDownloadUrlSync/#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]get-result-download-url-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/getResultSync/#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]get-result-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/getRunSync/#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]get-run-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/logInSync/#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]log-in-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/newExperimentSync/#net.javaman.brackt.providers.ibmq.api.models.Code/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]new-experiment-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/runExperimentAndWaitSync/#net.javaman.brackt.api.quantum.QuantumCircuit#kotlin.time.Duration/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]run-experiment-and-wait-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/runExperimentAndWaitSync/#net.javaman.brackt.api.quantum.QuantumCircuit/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]run-experiment-and-wait-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/runExperimentAndWaitSync/#net.javaman.brackt.providers.ibmq.api.models.RunExperimentRequest#kotlin.time.Duration/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]run-experiment-and-wait-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/runExperimentAndWaitSync/#net.javaman.brackt.providers.ibmq.api.models.RunExperimentRequest/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]run-experiment-and-wait-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/runExperimentSync/#net.javaman.brackt.api.quantum.QuantumCircuit#kotlin.Int#kotlin.String/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]run-experiment-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/runExperimentSync/#net.javaman.brackt.providers.ibmq.api.models.RunExperimentRequest/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]run-experiment-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/selectDeviceSync/#kotlin.Boolean#kotlin.Int/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]select-device-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/selectDeviceSync/#kotlin.Function1[kotlin.collections.List[net.javaman.brackt.providers.ibmq.api.models.BackendResponse],kotlin.Unit]/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]select-device-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/selectNetworkSync/#/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]select-network-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/selectNetworkSync/#kotlin.Function1[kotlin.collections.List[net.javaman.brackt.providers.ibmq.api.models.NetworkHub],kotlin.Unit]/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]select-network-sync.html
+$dokka.location:net.javaman.brackt.providers.ibmq/IbmqProvider/updateExperimentSync/#kotlin.String#net.javaman.brackt.providers.ibmq.api.models.Code/PointingToDeclaration/brac-kt-ibmq-provider/net.javaman.brackt.providers.ibmq/-ibmq-provider/[mingw-x64]update-experiment-sync.html
+module:brac-kt-api
+net.javaman.brackt.api
+net.javaman.brackt.api.math
+net.javaman.brackt.api.quantum
+net.javaman.brackt.api.util.assertions
+net.javaman.brackt.api.util.formatters
+net.javaman.brackt.api.util.http
+net.javaman.brackt.api.util.injections
+net.javaman.brackt.api.util.logging
+net.javaman.brackt.api.util.platform
+net.javaman.brackt.api.util.properties
+net.javaman.brackt.api.util.reflection
+module:brac-kt-ibmq-provider
+net.javaman.brackt.providers.ibmq
+net.javaman.brackt.providers.ibmq.api
+net.javaman.brackt.providers.ibmq.api.models
+net.javaman.brackt.providers.ibmq.transpiler
